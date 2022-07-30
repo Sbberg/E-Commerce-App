@@ -2,6 +2,7 @@ package com.revature.Commerce.models;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 @Table(name = "users")
@@ -33,13 +34,14 @@ public class User {
     @Column(name="u_balance",nullable = false, columnDefinition = "NUMERIC(12,2) DEFAULT 0.00")
     private double balance;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "u_cartProducts", referencedColumnName = "p_id")
-    private List<Product> userCartProducts;
-
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "u_purchasedProducts", referencedColumnName = "p_id")
-    private List<Product> purchasedProducts;
+//    Commented out below because carts and orders are already tied to a user in their respective tables
+//    @OneToMany(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "u_cartProducts", referencedColumnName = "p_id")
+//    private List<Product> userCartProducts;
+//
+//    @OneToMany(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "u_purchasedProducts", referencedColumnName = "p_id")
+//    private List<Product> purchasedProducts;
 
     public User() {
         super();
@@ -60,7 +62,7 @@ public class User {
         this.address = address;
     }
 
-    public User(int userId, String userName, String userPassword, String userEmail, String userFirstName, String userLastName, String address, double balance, List<Product> userCartProducts, List<Product> purchasedProducts) {
+    public User(int userId, String userName, String userPassword, String userEmail, String userFirstName, String userLastName, String address, double balance) {
         super();
         this.userId = userId;
         this.userName = userName;
@@ -70,8 +72,6 @@ public class User {
         this.userLastName = userLastName;
         this.address = address;
         this.balance = balance;
-        this.userCartProducts = userCartProducts;
-        this.purchasedProducts = purchasedProducts;
     }
 
     public User(int userId, String userName, String userPassword, String userEmail, String userFirstName, String userLastName, String address) {
@@ -85,18 +85,94 @@ public class User {
         this.address = address;
     }
 
-    public User(int userId, String userName, String userPassword, String userEmail, String userFirstName, String userLastName, String address, double balance) {
-        super();
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
         this.userId = userId;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
         this.userName = userName;
+    }
+
+    public String getUserPassword() {
+        return userPassword;
+    }
+
+    public void setUserPassword(String userPassword) {
         this.userPassword = userPassword;
+    }
+
+    public String getUserEmail() {
+        return userEmail;
+    }
+
+    public void setUserEmail(String userEmail) {
         this.userEmail = userEmail;
+    }
+
+    public String getUserFirstName() {
+        return userFirstName;
+    }
+
+    public void setUserFirstName(String userFirstName) {
         this.userFirstName = userFirstName;
+    }
+
+    public String getUserLastName() {
+        return userLastName;
+    }
+
+    public void setUserLastName(String userLastName) {
         this.userLastName = userLastName;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
         this.address = address;
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+
+    public void setBalance(double balance) {
         this.balance = balance;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return userId == user.userId && Double.compare(user.balance, balance) == 0 && Objects.equals(userName, user.userName) && Objects.equals(userPassword, user.userPassword) && Objects.equals(userEmail, user.userEmail) && Objects.equals(userFirstName, user.userFirstName) && Objects.equals(userLastName, user.userLastName) && Objects.equals(address, user.address);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(userId, userName, userPassword, userEmail, userFirstName, userLastName, address, balance);
+    }
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "userId=" + userId +
+                ", userName='" + userName + '\'' +
+                ", userPassword='" + userPassword + '\'' +
+                ", userEmail='" + userEmail + '\'' +
+                ", userFirstName='" + userFirstName + '\'' +
+                ", userLastName='" + userLastName + '\'' +
+                ", address='" + address + '\'' +
+                ", balance=" + balance +
+                '}';
+    }
 }

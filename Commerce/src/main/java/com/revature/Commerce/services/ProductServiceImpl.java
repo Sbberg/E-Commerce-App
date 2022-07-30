@@ -5,5 +5,5 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @Transactional
-public class OrderImpl {
+public class ProductServiceImpl {
 }
