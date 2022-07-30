@@ -1,19 +1,16 @@
 package com.revature.Commerce.models;
 
-import lombok.Data;
-import com.revature.Commerce.models.*;
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
 @Table(name = "users")
-@Data
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "u_id")
-    private int id;
+    private int userId;
 
     @Column(name = "username", nullable = false, unique = true)
     private String userName;
@@ -30,46 +27,76 @@ public class User {
     @Column(name = "u_lastName",nullable = false)
     private String userLastName;
 
+    @Column(name="u_address", nullable = false)
+    private String address;
+
     @Column(name="u_balance",nullable = false, columnDefinition = "NUMERIC(12,2) DEFAULT 0.00")
     private double balance;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "u_cartProducts", referencedColumnName = "p_id")
-    private List<Product> cartProducts;
+    private List<Product> userCartProducts;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "u_purchasedProducts", referencedColumnName = "p_id")
     private List<Product> purchasedProducts;
 
-    public Customer() {
+    public User() {
         super();
     }
 
-    public Customer(String customerUsername, String customerPassword, String customerEmail, String customerFirstName, String customerLastName) {
+    public User(int userId) {
         super();
-        this.customerUsername = customerUsername;
-        this.customerPassword = customerPassword;
-        this.customerEmail = customerEmail;
-        this.customerFirstName = customerFirstName;
-        this.customerLastName = customerLastName;
+        this.userId = userId;
     }
 
-    public Customer(String customerUsername, String customerPassword) {
+    public User(String userName, String userPassword, String userEmail, String userFirstName, String userLastName, String address) {
         super();
-        this.customerUsername = customerUsername;
-        this.customerPassword = customerPassword;
+        this.userName = userName;
+        this.userPassword = userPassword;
+        this.userEmail = userEmail;
+        this.userFirstName = userFirstName;
+        this.userLastName = userLastName;
+        this.address = address;
     }
 
-    public Customer(int id, String customerUsername, String customerPassword, String customerEmail, String customerFirstName, String customerLastName, double balance, List<Product> cartProducts, List<Product> purchasedProducts) {
+    public User(int userId, String userName, String userPassword, String userEmail, String userFirstName, String userLastName, String address, double balance, List<Product> userCartProducts, List<Product> purchasedProducts) {
         super();
-        this.id = id;
-        this.customerUsername = customerUsername;
-        this.customerPassword = customerPassword;
-        this.customerEmail = customerEmail;
-        this.customerFirstName = customerFirstName;
-        this.customerLastName = customerLastName;
+        this.userId = userId;
+        this.userName = userName;
+        this.userPassword = userPassword;
+        this.userEmail = userEmail;
+        this.userFirstName = userFirstName;
+        this.userLastName = userLastName;
+        this.address = address;
         this.balance = balance;
-        this.cartProducts = cartProducts;
+        this.userCartProducts = userCartProducts;
         this.purchasedProducts = purchasedProducts;
     }
+
+    public User(int userId, String userName, String userPassword, String userEmail, String userFirstName, String userLastName, String address) {
+        super();
+        this.userId = userId;
+        this.userName = userName;
+        this.userPassword = userPassword;
+        this.userEmail = userEmail;
+        this.userFirstName = userFirstName;
+        this.userLastName = userLastName;
+        this.address = address;
+    }
+
+    public User(int userId, String userName, String userPassword, String userEmail, String userFirstName, String userLastName, String address, double balance) {
+        super();
+        this.userId = userId;
+        this.userName = userName;
+        this.userPassword = userPassword;
+        this.userEmail = userEmail;
+        this.userFirstName = userFirstName;
+        this.userLastName = userLastName;
+        this.address = address;
+        this.balance = balance;
+    }
+
+
+
 }
