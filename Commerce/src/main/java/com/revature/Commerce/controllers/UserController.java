@@ -37,7 +37,7 @@ public class UserController {
 
     @PutMapping("/user")
     public @ResponseBody ClientMessage updateUser(@RequestBody User user){
-        return userService.updateUser(user) ? UPDATE_SUCCESSFUL:UPDATE_FAILED;
+        return userService.updateUser(user) > 0 ? UPDATE_SUCCESSFUL:UPDATE_FAILED;
     }
 
     @DeleteMapping("/user")

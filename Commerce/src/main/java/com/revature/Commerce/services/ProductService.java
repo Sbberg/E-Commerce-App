@@ -12,7 +12,7 @@ public interface ProductService {
 
     List<Product> getAllProducts();
 
-    boolean updateProduct(Product product);
+    int updateProduct(Product product);
 
     boolean deleteProduct(Product product);
 

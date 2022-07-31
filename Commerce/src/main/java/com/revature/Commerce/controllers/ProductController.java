@@ -37,7 +37,7 @@ public class ProductController {
 
     @PutMapping("/product")
     public @ResponseBody ClientMessage updateProduct(@RequestBody Product product){
-        return productService.updateProduct(product) ? UPDATE_SUCCESSFUL:UPDATE_FAILED;
+        return productService.updateProduct(product) > 0 ? UPDATE_SUCCESSFUL:UPDATE_FAILED;
     }
 
     @DeleteMapping("/product")

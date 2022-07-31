@@ -36,7 +36,7 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public boolean updateUser(User user) {
+    public int updateUser(User user) {
         return userRepo.update(user.getUserName(), user.getUserPassword(), user.getUserEmail(), user.getUserFirstName(), user.getUserLastName(), user.getAddress(), user.getBalance(), user.getUserId());
     }
 

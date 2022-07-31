@@ -27,8 +27,8 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public interface UserRepo extends JpaRepository<User,Integer> {
 
-    @Query(value = "UPDATE users SET username=?1, u_password=?2, u_email=?3, u_firstName=?4, u_lastName=?5, u_address=?6, u_balance=?7, WHERE u_id=?8", nativeQuery = true)
-    public boolean update(String userName, String userPassword, String userEmail, String userFirstName, String userLastName, String address, double balance, int userId);
+    @Query(value = "UPDATE users SET username=?1, u_password=?2, u_email=?3, u_firstName=?4, u_lastName=?5, u_address=?6, u_balance=?7 WHERE u_id=?8", nativeQuery = true)
+    public int update(String userName, String userPassword, String userEmail, String userFirstName, String userLastName, String address, double balance, int userId);
 
     @Query(value = "SELECT * FROM users WHERE u_id=?1", nativeQuery = true)
     public User findById(int userId);

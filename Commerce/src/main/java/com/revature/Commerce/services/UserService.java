@@ -12,7 +12,7 @@ public interface UserService {
 
     List<User> getAllUsers();
 
-    boolean updateUser(User user);
+    int updateUser(User user);
 
     boolean deleteUser(User user);
 
