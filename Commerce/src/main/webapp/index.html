@@ -1,0 +1,64 @@
+<body>
+<h2>Customer Login</h2>
+<p><b>Please log in to access your account!</b></p>
+<form>
+    <label>Username</label><br>
+    <input type="text" id="username-sign-in">
+    <br>
+    <label>Password</label>
+    <br>
+    <input type="password" id="password-sign-in">
+    <br>
+    <br>
+    <input type="submit" id="login-button" value="Enter">
+</form>
+
+<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">If you don't have an account yet, please sign up!</button>
+
+<div id="id01" class="modal">
+    <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+    <form class="modal-content" action="/action_page.php">
+        <div class="container">
+            <h1>Sign Up</h1>
+            <p>Please fill in this form to create an account.</p>
+            <hr>
+
+            <label for="username-signup"><b>Username</b></label>
+            <input type="text" placeholder="Enter Username" name="username-signup" id="username-signup" required>
+
+            <label for="firstName-signup"><b>First Name</b></label>
+            <input type="text" placeholder="Enter First Name" name="firstName-signup" id="firstName-signup" required>
+
+            <label for="lastName-signup"><b>Last Name</b></label>
+            <input type="text" placeholder="Enter Last Name" name="lastName-signup" id="lastName-signup" required>
+
+            <label for="address-signup"><b>Address</b></label>
+            <input type="text" placeholder="Enter Address" name="address-signup" id="address-signup" required>
+
+            <label for="email-signup"><b>Email</b></label>
+            <input type="text" placeholder="Enter Email" name="email-signup" id="email-signup" required>
+
+            <label for="password-signup"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="password-signup" id="password-signup" required>
+
+            <div class="clearfix">
+                <button type="submit" class="signupbtn">Sign Up</button>
+                <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script>
+    // Get the modal
+    var modal = document.getElementById('id01');
+
+    // When the user clicks anywhere outside the modal, close it
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+    </script>
+<script src="./javascript/index.js"></script>
+</body>
