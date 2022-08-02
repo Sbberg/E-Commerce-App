@@ -44,5 +44,4 @@ public class UserController {
     public @ResponseBody ClientMessage deleteUser(@RequestBody User user){
         return userService.deleteUser(user) ? DELETION_SUCCESSFUL:DELETION_FAILED;
     }
-
 }
