@@ -81,6 +81,15 @@ public class Order {
         this.orderedProducts = orderedProducts;
     }
 
+    public Order(double orderTotalPrice, int totalQuantityOfProductsInOrder, String orderAddress, Set<Product> orderedProducts, int orderId){
+        super();
+        this.orderTotalPrice = orderTotalPrice;
+        this.totalQuantityOfProductsInOrder = totalQuantityOfProductsInOrder;
+        this.orderAddress = orderAddress;
+        this.orderedProducts = orderedProducts;
+        this.orderId = orderId;
+    }
+
     public int getOrderId() {
         return orderId;
     }
