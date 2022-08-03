@@ -41,6 +41,11 @@ public class Cart {
         this.cartId = cartId;
     }
 
+    public Cart(User cartUser) {
+        super();
+        this.cartUser = cartUser;
+    }
+
     public Cart(double cartTotalPrice, int totalQuantityOfProductsInCart, User cartUser, Set<Product> cartProducts) {
         super();
         this.cartTotalPrice = cartTotalPrice;
@@ -55,6 +60,14 @@ public class Cart {
         this.totalQuantityOfProductsInCart = totalQuantityOfProductsInCart;
         this.cartUser = cartUser;
         this.cartProducts = cartProducts;
+    }
+
+    public Cart(double cartTotalPrice, int totalQuantityOfProductsInCart, Set<Product> cartProducts, int cartId) {
+        super();
+        this.cartTotalPrice = cartTotalPrice;
+        this.totalQuantityOfProductsInCart = totalQuantityOfProductsInCart;
+        this.cartProducts = cartProducts;
+        this.cartId = cartId;
     }
 
     public int getCartId() {
