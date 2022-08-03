@@ -10,14 +10,69 @@ h1{
   text-align: center;
   font-family: Arial;
 }
+
+table.center {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 50%;
+  margin-left:auto;
+  margin-right:auto;
+  table-layout: fixed;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: center;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
 </style>
 
 <h1>Welcome `${Name}`!
-    <input type="button" value="Go to Cart" style="float: right;">
+    <input type="button" onclick="window.location.href = 'index.html';" value="Go to Homepage" style="float: left;"/>
+    <input type="button" onclick="window.location.href = 'cart.html';" value="Go to Cart" style="float: right;"/>
 </h1>
 <hr>
 <body>
 
+<!--double-click ? in front end to edit, but how to make info stick.-->
+<table class="center">
+    <tr>
+        <td>Username</td>
+        <td contenteditable='true'>?</td>
+    </tr>
+    <tr>
+        <td>First Name</td>
+        <td contenteditable='true'>?</td>
+    </tr>
+    <tr>
+        <td>Last Name</td>
+        <td contenteditable='true'>?</td>
+    </tr>
+    <tr>
+        <td>Email</td>
+        <td contenteditable='true'>?</td>
+    </tr>
+    <tr>
+        <td>Address</td>
+        <td contenteditable='true'>?</td>
+    </tr>
+    <tr>
+        <td>Password</td>
+        <td contenteditable='true'>?</td>
+    </tr>
+    <tr>
+        <td>Balance</td>
+        <td contenteditable='true'>?</td>
+    </tr>
+</table>
+
+
+<script src="./javascript/profile.js"></script>
 </body>
 
 </html>
