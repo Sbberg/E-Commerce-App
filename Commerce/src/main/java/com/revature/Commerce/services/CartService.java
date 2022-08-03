@@ -6,14 +6,18 @@ import java.util.List;
 
 public interface CartService {
 
-//    boolean createCart(Cart cart);
-//
-//    Cart getCartById(int cartId);
-//
-//    List<Cart> getAllCarts();
-//
-//    boolean updateCart(Cart cart);
-//
-//    boolean deleteCart(Cart cart);
+boolean createCart(Cart cart);
+
+Cart getCartByCartId(int cartId);
+
+Cart getCartByUserId(int userId);
+
+List<Cart> getAllCarts();
+
+int updateCartByCartId(Cart cart);
+
+int updateCartByUserId(Cart cart);
+
+boolean deleteCart(Cart cart);
 
 }
