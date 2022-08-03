@@ -1,170 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+</head>
 <style>
+h1{
+  text-align: center;
+  font-family: Arial;
+}
 
-    body {font-family: Arial, Helvetica, sans-serif;}
-    * {box-sizing: border-box;}
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+}
 
-    /* Full-width input fields */
-    input[type=text], input[type=password] {
-      width: 100%;
-      padding: 15px;
-      margin: 5px 0 22px 0;
-      display: inline-block;
-      border: none;
-      background: #f1f1f1;
-    }
+.column {
+  float: left;
+  width: 30%;
+  padding: 0 10px;
+}
 
-    /* Add a background color when the inputs get focus */
-    input[type=text]:focus, input[type=password]:focus {
-      background-color: #ddd;
-      outline: none;
-    }
+.price {
+  color: grey;
+  font-size: 22px;
+}
 
-    /* Set a style for all buttons */
-    button {
-      background-color: #04AA6D;
-      color: white;
-      padding: 14px 20px;
-      margin: 8px 0;
-      border: none;
-      cursor: pointer;
-      width: 100%;
-      opacity: 0.9;
-    }
+.card button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
 
-    button:hover {
-      opacity:1;
-    }
-
-    /* Extra styles for the cancel button */
-    .cancelbtn {
-      padding: 14px 20px;
-      background-color: #f44336;
-    }
-
-    /* Float cancel and signup buttons and add an equal width */
-    .cancelbtn, .signupbtn {
-      float: left;
-      width: 50%;
-    }
-
-    /* Add padding to container elements */
-    .container {
-      padding: 16px;
-    }
-
-    /* The Modal (background) */
-    .modal {
-      display: none; /* Hidden by default */
-      position: fixed; /* Stay in place */
-      z-index: 1; /* Sit on top */
-      left: 0;
-      top: 0;
-      width: 100%; /* Full width */
-      height: 100%; /* Full height */
-      overflow: auto; /* Enable scroll if needed */
-      background-color: #474e5d;
-      padding-top: 50px;
-    }
-
-    /* Modal Content/Box */
-    .modal-content {
-      background-color: #fefefe;
-      margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
-      border: 1px solid #888;
-      width: 80%; /* Could be more or less, depending on screen size */
-    }
-
-    /* Style the horizontal ruler */
-    hr {
-      border: 1px solid #f1f1f1;
-      margin-bottom: 25px;
-    }
-
-    /* The Close Button (x) */
-    .close {
-      position: absolute;
-      right: 35px;
-      top: 15px;
-      font-size: 40px;
-      font-weight: bold;
-      color: #f1f1f1;
-    }
-
-    .close:hover,
-    .close:focus {
-      color: #f44336;
-      cursor: pointer;
-    }
-
-    /* Clear floats */
-    .clearfix::after {
-      content: "";
-      clear: both;
-      display: table;
-    }
+.card button:hover {
+  opacity: 0.7;
+}
 </style>
 
 <body>
-<h2>Customer Login</h2>
-<p><b>Please log in to access your account!</b></p>
-<form>
-    <label>Username</label><br>
-    <input type="text" id="username-sign-in">
-    <br>
-    <label>Password</label>
-    <br>
-    <input type="password" id="password-sign-in">
-    <br>
-    <br>
-    <input type="submit" id="login-button" value="Enter">
-</form>
+<h1>Welcome!
+    <input type="button" value="Login or Sign-Up" style="float: left;">
+    <input type="button" value="Go to Cart" style="float: right;">
+</h1>
+<hr>
+<!--<h2 style="text-align:center">Available Products</h2>-->
 
-<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">If you don't have an account yet, please sign up!</button>
-
-<div id="id01" class="modal">
-    <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-    <form class="modal-content" action="/action_page.php">
-        <div class="container">
-            <h1>Sign Up</h1>
-            <p>Please fill in this form to create an account.</p>
-            <hr>
-
-            <label for="username-signup"><b>Username</b></label>
-            <input type="text" placeholder="Enter Username" name="username-signup" id="username-signup" required>
-
-            <label for="firstName-signup"><b>First Name</b></label>
-            <input type="text" placeholder="Enter First Name" name="firstName-signup" id="firstName-signup" required>
-
-            <label for="lastName-signup"><b>Last Name</b></label>
-            <input type="text" placeholder="Enter Last Name" name="lastName-signup" id="lastName-signup" required>
-
-            <label for="address-signup"><b>Address</b></label>
-            <input type="text" placeholder="Enter Address" name="address-signup" id="address-signup" required>
-
-            <label for="email-signup"><b>Email</b></label>
-            <input type="text" placeholder="Enter Email" name="email-signup" id="email-signup" required>
-
-            <label for="password-signup"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="password-signup" id="password-signup" required>
-
-            <div class="clearfix">
-                <button type="submit" class="signupbtn">Sign Up</button>
-                <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+<div class="container">
+    <div class="row">
+        <div class="column">
+            <div class="card">
+                <img src="https://m.media-amazon.com/images/I/81JwMgfVkvL._AC_SR736,920_.jpg" alt="Denim Jeans" style="width:50%">
+                <h1>Jeans</h1>
+                <p class="price">$19.99</p>
+                <p>Some text about the jeans.</p>
+                <p><button name="jeans" id="jeans">Add to Cart</button></p>
             </div>
         </div>
-    </form>
+
+        <div class="column">
+            <div class="card">
+                <img src="https://mms-images.out.customink.com/mms/images/catalog/styles/125000/catalog_detail_image_medium.jpg?digest=1658709882" alt="T-Shirts" style="width:65%">
+                <h1>T-Shirts</h1>
+                <p class="price">$9.99</p>
+                <p>Some text about the shirts.</p>
+                <p><button name="tshirt" id="tshirt">Add to Cart</button></p>
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="card">
+                <img src="https://image.menswearhouse.com/is/image/TMW/MW40_41WA_02_COLE_HAAN_BLACK_MAIN?$40GridDesktop$" alt="Shoes" style="width:50%">
+                <h1>Shoes</h1>
+                <p class="price">$24.99</p>
+                <p>Some text about the shoes.</p>
+                <p><button name="shoes" id="shoes">Add to Cart</button></p>
+            </div>
+        </div>
+    </div>
 </div>
 
-<script>
-    // Get the modal
-    var modal = document.getElementById('id01');
-
-    // When the user clicks anywhere outside the modal, close it
-    window.onclick = function(event) {
-      if (event.target == modal) {
-        modal.style.display = "none";
-      }
-    }
-    </script>
 <script src="./javascript/index.js"></script>
+
 </body>
+</html>
