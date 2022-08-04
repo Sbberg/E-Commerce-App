@@ -48,7 +48,7 @@ public class UserController {
     }
     //WORKS WITH POSTMAN!
 
-    //WORKS WITH POSTMAN!
+
     @DeleteMapping("/user")
     public @ResponseBody ClientMessage deleteUser(@RequestBody User user){
         return userService.deleteUser(user) ? DELETION_SUCCESSFUL:DELETION_FAILED;
