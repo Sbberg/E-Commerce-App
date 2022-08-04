@@ -1,9 +1,9 @@
 package com.revature.Commerce.models;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import com.revature.Commerce.models.Product;
 import javax.persistence.*;
-import java.util.Date;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 @Entity
 @Table(name = "orders")
@@ -24,24 +24,19 @@ public class Order {
 
     @ManyToOne
     @JoinColumn(name = "user_id", referencedColumnName = "u_id")
-    //I didn't see an issue with having a "user_id" column in the carts table AND another "user_id" column in the
-    //orders table
     private User orderUser;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    //One order goes to one address
+    @OneToOne(targetEntity = User.class, fetch = FetchType.LAZY)
     @JoinColumn(name="o_address", referencedColumnName = "u_address")
     private String orderAddress;
 
     @Column(name = "created_Date")
     private Date orderCreatedDate;
 
+
     @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "ordered_Products", referencedColumnName = "p_name")
-//    Set doesn't allow for repeats
-//    EX: if 2 bottles of shampoo are bought, the shampoo product name would show up only once-
-//      A List would show the shampoo name twice
-    private Set<Product> orderedProducts;
+    //@JoinColumn(name = "order_Products", referencedColumnName = "p_id")
+    private List<Product> orderedProducts = new ArrayList<>();
 
 
 
@@ -60,7 +55,7 @@ public class Order {
         this.orderId = orderId;
     }
 
-    public Order(double orderTotalPrice, int totalQuantityOfProductsInOrder, User orderUser, String orderAddress, Date orderCreatedDate, Set<Product> orderedProducts) {
+    public Order(double orderTotalPrice, int totalQuantityOfProductsInOrder, User orderUser, String orderAddress, Date orderCreatedDate, ArrayList<Product> orderedProducts) {
         super();
         this.orderTotalPrice = orderTotalPrice;
         this.totalQuantityOfProductsInOrder = totalQuantityOfProductsInOrder;
@@ -70,7 +65,7 @@ public class Order {
         this.orderedProducts = orderedProducts;
     }
 
-    public Order(int orderId, double orderTotalPrice, int totalQuantityOfProductsInOrder, User orderUser, String orderAddress, Date orderCreatedDate, Set<Product> orderedProducts) {
+    public Order(int orderId, double orderTotalPrice, int totalQuantityOfProductsInOrder, User orderUser, String orderAddress, Date orderCreatedDate, ArrayList<Product> orderedProducts) {
         super();
         this.orderId = orderId;
         this.orderTotalPrice = orderTotalPrice;
@@ -81,7 +76,7 @@ public class Order {
         this.orderedProducts = orderedProducts;
     }
 
-    public Order(double orderTotalPrice, int totalQuantityOfProductsInOrder, String orderAddress, Set<Product> orderedProducts, int orderId){
+    public Order(double orderTotalPrice, int totalQuantityOfProductsInOrder, String orderAddress, ArrayList<Product> orderedProducts, int orderId){
         super();
         this.orderTotalPrice = orderTotalPrice;
         this.totalQuantityOfProductsInOrder = totalQuantityOfProductsInOrder;
@@ -138,11 +133,11 @@ public class Order {
         this.orderCreatedDate = orderCreatedDate;
     }
 
-    public Set<Product> getOrderedProducts() {
-        return orderedProducts;
+    public ArrayList<Product> getOrderedProducts() {
+        return (ArrayList<Product>) orderedProducts;
     }
 
-    public void setOrderedProducts(Set<Product> orderedProducts) {
+    public void setOrderedProducts(ArrayList<Product> orderedProducts) {
         this.orderedProducts = orderedProducts;
     }
 

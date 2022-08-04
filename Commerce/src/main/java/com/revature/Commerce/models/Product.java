@@ -22,14 +22,15 @@ public class Product {
     @Column(name = "p_category",nullable = false)
     private String productCategory;
 
-//    Commented this out because Cart already has cart_Products column
-//    @OneToMany
-//    @JoinColumn(name = "p_inUserCart", referencedColumnName = "u_id")
-//    private List<User> productsInUserCart;
 
     @Column(name="p_inventory",nullable = false)
     private int inventory;
 
+    @ManyToOne(cascade=CascadeType.ALL,fetch = FetchType.LAZY)
+    private Cart cart;
+
+    @ManyToOne(cascade=CascadeType.ALL,fetch = FetchType.LAZY)
+    private Order order;
 
     public Product() {
         super();
@@ -38,6 +39,10 @@ public class Product {
     public Product(int productId) {
         super();
         this.productId = productId;
+    }
+
+    public Product(String productName) {
+        this.productName = productName;
     }
 
     public Product(String productName, double price, String productCategory, int inventory) {
@@ -55,6 +60,16 @@ public class Product {
         this.price = price;
         this.productCategory = productCategory;
         this.inventory = inventory;
+    }
+
+    public Product(int productId, String productName, double price, String productCategory, int inventory, Cart cart, Order order) {
+        this.productId = productId;
+        this.productName = productName;
+        this.price = price;
+        this.productCategory = productCategory;
+        this.inventory = inventory;
+        this.cart = cart;
+        this.order = order;
     }
 
     public int getProductId() {
