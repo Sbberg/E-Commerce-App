@@ -28,6 +28,7 @@ public class User {
     @Column(name = "u_lastName",nullable = false)
     private String userLastName;
 
+
     @Column(name="u_address", nullable = false)
     private String address;
 

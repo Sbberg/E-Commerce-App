@@ -1,6 +1,8 @@
 package com.revature.Commerce.models;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -21,16 +23,11 @@ public class Cart {
 
     @ManyToOne
     @JoinColumn(name = "user_id", referencedColumnName = "u_id")
-    //I didn't see an issue with having a "user_id" column in the carts table AND another "user_id" column in the
-    //order table
     private User cartUser;
 
     @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "cart_Products", referencedColumnName = "p_name")
-//    Set doesn't allow for repeats
-//    EX: if 2 bottles of shampoo are in the cart, the shampoo product name would show up only once-
-//      A List would show the shampoo name twice
-    private Set<Product> cartProducts;
+    //@JoinColumn(name = "cart_Products", referencedColumnName = "p_id")
+    private List<Product> cartProducts = new ArrayList<>();
 
     public Cart() {
         super();
@@ -46,7 +43,7 @@ public class Cart {
         this.cartUser = cartUser;
     }
 
-    public Cart(double cartTotalPrice, int totalQuantityOfProductsInCart, User cartUser, Set<Product> cartProducts) {
+    public Cart(double cartTotalPrice, int totalQuantityOfProductsInCart, User cartUser, List<Product> cartProducts) {
         super();
         this.cartTotalPrice = cartTotalPrice;
         this.totalQuantityOfProductsInCart = totalQuantityOfProductsInCart;
@@ -54,7 +51,7 @@ public class Cart {
         this.cartProducts = cartProducts;
     }
 
-    public Cart(int cartId, double cartTotalPrice, int totalQuantityOfProductsInCart, User cartUser, Set<Product> cartProducts) {
+    public Cart(int cartId, double cartTotalPrice, int totalQuantityOfProductsInCart, User cartUser, List<Product> cartProducts) {
         this.cartId = cartId;
         this.cartTotalPrice = cartTotalPrice;
         this.totalQuantityOfProductsInCart = totalQuantityOfProductsInCart;
@@ -62,7 +59,7 @@ public class Cart {
         this.cartProducts = cartProducts;
     }
 
-    public Cart(double cartTotalPrice, int totalQuantityOfProductsInCart, Set<Product> cartProducts, int cartId) {
+    public Cart(double cartTotalPrice, int totalQuantityOfProductsInCart, List<Product> cartProducts, int cartId) {
         super();
         this.cartTotalPrice = cartTotalPrice;
         this.totalQuantityOfProductsInCart = totalQuantityOfProductsInCart;
@@ -102,11 +99,11 @@ public class Cart {
         this.cartUser = cartUser;
     }
 
-    public Set<Product> getCartProducts() {
+    public List<Product> getCartProducts() {
         return cartProducts;
     }
 
-    public void setCartProducts(Set<Product> cartProducts) {
+    public void setCartProducts(List<Product> cartProducts) {
         this.cartProducts = cartProducts;
     }
 
