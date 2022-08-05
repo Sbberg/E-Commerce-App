@@ -36,11 +36,11 @@ public interface CartRepo extends JpaRepository<Cart,Integer> {
 
     @Modifying
     @Query(value = "UPDATE carts SET c_totalPrice=?1, c_totalQuantity=?2, cart_Products=?3 WHERE c_id=?4", nativeQuery = true)
-    int updateCartByCartId(double cartTotalPrice, int totalQuantityOfProductsInCart, List<Product> cartProducts, int cartId);
+    int updateCartByCartId(double cartTotalPrice, int totalQuantityOfProductsInCart, Product cartProducts, int cartId);
 
     @Modifying
     @Query(value = "UPDATE carts SET c_totalPrice=?1, c_totalQuantity=?2, cart_Products=?3 WHERE user_id=?4", nativeQuery = true)
-    int updateCartByUserId(double cartTotalPrice, int totalQuantityOfProductsInCart, List<Product> cartProducts, int userId);
+    int updateCartByUserId(double cartTotalPrice, int totalQuantityOfProductsInCart, Product cartProducts, int userId);
 
     @Query(value = "SELECT * FROM carts WHERE c_id=?1", nativeQuery = true)
     Cart findByCartId(int cartId);

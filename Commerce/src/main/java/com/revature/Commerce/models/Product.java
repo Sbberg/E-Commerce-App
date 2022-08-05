@@ -29,7 +29,7 @@ public class Product {
     @ManyToOne(cascade=CascadeType.ALL,fetch = FetchType.LAZY)
     private Cart cart;
 
-    @ManyToOne(cascade=CascadeType.ALL,fetch = FetchType.LAZY)
+    @ManyToOne(cascade=CascadeType.MERGE,fetch = FetchType.LAZY)
     private Order order;
 
     public Product() {

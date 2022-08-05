@@ -26,16 +26,19 @@ public class OrderController {
     private OrderService orderService;
 
 
-
+    //WORKS WITH POSTMAN
     @GetMapping(value = "/order")// consumes = {MediaType.APPLICATION_JSON_VALUE})
     public @ResponseBody Order getById(@RequestParam int orderId){
         return orderService.getOrderById(orderId);
     }
+    //WORKS WITH POSTMAN
 
+    //WORKS WITH POSTMAN
     @GetMapping("/orders")
     public @ResponseBody List<Order> getAllOrders(){
         return orderService.getAllOrders();
     }
+    //WORKS WITH POSTMAN
 
     //WORKS WITH POSTMAN
     @PostMapping("/order")
@@ -46,13 +49,19 @@ public class OrderController {
     }
     //WORKS WITH POSTMAN
 
+    //WORKS WITH POSTMAN
     @PutMapping("/order")
     public @ResponseBody ClientMessage updateOrder(@RequestBody Order order){
         return orderService.updateOrderById(order) > 0 ? UPDATE_SUCCESSFUL: CREATION_FAILED;
     }
+    //WORKS WITH POSTMAN
 
+
+    //WORKS WITH POSTMAN
     @DeleteMapping("/order")
     public @ResponseBody ClientMessage deleteOrder(@RequestBody Order order){
         return orderService.deleteOrder(order) ? DELETION_SUCCESSFUL:DELETION_FAILED;
     }
+    //WORKS WITH POSTMAN
+
 }
