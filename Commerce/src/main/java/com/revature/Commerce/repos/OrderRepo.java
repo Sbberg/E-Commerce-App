@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 /*
@@ -34,7 +35,7 @@ public interface OrderRepo extends JpaRepository<Order,Integer> {
 
     @Modifying
     @Query(value = "UPDATE orders SET o_totalPrice=?1, o_totalQuantity=?2, o_address=?3, ordered_Products=?4 WHERE o_id=?5", nativeQuery = true)
-    int updateByOrderId(double orderTotalPrice, int totalQuantityOfProductsInOrder, String orderAddress, ArrayList<Product> orderedProducts, int orderId);
+    int updateByOrderId(double orderTotalPrice, int totalQuantityOfProductsInOrder, String orderAddress, List<Product> orderedProducts, int orderId);
 
     @Query(value = "SELECT * FROM orders WHERE o_id=?1", nativeQuery = true)
     Order findById(int orderId);

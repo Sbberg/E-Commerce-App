@@ -3,7 +3,9 @@ package com.revature.Commerce.controllers;
 import static com.revature.Commerce.utils.ClientMessageUtils.*;
 import com.revature.Commerce.models.ClientMessage;
 import com.revature.Commerce.models.Order;
+import com.revature.Commerce.models.User;
 import com.revature.Commerce.services.OrderService;
+import com.revature.Commerce.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -23,21 +25,26 @@ public class OrderController {
     @Autowired
     private OrderService orderService;
 
-    @GetMapping(value = "/order", consumes = {MediaType.APPLICATION_JSON_VALUE})
+
+
+    @GetMapping(value = "/order")// consumes = {MediaType.APPLICATION_JSON_VALUE})
     public @ResponseBody Order getById(@RequestParam int orderId){
         return orderService.getOrderById(orderId);
     }
 
     @GetMapping("/orders")
-    public @ResponseBody List<Order> getAll(){
+    public @ResponseBody List<Order> getAllOrders(){
         return orderService.getAllOrders();
     }
 
+    //WORKS WITH POSTMAN
     @PostMapping("/order")
     @ResponseStatus(HttpStatus.ACCEPTED)
     public @ResponseBody ClientMessage createOrder(@RequestBody Order order){
+        //userService.createUser(user);
         return orderService.createOrder(order) ? CREATION_SUCCESSFUL:CREATION_FAILED;
     }
+    //WORKS WITH POSTMAN
 
     @PutMapping("/order")
     public @ResponseBody ClientMessage updateOrder(@RequestBody Order order){
@@ -45,7 +52,7 @@ public class OrderController {
     }
 
     @DeleteMapping("/order")
-    public @ResponseBody ClientMessage deleteCandy(@RequestBody Order order){
+    public @ResponseBody ClientMessage deleteOrder(@RequestBody Order order){
         return orderService.deleteOrder(order) ? DELETION_SUCCESSFUL:DELETION_FAILED;
     }
 }

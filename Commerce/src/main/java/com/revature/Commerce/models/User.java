@@ -53,6 +53,10 @@ public class User {
         this.userId = userId;
     }
 
+    public User(String userName) {
+        this.userName = userName;
+    }
+
     public User(String userName, String userPassword, String userEmail, String userFirstName, String userLastName, String address) {
         super();
         this.userName = userName;

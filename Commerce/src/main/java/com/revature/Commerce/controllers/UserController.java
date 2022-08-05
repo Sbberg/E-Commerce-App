@@ -34,6 +34,13 @@ public class UserController {
     //WORKS WITH POSTMAN
 
     //WORKS WITH POSTMAN
+    @GetMapping("/userbyusername")
+    public @ResponseBody User getUserByUsername(@RequestParam String userName, String userPassword){
+        return userService.getByUsername(userName, userPassword);
+    }
+    //WORKS WITH POSTMAN
+
+    //WORKS WITH POSTMAN
     @PostMapping("/user")
     @ResponseStatus(HttpStatus.ACCEPTED)
     public @ResponseBody ClientMessage createUser(@RequestBody User user){
@@ -48,7 +55,7 @@ public class UserController {
     }
     //WORKS WITH POSTMAN!
 
-
+    //WORKS WITH POSTMAN!
     @DeleteMapping("/user")
     public @ResponseBody ClientMessage deleteUser(@RequestBody User user){
         return userService.deleteUser(user) ? DELETION_SUCCESSFUL:DELETION_FAILED;

@@ -1,9 +1,14 @@
 package com.revature.Commerce.models;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import org.hibernate.Criteria;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.revature.Commerce.models.Product;
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.*;
+
+import static org.springframework.data.repository.init.ResourceReader.Type.JSON;
 
 @Entity
 @Table(name = "orders")
@@ -22,21 +27,21 @@ public class Order {
     private int totalQuantityOfProductsInOrder;
 
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id", referencedColumnName = "u_id")
     private User orderUser;
 
-    @OneToOne(targetEntity = User.class, fetch = FetchType.LAZY)
-    @JoinColumn(name="o_address", referencedColumnName = "u_address")
+    @Column(name = "o_address")
     private String orderAddress;
 
     @Column(name = "created_Date")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private Date orderCreatedDate;
 
 
     @OneToMany(fetch = FetchType.LAZY)
     //@JoinColumn(name = "order_Products", referencedColumnName = "p_id")
-    private List<Product> orderedProducts = new ArrayList<>();
+    private List<Product> orderedProducts;
 
 
 
@@ -55,7 +60,42 @@ public class Order {
         this.orderId = orderId;
     }
 
-    public Order(double orderTotalPrice, int totalQuantityOfProductsInOrder, User orderUser, String orderAddress, Date orderCreatedDate, ArrayList<Product> orderedProducts) {
+    public Order(double orderTotalPrice) {
+        super();
+        this.orderTotalPrice = orderTotalPrice;
+    }
+
+    public Order(double orderTotalPrice, int totalQuantityOfProductsInOrder, Date orderCreatedDate) {
+        super();
+        this.orderTotalPrice = orderTotalPrice;
+        this.totalQuantityOfProductsInOrder = totalQuantityOfProductsInOrder;
+        this.orderCreatedDate = orderCreatedDate;
+    }
+
+    public Order(double orderTotalPrice, int totalQuantityOfProductsInOrder, User orderUser, String orderAddress) {
+        super();
+        this.orderTotalPrice = orderTotalPrice;
+        this.totalQuantityOfProductsInOrder = totalQuantityOfProductsInOrder;
+        this.orderUser = orderUser;
+        this.orderAddress = orderAddress;
+    }
+
+    public Order(double orderTotalPrice, int totalQuantityOfProductsInOrder, String orderAddress, Date orderCreatedDate) {
+        super();
+        this.orderTotalPrice = orderTotalPrice;
+        this.totalQuantityOfProductsInOrder = totalQuantityOfProductsInOrder;
+        this.orderAddress = orderAddress;
+        this.orderCreatedDate = orderCreatedDate;
+    }
+
+    public Order(double orderTotalPrice, int totalQuantityOfProductsInOrder, String orderAddress) {
+        super();
+        this.orderTotalPrice = orderTotalPrice;
+        this.totalQuantityOfProductsInOrder = totalQuantityOfProductsInOrder;
+        this.orderAddress = orderAddress;
+    }
+
+    public Order(double orderTotalPrice, int totalQuantityOfProductsInOrder, User orderUser, String orderAddress, Date orderCreatedDate, List<Product> orderedProducts) {
         super();
         this.orderTotalPrice = orderTotalPrice;
         this.totalQuantityOfProductsInOrder = totalQuantityOfProductsInOrder;
@@ -65,7 +105,7 @@ public class Order {
         this.orderedProducts = orderedProducts;
     }
 
-    public Order(int orderId, double orderTotalPrice, int totalQuantityOfProductsInOrder, User orderUser, String orderAddress, Date orderCreatedDate, ArrayList<Product> orderedProducts) {
+    public Order(int orderId, double orderTotalPrice, int totalQuantityOfProductsInOrder, User orderUser, String orderAddress, Date orderCreatedDate, List<Product> orderedProducts) {
         super();
         this.orderId = orderId;
         this.orderTotalPrice = orderTotalPrice;
@@ -76,7 +116,7 @@ public class Order {
         this.orderedProducts = orderedProducts;
     }
 
-    public Order(double orderTotalPrice, int totalQuantityOfProductsInOrder, String orderAddress, ArrayList<Product> orderedProducts, int orderId){
+    public Order(double orderTotalPrice, int totalQuantityOfProductsInOrder, String orderAddress, List<Product> orderedProducts, int orderId){
         super();
         this.orderTotalPrice = orderTotalPrice;
         this.totalQuantityOfProductsInOrder = totalQuantityOfProductsInOrder;
@@ -133,13 +173,15 @@ public class Order {
         this.orderCreatedDate = orderCreatedDate;
     }
 
-    public ArrayList<Product> getOrderedProducts() {
-        return (ArrayList<Product>) orderedProducts;
+    public List<Product> getOrderedProducts() {
+        return (List<Product>) orderedProducts;
     }
 
-    public void setOrderedProducts(ArrayList<Product> orderedProducts) {
+    public void setOrderedProducts(List<Product> orderedProducts) {
         this.orderedProducts = orderedProducts;
     }
+
+
 
     @Override
     public boolean equals(Object o) {
