@@ -36,5 +36,8 @@ public interface UserRepo extends JpaRepository<User,Integer> {
 
     @Query(value = "SELECT * FROM users WHERE u_id=?1", nativeQuery = true)
     User findById(int userId);
+
+    @Query(value = "SELECT * FROM users WHERE username=?1 AND u_password=?2", nativeQuery = true)
+    User findByUsername(String userName, String userPassword);
 }
 

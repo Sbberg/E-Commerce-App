@@ -25,9 +25,9 @@ public class Cart {
     @JoinColumn(name = "user_id", referencedColumnName = "u_id")
     private User cartUser;
 
-    @OneToMany(fetch = FetchType.LAZY)
-    //@JoinColumn(name = "cart_Products", referencedColumnName = "p_id")
-    private List<Product> cartProducts = new ArrayList<>();
+    @ManyToOne(cascade = CascadeType.MERGE)
+    @JoinColumn(name = "cart_Products", referencedColumnName = "p_id")
+    private Product cartProducts;
 
     public Cart() {
         super();
@@ -43,7 +43,7 @@ public class Cart {
         this.cartUser = cartUser;
     }
 
-    public Cart(double cartTotalPrice, int totalQuantityOfProductsInCart, User cartUser, List<Product> cartProducts) {
+    public Cart(double cartTotalPrice, int totalQuantityOfProductsInCart, User cartUser, Product cartProducts) {
         super();
         this.cartTotalPrice = cartTotalPrice;
         this.totalQuantityOfProductsInCart = totalQuantityOfProductsInCart;
@@ -51,7 +51,7 @@ public class Cart {
         this.cartProducts = cartProducts;
     }
 
-    public Cart(int cartId, double cartTotalPrice, int totalQuantityOfProductsInCart, User cartUser, List<Product> cartProducts) {
+    public Cart(int cartId, double cartTotalPrice, int totalQuantityOfProductsInCart, User cartUser, Product cartProducts) {
         this.cartId = cartId;
         this.cartTotalPrice = cartTotalPrice;
         this.totalQuantityOfProductsInCart = totalQuantityOfProductsInCart;
@@ -59,7 +59,7 @@ public class Cart {
         this.cartProducts = cartProducts;
     }
 
-    public Cart(double cartTotalPrice, int totalQuantityOfProductsInCart, List<Product> cartProducts, int cartId) {
+    public Cart(double cartTotalPrice, int totalQuantityOfProductsInCart, Product cartProducts, int cartId) {
         super();
         this.cartTotalPrice = cartTotalPrice;
         this.totalQuantityOfProductsInCart = totalQuantityOfProductsInCart;
@@ -99,11 +99,11 @@ public class Cart {
         this.cartUser = cartUser;
     }
 
-    public List<Product> getCartProducts() {
+    public Product getCartProducts() {
         return cartProducts;
     }
 
-    public void setCartProducts(List<Product> cartProducts) {
+    public void setCartProducts(Product cartProducts) {
         this.cartProducts = cartProducts;
     }
 
