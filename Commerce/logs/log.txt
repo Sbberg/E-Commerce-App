@@ -1,0 +1,22 @@
+2022-08-05 20:59:55 INFO  LoggingAspect:32 - Info advice Around: class com.revature.Commerce.services.UserServiceImpl: createUser
+2022-08-05 20:59:55 ERROR LoggingAspect:33 - Info advice Around: class com.revature.Commerce.services.UserServiceImpl: createUser
+2022-08-05 20:59:55 INFO  LoggingAspect:20 - Info advice before: class com.revature.Commerce.services.UserServiceImpl: createUser
+2022-08-05 20:59:55 ERROR LoggingAspect:21 - Error advice before: class com.revature.Commerce.services.UserServiceImpl: createUser
+2022-08-05 20:59:55 INFO  LoggingAspect:26 - Info advice After: class com.revature.Commerce.services.UserServiceImpl: createUser
+2022-08-05 20:59:55 ERROR LoggingAspect:27 - Error advice After: class com.revature.Commerce.services.UserServiceImpl: createUser
+2022-08-05 20:59:55 INFO  LoggingAspect:38 - End of Advice
+2022-08-05 21:13:37 INFO  LoggingAspect:32 - Info advice Around: class com.revature.Commerce.services.UserServiceImpl: getAllUsers
+2022-08-05 21:13:37 INFO  LoggingAspect:17 - Info advice before: class com.revature.Commerce.services.UserServiceImpl: getAllUsers
+2022-08-05 21:13:38 INFO  LoggingAspect:22 - Info advice After[Method Was Successful]: class com.revature.Commerce.services.UserServiceImpl: getAllUsers
+2022-08-05 21:13:38 INFO  LoggingAspect:37 - End of Advice
+2022-08-05 21:15:11 INFO  LoggingAspect:32 - Info advice around method: class com.revature.Commerce.services.UserServiceImpl: getAllUsers
+2022-08-05 21:15:11 INFO  LoggingAspect:17 - Info advice before method: class com.revature.Commerce.services.UserServiceImpl: getAllUsers
+2022-08-05 21:15:11 INFO  LoggingAspect:22 - Info advice after [Method Was Successful]: class com.revature.Commerce.services.UserServiceImpl: getAllUsers
+2022-08-05 21:15:11 INFO  LoggingAspect:37 - End of Advice
+2022-08-05 21:17:00 INFO  LoggingAspect:32 - Info advice around method: class com.revature.Commerce.services.UserServiceImpl: getUserById
+2022-08-05 21:17:00 INFO  LoggingAspect:17 - Info advice before method: class com.revature.Commerce.services.UserServiceImpl: getUserById
+2022-08-05 21:17:01 INFO  LoggingAspect:22 - Info advice after [Method Was Successful]: class com.revature.Commerce.services.UserServiceImpl: getUserById
+2022-08-05 21:17:01 INFO  LoggingAspect:37 - End of Advice
+2022-08-05 21:35:49 INFO  LoggingAspect:32 - Info advice around method: class com.revature.Commerce.services.ProductServiceImpl: createProduct
+2022-08-05 21:35:49 INFO  LoggingAspect:17 - Info advice before method: class com.revature.Commerce.services.ProductServiceImpl: createProduct
+2022-08-05 21:35:49 ERROR LoggingAspect:27 - Error when executing method: class com.revature.Commerce.services.ProductServiceImpl: createProduct
