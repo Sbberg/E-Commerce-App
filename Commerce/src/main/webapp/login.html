@@ -136,6 +136,7 @@ h1{
 <div id="id01" class="modal">
     <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
     <form class="modal-content" action="/action_page.php">
+      
         <div class="container">
             <h1>Sign Up</h1>
             <p>Please fill in this form to create an account.</p>
@@ -159,8 +160,11 @@ h1{
             <label for="password-signup"><b>Password</b></label>
             <input type="password" placeholder="Enter Password" name="password-signup" id="password-signup" required>
 
+            <label for="balance-signup"><b>Balance</b></label>
+            <input type="text" placeholder="$1,000.00" name="balance-signup" id="balance-signup" required>
+
             <div class="clearfix">
-                <button type="submit" class="signupbtn">Sign Up</button>
+                <button type="submit" class="signupbtn" name="signupbtn" id="signupbtn">Sign Up</button>
                 <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
             </div>
         </div>
