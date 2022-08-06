@@ -7,25 +7,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.io.Serializable;
-
-/*
-    Extending the JpaRepository should implement the following CRUD operations for us:
-    save()
-    saveAll()
-    findById()
-    existsById()
-    findAll()
-    findAllById()
-    count()
-    deleteById()
-    delete()
-    deleteAll()
-
-    DOES NOT HAVE UPDATE methods
-
- */
-
 @Repository
 @Transactional
 public interface UserRepo extends JpaRepository<User,Integer> {

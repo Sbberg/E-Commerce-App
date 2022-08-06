@@ -44,12 +44,12 @@ public class CartServiceImpl implements CartService{
 
     @Override
     public int updateCartByCartId(Cart cart) {
-        return cartRepo.updateCartByCartId(cart.getCartTotalPrice(), cart.getTotalQuantityOfProductsInCart(), cart.getCartProducts(), cart.getCartId());
+        return cartRepo.updateCartByCartId(cart.getCartTotalPrice(), cart.getTotalQuantityOfProductsInCart(), cart.getCartAddress(),cart.getCartId());
     }
 
     @Override
     public int updateCartByUserId(Cart cart) {
-        return cartRepo.updateCartByUserId(cart.getCartTotalPrice(), cart.getTotalQuantityOfProductsInCart(), cart.getCartProducts(), cart.getCartUser().getUserId());
+        return cartRepo.updateCartByUserId(cart.getCartTotalPrice(), cart.getTotalQuantityOfProductsInCart(), cart.getCartAddress(), cart.getCartUser().getUserId());
     }
 
     @Override

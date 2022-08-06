@@ -35,15 +35,6 @@ public class User {
     @Column(name="u_balance",nullable = false, columnDefinition = "NUMERIC(12,2) DEFAULT 0.00")
     private double balance;
 
-//    Commented out below because carts and orders are already tied to a user in their respective tables
-//    @OneToMany(cascade = CascadeType.ALL)
-//    @JoinColumn(name = "u_cartProducts", referencedColumnName = "p_id")
-//    private List<Product> userCartProducts;
-//
-//    @OneToMany(cascade = CascadeType.ALL)
-//    @JoinColumn(name = "u_purchasedProducts", referencedColumnName = "p_id")
-//    private List<Product> purchasedProducts;
-
     public User() {
         super();
     }
