@@ -4,7 +4,6 @@ import com.revature.Commerce.models.Cart;
 import com.revature.Commerce.models.ClientMessage;
 import com.revature.Commerce.services.CartService;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,17 +17,18 @@ public class CartController {
     @Autowired
     private CartService cartService;
 
-    @GetMapping(value = "/cartByCartId", consumes = {MediaType.APPLICATION_JSON_VALUE})
+
+    @GetMapping(value = "/cartByCartId") //consumes = {MediaType.APPLICATION_JSON_VALUE})
     public @ResponseBody Cart getByCartId(@RequestParam int cartId){
         return cartService.getCartByCartId(cartId);
     }
 
-    @GetMapping(value = "/cartByUserId", consumes = {MediaType.APPLICATION_JSON_VALUE})
+    @GetMapping(value = "/cartByUserId") //consumes = {MediaType.APPLICATION_JSON_VALUE})
     public @ResponseBody Cart getByUserId(@RequestParam int userId){
         return cartService.getCartByUserId(userId);
     }
 
-    @GetMapping(value = "/carts", consumes = {MediaType.APPLICATION_JSON_VALUE})
+    @GetMapping(value = "/carts") //consumes = {MediaType.APPLICATION_JSON_VALUE})
     public @ResponseBody List<Cart> getAll(){
         return cartService.getAllCarts();
     }

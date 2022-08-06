@@ -1,7 +1,6 @@
 package com.revature.Commerce.models;
 
 import javax.persistence.*;
-import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -26,11 +25,6 @@ public class Product {
     @Column(name="p_inventory",nullable = false)
     private int inventory;
 
-    @ManyToOne(cascade=CascadeType.ALL,fetch = FetchType.LAZY)
-    private Cart cart;
-
-    @ManyToOne(cascade=CascadeType.MERGE,fetch = FetchType.LAZY)
-    private Order order;
 
     public Product() {
         super();
@@ -60,26 +54,6 @@ public class Product {
         this.price = price;
         this.productCategory = productCategory;
         this.inventory = inventory;
-    }
-
-    public Product(int productId, String productName, double price, String productCategory, int inventory, Order order) {
-        super();
-        this.productId = productId;
-        this.productName = productName;
-        this.price = price;
-        this.productCategory = productCategory;
-        this.inventory = inventory;
-        this.order = order;
-    }
-
-    public Product(int productId, String productName, double price, String productCategory, int inventory, Cart cart, Order order) {
-        this.productId = productId;
-        this.productName = productName;
-        this.price = price;
-        this.productCategory = productCategory;
-        this.inventory = inventory;
-        this.cart = cart;
-        this.order = order;
     }
 
     public int getProductId() {
@@ -120,22 +94,6 @@ public class Product {
 
     public void setInventory(int inventory) {
         this.inventory = inventory;
-    }
-
-    public Cart getCart() {
-        return cart;
-    }
-
-    public void setCart(Cart cart) {
-        this.cart = cart;
-    }
-
-    public Order getOrder() {
-        return order;
-    }
-
-    public void setOrder(Order order) {
-        this.order = order;
     }
 
     @Override

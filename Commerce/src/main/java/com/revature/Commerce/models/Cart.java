@@ -1,10 +1,8 @@
 package com.revature.Commerce.models;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
-import java.util.Set;
+
 
 @Entity
 @Table(name = "carts")
@@ -21,13 +19,12 @@ public class Cart {
     @Column(name = "c_totalQuantity",nullable = false)
     private int totalQuantityOfProductsInCart;
 
+    @Column(name="c_address", nullable = false)
+    private String cartAddress;
+
     @ManyToOne
     @JoinColumn(name = "user_id", referencedColumnName = "u_id")
     private User cartUser;
-
-    @ManyToOne(cascade = CascadeType.MERGE)
-    @JoinColumn(name = "cart_Products", referencedColumnName = "p_id")
-    private Product cartProducts;
 
     public Cart() {
         super();
@@ -43,28 +40,40 @@ public class Cart {
         this.cartUser = cartUser;
     }
 
-    public Cart(double cartTotalPrice, int totalQuantityOfProductsInCart, User cartUser, Product cartProducts) {
+    public Cart(double cartTotalPrice, int totalQuantityOfProductsInCart, User cartUser) {
         super();
         this.cartTotalPrice = cartTotalPrice;
         this.totalQuantityOfProductsInCart = totalQuantityOfProductsInCart;
         this.cartUser = cartUser;
-        this.cartProducts = cartProducts;
     }
 
-    public Cart(int cartId, double cartTotalPrice, int totalQuantityOfProductsInCart, User cartUser, Product cartProducts) {
+    public Cart(int cartId, double cartTotalPrice, int totalQuantityOfProductsInCart, User cartUser) {
         this.cartId = cartId;
         this.cartTotalPrice = cartTotalPrice;
         this.totalQuantityOfProductsInCart = totalQuantityOfProductsInCart;
         this.cartUser = cartUser;
-        this.cartProducts = cartProducts;
     }
 
-    public Cart(double cartTotalPrice, int totalQuantityOfProductsInCart, Product cartProducts, int cartId) {
+    public Cart(double cartTotalPrice, int totalQuantityOfProductsInCart, int cartId) {
         super();
         this.cartTotalPrice = cartTotalPrice;
         this.totalQuantityOfProductsInCart = totalQuantityOfProductsInCart;
-        this.cartProducts = cartProducts;
         this.cartId = cartId;
+    }
+
+    public Cart(int cartId, double cartTotalPrice, int totalQuantityOfProductsInCart, String cartAddress, User cartUser) {
+        this.cartId = cartId;
+        this.cartTotalPrice = cartTotalPrice;
+        this.totalQuantityOfProductsInCart = totalQuantityOfProductsInCart;
+        this.cartAddress = cartAddress;
+        this.cartUser = cartUser;
+    }
+
+    public Cart(double cartTotalPrice, int totalQuantityOfProductsInCart, String cartAddress, User cartUser) {
+        this.cartTotalPrice = cartTotalPrice;
+        this.totalQuantityOfProductsInCart = totalQuantityOfProductsInCart;
+        this.cartAddress = cartAddress;
+        this.cartUser = cartUser;
     }
 
     public int getCartId() {
@@ -99,12 +108,12 @@ public class Cart {
         this.cartUser = cartUser;
     }
 
-    public Product getCartProducts() {
-        return cartProducts;
+    public String getCartAddress() {
+        return cartAddress;
     }
 
-    public void setCartProducts(Product cartProducts) {
-        this.cartProducts = cartProducts;
+    public void setCartAddress(String cartAddress) {
+        this.cartAddress = cartAddress;
     }
 
     @Override
@@ -112,12 +121,12 @@ public class Cart {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Cart cart = (Cart) o;
-        return cartId == cart.cartId && Double.compare(cart.cartTotalPrice, cartTotalPrice) == 0 && totalQuantityOfProductsInCart == cart.totalQuantityOfProductsInCart && Objects.equals(cartUser, cart.cartUser) && Objects.equals(cartProducts, cart.cartProducts);
+        return cartId == cart.cartId && Double.compare(cart.cartTotalPrice, cartTotalPrice) == 0 && totalQuantityOfProductsInCart == cart.totalQuantityOfProductsInCart && Objects.equals(cartAddress, cart.cartAddress) && Objects.equals(cartUser, cart.cartUser);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(cartId, cartTotalPrice, totalQuantityOfProductsInCart, cartUser, cartProducts);
+        return Objects.hash(cartId, cartTotalPrice, totalQuantityOfProductsInCart, cartAddress, cartUser);
     }
 
     @Override
@@ -126,8 +135,8 @@ public class Cart {
                 "cartId=" + cartId +
                 ", cartTotalPrice=" + cartTotalPrice +
                 ", totalQuantityOfProductsInCart=" + totalQuantityOfProductsInCart +
+                ", cartAddress='" + cartAddress + '\'' +
                 ", cartUser=" + cartUser +
-                ", cartProducts=" + cartProducts +
                 '}';
     }
 }
