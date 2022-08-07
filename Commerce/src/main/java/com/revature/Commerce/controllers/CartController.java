@@ -6,7 +6,6 @@ import com.revature.Commerce.services.CartService;
 import org.springframework.http.HttpStatus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 import static com.revature.Commerce.utils.ClientMessageUtils.*;
 @CrossOrigin(origins = {"http://127.0.0.1:5500"})
@@ -18,17 +17,17 @@ public class CartController {
     private CartService cartService;
 
 
-    @GetMapping(value = "/cartByCartId") //consumes = {MediaType.APPLICATION_JSON_VALUE})
+    @GetMapping(value = "/cartByCartId") 
     public @ResponseBody Cart getByCartId(@RequestParam int cartId){
         return cartService.getCartByCartId(cartId);
     }
 
-    @GetMapping(value = "/cartByUserId") //consumes = {MediaType.APPLICATION_JSON_VALUE})
+    @GetMapping(value = "/cartByUserId") 
     public @ResponseBody Cart getByUserId(@RequestParam int userId){
         return cartService.getCartByUserId(userId);
     }
 
-    @GetMapping(value = "/carts") //consumes = {MediaType.APPLICATION_JSON_VALUE})
+    @GetMapping(value = "/carts") 
     public @ResponseBody List<Cart> getAll(){
         return cartService.getAllCarts();
     }

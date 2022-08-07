@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Homepage</title>
+</head>
+
+<style>
+h1{
+  text-align: center;
+  font-family: Arial;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-around;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+}
+
+.column {
+  display: flex;
+  float: left;
+  width: 32%;
+  padding: 10px;
+}
+
+.price {
+  color: grey;
+  font-size: 22px;
+}
+
+.card button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+.card button:hover {
+  opacity: 0.7;
+}
+</style>
+
+<body>
+<h1>Welcome!
+    <input type="button" onclick="window.location.href = 'cart.html';" value="Go to Cart" style="float: right;"/>
+</h1>
+<hr>
+<!--<h2 style="text-align:center">Available Products</h2>-->
+
+<div class="container">
+    <div class="column">
+        <div class="card">
+            <img src="https://tinyurl.com/mrycrmfu" alt="Nicol Bolas" style="width:65%">
+            <h1>Nicol Bolas</h1>
+            <p class="price">$19.99</p>
+            <p>Some text about the jeans.</p>
+            <p><button name="nicol" id="nicol">Add to Cart</button></p>
+        </div>
+    </div>
+
+    <div class="column">
+        <div class="card">
+            <img src="https://m.media-amazon.com/images/I/61sZsAK343L._AC_SX425_.jpg" alt="Grogu" style="width:65%">
+            <h1>Grogu</h1>
+            <p class="price">$9.99</p>
+            <p>Some text about the shirts.</p>
+            <p><button name="grogu" id="grogu">Add to Cart</button></p>
+        </div>
+    </div>
+
+    <div class="column">
+        <div class="card">
+            <img src="https://tinyurl.com/mvc7564k" alt="Dr. Strange" style="width:50%">
+            <h1>Dr. Strange</h1>
+            <p class="price">$24.99</p>
+            <p>Some text about the shoes.</p>
+            <p><button name="drstrange" id="drstrange">Add to Cart</button></p>
+        </div>
+    </div>
+</div>
+<br>
+<!--copy+paste '<div class="container"></div>' section for additional products-->
+
+
+<script src="./javascript/home.js"></script>
+
+</body>
+</html>
