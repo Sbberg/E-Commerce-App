@@ -1,10 +1,29 @@
 //FOR LOGGING IN
-let loginButton = document.getElementById("login-button");
+var loginButton = document.getElementById("login-button");
+// var username = document.getElementById("username-sign-in").innerText;
+// var userpassword = document.getElementById("password-sign-in").innerText;
+// var userName = username;
+// console.log(userName)
+// var userPassword = userpassword;
+// console.log(userPassword)
 
+// let userjsondata = {
+//     "userName":username,
+//     "userPassword":userpassword
+// } 
+
+// const requestOptions = {
+//     method: 'POST',
+//     // mode: 'no-cors',
+//     headers: {'Content-Type':'application/json'},
+//     body: JSON.stringify(userjsondata)
+// }
 
 loginButton.addEventListener("click", async () => {
     try{
         const raw_response = await fetch(`http://localhost:8080/commerce/users`);
+
+        
         if(!raw_response.ok){
             throw new Error(raw_response.status)
         }
@@ -70,3 +89,25 @@ signUpButton.addEventListener("click", (event) => {
     xhttp.send(JSON.stringify(signupInfo));
 
 });
+
+// loginButton.addEventListener("click", async () => {
+//     try{
+//         const raw_response = await fetch(`http://localhost:8080/commerce/users`);
+
+        
+//         if(!raw_response.ok){
+//             throw new Error(raw_response.status)
+//         }
+
+//         const json_data = await raw_response.json();
+
+//         console.log(json_data)
+
+//         localStorage.setItem('currentUser' , JSON.stringify(json_data));
+        
+
+//         window.location.replace("home.html");
+//     } catch(error){
+//         console.log(error);
+//     }
+// })
