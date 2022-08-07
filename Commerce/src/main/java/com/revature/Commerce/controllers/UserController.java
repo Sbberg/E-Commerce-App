@@ -19,7 +19,7 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @GetMapping(value = "/user") // consumes = {MediaType.APPLICATION_JSON_VALUE}
+    @PostMapping(value = "/user")
     public @ResponseBody User getUserById(@RequestParam int userId){
         return userService.getUserById(userId);
     }
