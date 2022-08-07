@@ -2,13 +2,62 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width-device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
     <title>Home Page</title>
+
 </head>
-<style>
-h1{
+ <style>
+
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+  }
+
+  header {
+    background-image: url('images/cover.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 150px;
+    position: relative;
+  }
+
+nav li {
+  list-style: none;
+  display: inline-block;
+  padding-right: 10px;
+  padding-left: 10px;
+
+}
+
+nav li{
+  padding-left: 5px;
+}
+
+li a {
+  padding: 5px;
+  background-color: #fff;
+  text-decoration: none;
+}
+
+.cart a{
+  background-color: royalblue;
+  color: #fff;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+
+ h1{
   text-align: center;
   font-family: Arial;
 }
+
 
 .container {
   width: 100%;
@@ -33,12 +82,12 @@ h1{
   padding: 10px;
 }
 
-.price {
+/* .price {
   color: grey;
   font-size: 22px;
-}
+} */
 
-.card button {
+/* .card button {
   border: none;
   outline: 0;
   padding: 12px;
@@ -48,21 +97,51 @@ h1{
   cursor: pointer;
   width: 100%;
   font-size: 18px;
-}
-
+} */
+/* 
 .card button:hover {
   opacity: 0.7;
-}
+} */
 
-</style>
+
+
+
+  </style>
 
 <body>
-<h1>Welcome!
+
+<header>
+    <div class="overlay"></div>
+
+    <nav>
+<!--        <h2>Shopping Cart</h2>-->
+        <ul>
+            <li><a href="index.html">Home</a> </li>
+            <li class="cart">
+                <a href="shoppingcart.html">
+                    <ion-icon name="basket"></ion-icon>Go to Cart<span>0</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<!--<div class="products-container">-->
+<!--    <div class="product-header">-->
+<!--        <h5 class= "product-title"> Product</h5>-->
+<!--        <h5 class="price">Price</h5>-->
+<!--        <h5 class="quantity">Quantity</h5>-->
+<!--        <h5 class="total">Total</h5>-->
+<!--    </div>-->
+<!--    <div class="products">-->
+<!--    </div>-->
+<!--</div>-->
+
+<!--<h1>This is the Home Page-->
     <input type="button" onclick="window.location.href = 'login.html';" value="Login or Sign-Up" style="float: left;"/>
-    <input type="button" onclick="window.location.href = 'cart.html';" value="Go to Cart" style="float: right;"/>
-</h1>
+    <input type="button" onclick="window.location.href = 'shoppingcart.html';" value="Go to Cart" style="float: right;"/>
+<!--</h1>-->
 <hr>
-<!--<h2 style="text-align:center">Available Products</h2>-->
 
 <div class="container">
     <div class="column">
@@ -70,8 +149,8 @@ h1{
             <img src="https://tinyurl.com/mrycrmfu" alt="Nicol Bolas" style="width:65%">
             <h1>Nicol Bolas</h1>
             <p class="price">$19.99</p>
-            <p>Some text about the jeans.</p>
-            <p><button name="nicol" id="nicol">Add to Cart</button></p>
+            <a class="add-cart cart 1" href="#">Add Cart</a>
+<!--            <p><button name="nicol" id="nicol">Add to Cart</button></p>-->
         </div>
     </div>
 
@@ -80,8 +159,8 @@ h1{
             <img src="https://m.media-amazon.com/images/I/61sZsAK343L._AC_SX425_.jpg" alt="Grogu" style="width:65%">
             <h1>Grogu</h1>
             <p class="price">$9.99</p>
-            <p>Some text about the shirts.</p>
-            <p><button name="grogu" id="grogu">Add to Cart</button></p>
+            <a class="add-cart cart 2" href="#">Add Cart</a>
+<!--            <p><button name="grogu" id="grogu">Add to Cart</button></p>-->
         </div>
     </div>
 
@@ -90,12 +169,81 @@ h1{
             <img src="https://tinyurl.com/mvc7564k" alt="Dr. Strange" style="width:50%">
             <h1>Dr. Strange</h1>
             <p class="price">$24.99</p>
-            <p>Some text about the shoes.</p>
-                <p><button name="drstrange" id="drstrange">Add to Cart</button></p>
+            <a class="add-cart cart 3" href="#">Add Cart</a>
+<!--            <p><button name="drstrange" id="drstrange">Add to Cart</button></p>-->
         </div>
     </div>
+
 </div>
 <br>
+
+
+
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+
+<!--<nav class="navbar navbar-expand-lg navbar-light bg-light">-->
+<!--    <a class="navbar-brand" href="index.html">E-Commerce App</a>-->
+<!--    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">-->
+<!--        <span class="navbar-toggler-icon"></span>-->
+<!--    </button>-->
+<!--    <div class="collapse navbar-collapse" id="navbarText">-->
+<!--        <ul class="navbar-nav mr-auto">-->
+<!--            <li class="nav-item active">-->
+<!--                <a class="nav-link" href="index.html">Home<span class="sr-only"></span></a>-->
+<!--            </li>-->
+
+<!--            <li class="nav-item">-->
+<!--                <a class="nav-link" href="login-pages/profile.html">profile</a>-->
+<!--            </li>-->
+<!--        </ul>-->
+<!--    </div>-->
+<!--</nav>-->
+
+
+<!--<h1>This is the Home Page-->
+<!--    <input type="button" onclick="window.location.href = 'login.html';" value="Login or Sign-Up" style="float: left;"/>-->
+<!--    <input type="button" onclick="window.location.href = 'cart.html';" value="Go to Cart" style="float: right;"/>-->
+<!--</h1>-->
+<!--<hr>-->
+<!--<h2 style="text-align:center">Available Products</h2>-->
+
+<!--<div class="container">-->
+<!--    <div class="column">-->
+<!--        <div class="card">-->
+<!--            <img src="https://tinyurl.com/mrycrmfu" alt="Nicol Bolas" style="width:65%">-->
+<!--            <h1>Nicol Bolas</h1>-->
+<!--            <p class="price">$19.99</p>-->
+<!--            <p>Some text about the jeans.</p>-->
+<!--            <p><button name="nicol" id="nicol">Add to Cart</button></p>-->
+<!--        </div>-->
+<!--    </div>-->
+
+<!--    <div class="column">-->
+<!--        <div class="card">-->
+<!--            <img src="https://m.media-amazon.com/images/I/61sZsAK343L._AC_SX425_.jpg" alt="Grogu" style="width:65%">-->
+<!--            <h1>Grogu</h1>-->
+<!--            <p class="price">$9.99</p>-->
+<!--            <p>Some text about the shirts.</p>-->
+<!--            <p><button name="grogu" id="grogu">Add to Cart</button></p>-->
+<!--        </div>-->
+<!--    </div>-->
+
+<!--    <div class="column">-->
+<!--        <div class="card">-->
+<!--            <img src="https://tinyurl.com/mvc7564k" alt="Dr. Strange" style="width:50%">-->
+<!--            <h1>Dr. Strange</h1>-->
+<!--            <p class="price">$24.99</p>-->
+<!--            <p>Some text about the shoes.</p>-->
+<!--                <p><button name="drstrange" id="drstrange">Add to Cart</button></p>-->
+<!--        </div>-->
+<!--    </div>-->
+
+
+
+<!--</div>-->
+<!--<br>-->
 <!--copy+paste '<div class="row"></div>' section for additional products-->
 
 

@@ -64,22 +64,24 @@ cartItems = JSON.parse(cartItems);
 console.log("Inside of SetItems function");
 console.log("My product is, product");
 
+
+
 if(cartItems != null) {
 
-    if(cartItems[product.tag].inCart == undefined) {
-    cartItems = {
-        ...cartItems,
-    [product.tag]: product
-    }
-    }
-    cartItems[product.tag].inCart += 1;
-    
-    }else{
-    product.inCart = 1;
-    cartItems = {
-    [product.tag]: product
-    }
-    }
+if(cartItems[product.name].inCart == undefined) {
+cartItems = {
+    ...cartItems,
+[product.tag]: product
+}
+}
+cartItems[product.name].inCart += 1;
+
+}else{
+product.inCart = 1;
+cartItems = {
+[product.name]: product
+}
+}
 
 
 localStorage.setItem("productsInCart", JSON.stringify(cartItems));
@@ -89,6 +91,7 @@ function totalCost(product){
 //console.log("The product price is", product.price);
 let cartCost = localStorage.getItem('totalCost');
 //cartCost = parseInt(cartCost);
+console.log(typeof cartCost);
 
 if (cartCost != null) {
 cartCost = parseInt(cartCost);
@@ -107,27 +110,29 @@ cartItems = JSON.parse(cartItems);
 let productContainer = document.querySelector(".products");
 let cartCost = localStorage.getItem('totalCost');
 
+console.log(cartItems);
 if(cartItems && productContainer){
 productContainer.innerHTML = '';
-object.values(cartItems).map(item => {
+Object.values(cartItems).map(item => {
 productContainer.innerHTML += `
 <div class="product">
-<ion-icon name="close-circle"></ion-icon>
+<ion-icon name="close-circle-outline"></ion-icon>
+
 
 //tag; might need to change to name
-<img src="./images/${item.tag}.jpg">
+<img src="./images/${item.name}.jpg">
 <span>${item.name}</span>
 </div>
 
 <div class="price">${item.price}</div>
 
 <div class="quantity">
-<ion-icon class="decrease"
-name="arrow-dropleft-circle"></ion-icon>
-<span>${item.inCart}</span>
 
-<ion-icon class="increase"
-name="arrow-dropright-circle"></ion-icon>
+<ion-icon name="caret-back-outline"></ion-icon>
+
+<span>${item.inCart}</span>
+<ion-icon name="caret-forward-outline"></ion-icon>
+
 </div>
 
 <div class="total">
@@ -136,6 +141,8 @@ ${item.inCart * item.price}
 `;
 
 });
+
+
 
 productContainer.innerHTML += `
 <div class= "basketTotalContainer">
@@ -148,6 +155,15 @@ ${cartCost}
 `;
 
 }
+
+// function removeItem(name)
+// for (let i=0; i < carts.length; i +=1) {
+//     if (carts[i].name ==name){
+//         carts.splice(i,1)
+//     }
+// }
+    
+
 
 
 }
