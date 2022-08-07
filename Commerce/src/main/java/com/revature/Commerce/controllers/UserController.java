@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 import static com.revature.Commerce.utils.ClientMessageUtils.*;
-//@CrossOrigin(allowedHeaders = {"Access-Control-Allow-Origin", url})
+
 @CrossOrigin(allowedHeaders = {"Access-Control-Allow-Origin", "http://127.0.0.1:5500"}) //, origins = {"http://127.0.0.1:5500"}
 @RestController
 @RequestMapping("/commerce")
