@@ -1,43 +1,25 @@
 //FOR LOGGING IN
 let loginButton = document.getElementById("login-button");
-loginButton.addEventListener("click",(event) => {
-    event.preventDefault();
 
-    let xhttp = new XMLHttpRequest();
 
-    let username = document.getElementById("username-sign-in").value;
-    let password = document.getElementById("password-sign-in").value;
-
-    let loginInfo = {
-        userName: username, 
-        userPassword: password,
-    }
-    console.log(loginInfo);
-
-    xhttp.onreadystatechange = function(){
-        if(this.readyState == 4 && xhttp.status == 200){
-            console.log(xhttp.responseText);
-
-            let data = JSON.parse(xhttp.responseText);
-            console.log(data);
-
-    localStorage.setItem('currentUser', JSON.stringify(data));
-
-    window.location.replace("home.html")
-
-        } else if (this.readyState == 4 && xhttp.status === 204){
-            console.log(xhttp.responseText)
-            console.log()
-                alert("failed. status code - " + xhttp.status)
+loginButton.addEventListener("click", async () => {
+    try{
+        const raw_response = await fetch(`http://localhost:8080/commerce/users`);
+        if(!raw_response.ok){
+            throw new Error(raw_response.status)
         }
-    };
-  
-    xhttp.open("POST", `http://localhost:8080/commerce/userbyusername?userName=${username}&userPassword=${password}`);
 
-    xhttp.setRequestHeader("Content-Type", "application/json");
-    xhttp.setRequestHeader("Access-Control-Allow-Origin", "*");
+        const json_data = await raw_response.json();
 
-  //  xhttp.send(JSON.stringify(loginInfo)); 
+        console.log(json_data)
+
+        localStorage.setItem('currentUser' , JSON.stringify(json_data));
+        
+
+        window.location.replace("home.html");
+    } catch(error){
+        console.log(error);
+    }
 })
 
 let signUpButton = document.getElementById("signupbtn");

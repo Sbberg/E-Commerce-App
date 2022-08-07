@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 import static com.revature.Commerce.utils.ClientMessageUtils.*;
-
+//@CrossOrigin(allowedHeaders = {"Access-Control-Allow-Origin", url})
 @CrossOrigin(origins = {"http://127.0.0.1:5500"})
 @RestController
 @RequestMapping("/commerce")
@@ -19,18 +19,21 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @PostMapping(value = "/user")
+    @GetMapping(value = "/user")
     public @ResponseBody User getUserById(@RequestParam int userId){
         return userService.getUserById(userId);
     }
 
-    @GetMapping("/users")
+    @GetMapping(path="/users")
     public @ResponseBody List<User> getAllUsers(){
         return userService.getAllUsers();
     }
 
     @GetMapping("/userbyusername")
-    public @ResponseBody User getUserByUsername(@RequestParam String userName, String userPassword){
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    public @ResponseBody User getUserByUsername(@RequestParam String userName,String userPassword){ //@RequestParam(name="username-sign-in") @RequestParam(name="password-sign-in")
+        System.out.println(userName);
+        System.out.println(userPassword);
         return userService.getByUsername(userName, userPassword);
     }
 
