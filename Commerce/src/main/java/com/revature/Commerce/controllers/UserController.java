@@ -19,7 +19,7 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @GetMapping(value = "/user")
+    @GetMapping("/user")
     public @ResponseBody User getUserById(@RequestParam int userId){
         return userService.getUserById(userId);
     }
@@ -54,37 +54,3 @@ public class UserController {
     }
 }
 
-
-//    @GetMapping(value = "/user")
-//    public @ResponseBody User getUserById(@RequestParam int userId){
-//        return userService.getUserById(userId);
-//    }
-//
-//    @GetMapping("/users")
-//    public @ResponseBody List<User> getAllUsers(){
-//        return userService.getAllUsers();
-//    }
-//
-//    @GetMapping("/userbyusername")
-//    @ResponseStatus(HttpStatus.ACCEPTED)
-//    public @ResponseBody User getUserByUsername(@RequestParam String userName,String userPassword){ //@RequestParam(name="username-sign-in") @RequestParam(name="password-sign-in")
-//        System.out.println(userName);
-//        System.out.println(userPassword);
-//        return userService.getByUsername(userName, userPassword);
-//    }
-//
-//    @PostMapping("/user")
-//    @ResponseStatus(HttpStatus.ACCEPTED)
-//    public @ResponseBody ClientMessage createUser(@RequestBody User user){
-//        return userService.createUser(user) ? CREATION_SUCCESSFUL:CREATION_FAILED;
-//    }
-//
-//    @PutMapping("/user")
-//    public @ResponseBody ClientMessage updateUser(@RequestBody User user){
-//        return userService.updateUser(user) > 0 ? UPDATE_SUCCESSFUL:UPDATE_FAILED;
-//    }
-//
-//    @DeleteMapping("/user")
-//    public @ResponseBody ClientMessage deleteUser(@RequestBody User user){
-//        return userService.deleteUser(user) ? DELETION_SUCCESSFUL:DELETION_FAILED;
-//    }

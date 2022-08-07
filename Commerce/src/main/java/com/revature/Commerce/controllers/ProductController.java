@@ -19,7 +19,7 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
-    @GetMapping(value = "/product")
+    @GetMapping("/product")
     public @ResponseBody Product getById(@RequestParam int id){
         return productService.getProductById(id);
     }
