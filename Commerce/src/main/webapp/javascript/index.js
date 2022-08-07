@@ -32,7 +32,7 @@ loginButton.addEventListener("click", async () => {
 
         console.log(json_data)
 
-        localStorage.setItem('currentUser' , JSON.stringify(json_data));
+        localStorage.setItem('allUsers' , JSON.stringify(json_data));
         
 
         window.location.replace("home.html");
