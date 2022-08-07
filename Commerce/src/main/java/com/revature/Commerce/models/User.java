@@ -44,6 +44,12 @@ public class User {
         this.userId = userId;
     }
 
+    public User(String userName, String userPassword) {
+        super();
+        this.userName = userName;
+        this.userPassword = userPassword;
+    }
+
     public User(String userName) {
         this.userName = userName;
     }
