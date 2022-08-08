@@ -44,12 +44,8 @@ let button = document.getElementById("button");
 button.onclick = updateUserInfo;
 
 
-function showUserInfo(userData){
+function showUserInfo(userData){}
 
-
-
-
-}
 
 
 //Overall function to update user info
@@ -74,39 +70,35 @@ async function updateUserInfo(){
  
  //the information that will be updated through fields
  let updateInfo ={
-     u_id:userid,
-     username:userName,
-     firstname:userFirstName,
-     lastname:userLastName,
-     address:address,
-     email:userEmail,
-     password:userPassword,
-     balance:balance
+        userName:username,
+        userFirstName:userFirstName,
+        userLastName:userLastName,
+        address:address,
+        userEmail:userEmail,
+        userPassword:userPassword,
+        balance:balance,
+        userId:userid
  };
+
+ let jsonUpdateInfo = JSON.stringify(updateInfo);
 
  //log to make sure correct user data is grabbed
  console.log(updateInfo);
+ console.log(jsonUpdateInfo);
  
 
     try {
-        const raw_response = await fetch(`http://localhost:8080/commerce/user`,
+        const raw_response = await fetch(`http://localhost:8080/commerce/userupdate`,
             {
 
                 //Put method to update data
-                method:"POST",
+                method:"PUT",
                 headers:{
                     "Content-Type":"application/json",
                     "Access-Control-Allow-Origin": "*",
-                    "User-Id": userJSON.userId
+                    // "userId": user.userId
             },
-            body:username,
-            body:firstname,
-            body:lastname,
-            body:address,
-            body:email,
-            body:password,
-            body:balance,
-            
+            body:jsonUpdateInfo
         });
 
         if(!raw_response.ok){
@@ -132,19 +124,19 @@ async function updateUserInfo(){
 
         
         
-        window.location.reload();
+        // window.location.reload();
 
             //checks to make sure on fields are empty
-    if(username == null || password == null || email == null ||
-        address == null ||lastname == null || firstname == null 
-        && updateUserInfo()){
+            if(username == null || password == null || email == null ||
+            address == null ||lastname == null || firstname == null 
+            && updateUserInfo()){
             infoLog.innerText = `Sorry ${user} one or more fields is empty or doesn't meet requirements.`;
 
 
             //sends a log describing issue
             console.log("one or more fields is empty or doesn't meet requirements.")
         
-    }
+            }
 
     infoLog.innerText = `changes have been saved`;
         

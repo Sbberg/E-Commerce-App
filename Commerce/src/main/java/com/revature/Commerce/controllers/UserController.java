@@ -45,7 +45,7 @@ public class UserController {
         return userService.createUser(user) ? CREATION_SUCCESSFUL:CREATION_FAILED;
     }
 
-    @PutMapping("/user")
+    @PutMapping("/userupdate")
     public @ResponseBody ClientMessage updateUser(@RequestBody User user){
         return userService.updateUser(user) > 0 ? UPDATE_SUCCESSFUL:UPDATE_FAILED;
     }
