@@ -1,82 +1,127 @@
-</tr>
-<tr>
-    <td>Balance</td>
-    <td contenteditable='true' id="balance-input">?</td>
-</tr>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+</head>
+
+<link rel="stylesheet" href="./css/profile.css" ></link>
+
+<h1 id="greeting">Welcome User!</h1>
+<!-- <h1 id="username-display">username test</h1> -->
+
+<h2>    
+    <input type="button" onclick="window.location.href = 'home.html';" value="Go to Homepage" style="float: left;"/>
+    <input type="button" onclick="window.location.href = 'cart.html';" value="Go to Cart" style="float: right;"/>
+</h2>
+
+
+<hr>
+<body>
+    <h2 class="info">Current Information</h2>
+<!--double-click ? in front end to edit, but how to make info stick.-->
+<table class="center">
+    <tr>
+        <td>Username</td>
+        <td><p id="username-display">?</p></td>
+    </tr>
+    <tr>
+        <td>First Name</td>
+        <td contenteditable='true' id="f_name-display">?</td>
+    </tr>
+    <tr>
+        <td>Last Name</td>
+        <td contenteditable='true' id="l_name-input">?</td>
+    </tr>
+    <tr>
+        <td>Email</td>
+        <td contenteditable='true' id="email-input">?</td>
+    </tr>
+    <tr>
+        <td>Address</td>
+        <td contenteditable='true' id="address-input">?</td>
+    </tr>
+    <tr>
+        <td>Password</td>
+        <td contenteditable='true' id="password-input" type="password">?</td>
+    </tr>
+    <tr>
+        <td>Balance</td>
+        <td contenteditable='true' id="balance-input">?</td>
+    </tr>
 
 
 </table>
 <br>
 
-<div>
-<h1>Current Information</h1>
-<label for="username-display"><b>Username</b></label>        
-<h1 id="username-display">username test</h1>
-<br>
-
-<label for="f_name-display"><b>First Name</b></label>
-<h1 id="f_name-display">username test</h1>
-<br>
-
-<label for="lastName-display"><b>Last Name</b></label>
-<h1 id="lastName-display">username test</h1>
-<br>
-
-<label for="address-display"><b>Address</b></label>
-<h1 id="address-display">username test</h1>
-<br>
-
-<label for="email-display"><b>Email</b></label>
-<h1 id="email-display">username test</h1>
-<br>
-
-<label for="password-display"><b>Password</b></label>
-<h1 id="password-display">username test</h1>
-<br>
-
-<label for="balance-display"><b>Balance</b></label>
-<h1 id="balance-display">username test</h1>
-</div>
-
-
-
-<div class="info">
-
-
-
-<form action="POST">
-    <label for="username-input"><b>Username</b></label>
-    
-    <input type="text" placeholder="Enter Username" name="username-input" id="username-input" required>
+<!-- <div>
+    <h1>Current Information</h1>
+    <label for="username-display"><b>Username</b></label>        
+    <h1 id="username-display">username test</h1>
     <br>
 
-    <label for="firstName-input"><b>First Name</b></label>
-    <input type="text" placeholder="Enter First Name" name="f_name-input" id="f_name-input" required>
+    <label for="f_name-display"><b>First Name</b></label>
+    <h1 id="f_name-display">username test</h1>
     <br>
 
-    <label for="lastName-input"><b>Last Name</b></label>
-    <input type="text" placeholder="Enter Last Name" name="l_name-input" id="l_name-input" required>
+    <label for="lastName-display"><b>Last Name</b></label>
+    <h1 id="lastName-display">username test</h1>
     <br>
 
-    <label for="address-input"><b>Address</b></label>
-    <input type="text" placeholder="Enter Address" name="address-input" id="address-input" required>
+    <label for="address-display"><b>Address</b></label>
+    <h1 id="address-display">username test</h1>
     <br>
 
-    <label for="email-input"><b>Email</b></label>
-    <input type="text" placeholder="Enter Email" name="email-input" id="email-input" required>
+    <label for="email-display"><b>Email</b></label>
+    <h1 id="email-display">username test</h1>
     <br>
 
-    <label for="password-input"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="password-input" id="password-input" required>
+    <label for="password-display"><b>Password</b></label>
+    <h1 id="password-display">username test</h1>
     <br>
 
-    <label for="balance-input"><b>Balance</b></label>
-    <input type="text" name="balance-input" id="balance-input" required>
-    <br>    
-    <button id="button">Update Information</button>
-</form>
+    <label for="balance-display"><b>Balance</b></label>
+    <h1 id="balance-display">username test</h1>
+</div> -->
 
-<p id="infoLog" text-align="center">InfoLog</p>
+<br>
+
+<div class="info"> 
+    <p>-----------------------------------------------------------------------------------------------------------------------------------------------------</p>   
+    <h2>Update Information</h2>
+    <form action="POST">
+        <label for="username-input"><b>Username</b></label>
+        
+        <input type="text" placeholder="Enter Username" name="username-input" id="username-input" required>
+        <br>
+
+        <label for="firstName-input"><b>First Name</b></label>
+        <input type="text" placeholder="Enter First Name" name="f_name-input" id="f_name-input" required>
+        <br>
+
+        <label for="lastName-input"><b>Last Name</b></label>
+        <input type="text" placeholder="Enter Last Name" name="l_name-input" id="l_name-input" required>
+        <br>
+
+        <label for="address-input"><b>Address</b></label>
+        <input type="text" placeholder="Enter Address" name="address-input" id="address-input" required>
+        <br>
+
+        <label for="email-input"><b>Email</b></label>
+        <input type="text" placeholder="Enter Email" name="email-input" id="email-input" required>
+        <br>
+
+        <label for="password-input"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="password-input" id="password-input" required>
+        <br>
+
+        <label for="balance-input"><b>Balance</b></label>
+        <input type="text" name="balance-input" id="balance-input" required>
+        <br>    
+        <button id="button">Update Information</button>
+    </form>
+
+    <p id="infoLog" text-align="center">InfoLog</p>
 </div>
 
 
