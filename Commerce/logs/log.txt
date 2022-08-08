@@ -447,3 +447,76 @@
 2022-08-08 00:56:27 INFO  LoggingAspect:32 - Info advice around method: class com.revature.Commerce.services.UserServiceImpl: updateUser
 2022-08-08 00:56:27 INFO  LoggingAspect:17 - Info advice before method: class com.revature.Commerce.services.UserServiceImpl: updateUser
 2022-08-08 00:56:27 ERROR LoggingAspect:27 - Error when executing method: class com.revature.Commerce.services.UserServiceImpl: updateUser
+2022-08-08 17:17:01 INFO  LoggingAspect:32 - Info advice around method: class com.revature.Commerce.services.UserServiceImpl: getByUsername
+2022-08-08 17:17:01 INFO  LoggingAspect:17 - Info advice before method: class com.revature.Commerce.services.UserServiceImpl: getByUsername
+2022-08-08 17:17:01 INFO  LoggingAspect:22 - Info advice after [Method Was Successful]: class com.revature.Commerce.services.UserServiceImpl: getByUsername
+2022-08-08 17:17:01 INFO  LoggingAspect:37 - End of Advice
+2022-08-08 17:17:37 INFO  LoggingAspect:32 - Info advice around method: class com.revature.Commerce.services.UserServiceImpl: updateUser
+2022-08-08 17:17:37 INFO  LoggingAspect:17 - Info advice before method: class com.revature.Commerce.services.UserServiceImpl: updateUser
+2022-08-08 17:17:38 ERROR LoggingAspect:27 - Error when executing method: class com.revature.Commerce.services.UserServiceImpl: updateUser
+2022-08-08 17:22:23 INFO  LoggingAspect:32 - Info advice around method: class com.revature.Commerce.services.UserServiceImpl: updateUser
+2022-08-08 17:22:23 INFO  LoggingAspect:17 - Info advice before method: class com.revature.Commerce.services.UserServiceImpl: updateUser
+2022-08-08 17:22:23 ERROR LoggingAspect:27 - Error when executing method: class com.revature.Commerce.services.UserServiceImpl: updateUser
+2022-08-08 17:22:32 INFO  LoggingAspect:32 - Info advice around method: class com.revature.Commerce.services.UserServiceImpl: updateUser
+2022-08-08 17:22:32 INFO  LoggingAspect:17 - Info advice before method: class com.revature.Commerce.services.UserServiceImpl: updateUser
+2022-08-08 17:22:32 ERROR LoggingAspect:27 - Error when executing method: class com.revature.Commerce.services.UserServiceImpl: updateUser
+2022-08-08 17:22:35 INFO  LoggingAspect:32 - Info advice around method: class com.revature.Commerce.services.UserServiceImpl: updateUser
+2022-08-08 17:22:35 INFO  LoggingAspect:17 - Info advice before method: class com.revature.Commerce.services.UserServiceImpl: updateUser
+2022-08-08 17:22:35 ERROR LoggingAspect:27 - Error when executing method: class com.revature.Commerce.services.UserServiceImpl: updateUser
+2022-08-08 17:23:03 INFO  LoggingAspect:32 - Info advice around method: class com.revature.Commerce.services.UserServiceImpl: updateUser
+2022-08-08 17:23:03 INFO  LoggingAspect:17 - Info advice before method: class com.revature.Commerce.services.UserServiceImpl: updateUser
+2022-08-08 17:23:03 ERROR LoggingAspect:27 - Error when executing method: class com.revature.Commerce.services.UserServiceImpl: updateUser
+2022-08-08 17:25:09 INFO  LoggingAspect:32 - Info advice around method: class com.revature.Commerce.services.UserServiceImpl: updateUser
+2022-08-08 17:25:09 INFO  LoggingAspect:17 - Info advice before method: class com.revature.Commerce.services.UserServiceImpl: updateUser
+2022-08-08 17:25:09 ERROR LoggingAspect:27 - Error when executing method: class com.revature.Commerce.services.UserServiceImpl: updateUser
+2022-08-08 17:25:50 INFO  LoggingAspect:32 - Info advice around method: class com.revature.Commerce.services.UserServiceImpl: updateUser
+2022-08-08 17:25:50 INFO  LoggingAspect:17 - Info advice before method: class com.revature.Commerce.services.UserServiceImpl: updateUser
+2022-08-08 17:25:50 ERROR LoggingAspect:27 - Error when executing method: class com.revature.Commerce.services.UserServiceImpl: updateUser
+2022-08-08 17:27:34 INFO  LoggingAspect:32 - Info advice around method: class com.revature.Commerce.services.UserServiceImpl: getByUsername
+2022-08-08 17:27:34 INFO  LoggingAspect:17 - Info advice before method: class com.revature.Commerce.services.UserServiceImpl: getByUsername
+2022-08-08 17:27:34 INFO  LoggingAspect:22 - Info advice after [Method Was Successful]: class com.revature.Commerce.services.UserServiceImpl: getByUsername
+2022-08-08 17:27:34 INFO  LoggingAspect:37 - End of Advice
+2022-08-08 17:27:39 INFO  LoggingAspect:32 - Info advice around method: class com.revature.Commerce.services.UserServiceImpl: updateUser
+2022-08-08 17:27:39 INFO  LoggingAspect:17 - Info advice before method: class com.revature.Commerce.services.UserServiceImpl: updateUser
+2022-08-08 17:27:39 ERROR LoggingAspect:27 - Error when executing method: class com.revature.Commerce.services.UserServiceImpl: updateUser
+2022-08-08 17:28:25 INFO  LoggingAspect:32 - Info advice around method: class com.revature.Commerce.services.UserServiceImpl: updateUser
+2022-08-08 17:28:25 INFO  LoggingAspect:17 - Info advice before method: class com.revature.Commerce.services.UserServiceImpl: updateUser
+2022-08-08 17:28:25 ERROR LoggingAspect:27 - Error when executing method: class com.revature.Commerce.services.UserServiceImpl: updateUser
+2022-08-08 17:33:34 INFO  LoggingAspect:32 - Info advice around method: class com.revature.Commerce.services.UserServiceImpl: getByUsername
+2022-08-08 17:33:34 INFO  LoggingAspect:17 - Info advice before method: class com.revature.Commerce.services.UserServiceImpl: getByUsername
+2022-08-08 17:33:34 INFO  LoggingAspect:22 - Info advice after [Method Was Successful]: class com.revature.Commerce.services.UserServiceImpl: getByUsername
+2022-08-08 17:33:34 INFO  LoggingAspect:37 - End of Advice
+2022-08-08 17:33:35 INFO  LoggingAspect:32 - Info advice around method: class com.revature.Commerce.services.UserServiceImpl: getByUsername
+2022-08-08 17:33:35 INFO  LoggingAspect:17 - Info advice before method: class com.revature.Commerce.services.UserServiceImpl: getByUsername
+2022-08-08 17:33:35 INFO  LoggingAspect:22 - Info advice after [Method Was Successful]: class com.revature.Commerce.services.UserServiceImpl: getByUsername
+2022-08-08 17:33:35 INFO  LoggingAspect:37 - End of Advice
+2022-08-08 17:36:13 INFO  LoggingAspect:32 - Info advice around method: class com.revature.Commerce.services.UserServiceImpl: updateUser
+2022-08-08 17:36:13 INFO  LoggingAspect:17 - Info advice before method: class com.revature.Commerce.services.UserServiceImpl: updateUser
+2022-08-08 17:36:13 ERROR LoggingAspect:27 - Error when executing method: class com.revature.Commerce.services.UserServiceImpl: updateUser
+2022-08-08 17:38:17 INFO  LoggingAspect:32 - Info advice around method: class com.revature.Commerce.services.UserServiceImpl: getByUsername
+2022-08-08 17:38:17 INFO  LoggingAspect:17 - Info advice before method: class com.revature.Commerce.services.UserServiceImpl: getByUsername
+2022-08-08 17:38:17 INFO  LoggingAspect:22 - Info advice after [Method Was Successful]: class com.revature.Commerce.services.UserServiceImpl: getByUsername
+2022-08-08 17:38:17 INFO  LoggingAspect:37 - End of Advice
+2022-08-08 17:38:59 INFO  LoggingAspect:32 - Info advice around method: class com.revature.Commerce.services.UserServiceImpl: updateUser
+2022-08-08 17:38:59 INFO  LoggingAspect:17 - Info advice before method: class com.revature.Commerce.services.UserServiceImpl: updateUser
+2022-08-08 17:38:59 ERROR LoggingAspect:27 - Error when executing method: class com.revature.Commerce.services.UserServiceImpl: updateUser
+2022-08-08 18:21:00 INFO  LoggingAspect:32 - Info advice around method: class com.revature.Commerce.services.UserServiceImpl: updateUser
+2022-08-08 18:21:00 INFO  LoggingAspect:17 - Info advice before method: class com.revature.Commerce.services.UserServiceImpl: updateUser
+2022-08-08 18:21:00 INFO  LoggingAspect:22 - Info advice after [Method Was Successful]: class com.revature.Commerce.services.UserServiceImpl: updateUser
+2022-08-08 18:21:00 INFO  LoggingAspect:37 - End of Advice
+2022-08-08 18:27:53 INFO  LoggingAspect:32 - Info advice around method: class com.revature.Commerce.services.UserServiceImpl: updateUser
+2022-08-08 18:27:53 INFO  LoggingAspect:17 - Info advice before method: class com.revature.Commerce.services.UserServiceImpl: updateUser
+2022-08-08 18:27:53 INFO  LoggingAspect:22 - Info advice after [Method Was Successful]: class com.revature.Commerce.services.UserServiceImpl: updateUser
+2022-08-08 18:27:53 INFO  LoggingAspect:37 - End of Advice
+2022-08-08 18:29:14 INFO  LoggingAspect:32 - Info advice around method: class com.revature.Commerce.services.UserServiceImpl: updateUser
+2022-08-08 18:29:14 INFO  LoggingAspect:17 - Info advice before method: class com.revature.Commerce.services.UserServiceImpl: updateUser
+2022-08-08 18:29:14 INFO  LoggingAspect:22 - Info advice after [Method Was Successful]: class com.revature.Commerce.services.UserServiceImpl: updateUser
+2022-08-08 18:29:14 INFO  LoggingAspect:37 - End of Advice
+2022-08-08 18:32:14 INFO  LoggingAspect:32 - Info advice around method: class com.revature.Commerce.services.UserServiceImpl: updateUser
+2022-08-08 18:32:14 INFO  LoggingAspect:17 - Info advice before method: class com.revature.Commerce.services.UserServiceImpl: updateUser
+2022-08-08 18:32:14 INFO  LoggingAspect:22 - Info advice after [Method Was Successful]: class com.revature.Commerce.services.UserServiceImpl: updateUser
+2022-08-08 18:32:14 INFO  LoggingAspect:37 - End of Advice
+2022-08-08 18:33:09 INFO  LoggingAspect:32 - Info advice around method: class com.revature.Commerce.services.UserServiceImpl: updateUser
+2022-08-08 18:33:09 INFO  LoggingAspect:17 - Info advice before method: class com.revature.Commerce.services.UserServiceImpl: updateUser
+2022-08-08 18:33:09 INFO  LoggingAspect:22 - Info advice after [Method Was Successful]: class com.revature.Commerce.services.UserServiceImpl: updateUser
+2022-08-08 18:33:09 INFO  LoggingAspect:37 - End of Advice

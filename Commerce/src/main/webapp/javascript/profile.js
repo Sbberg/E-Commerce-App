@@ -41,38 +41,54 @@ let button = document.getElementById("button");
 
 //Button functions
 //save user info
-button.onclick = updateUserInfo;
+// button.onclick = updateUserInfo();
+
+
 
 
 function showUserInfo(userData){}
 
-
+//onclick on html button
 
 //Overall function to update user info
-async function updateUserInfo(){
+ async function updateUserInfo(event){
+    event.preventDefault();
+
+    let form = document.getElementById("form");
+
 
     //variable grabbed for user information
     let userId = user.userId;
 
     let userName = document.getElementById("username-input").value;
 
-    let userFirstName = document.getElementById("f_name-input").value;
+    let userFirstName = document.getElementById("f-name-input").value;
     
-    let userLastName = document.getElementById("l_name-input").value;
+    // let userLastName = document.getElementById("l_name-input").value;
+    let userlname = document.getElementById('l-name-input').value;
 
-    let address = document.getElementById("address-input").value;
+    let address = document.getElementById('addressInput').value;
 
-    let userEmail = document.getElementById("email-input").value;
+    let userEmail = document.getElementById('emailInput').value;
 
-    let userPassword = document.getElementById("password-input").value;
+    let userPassword = document.getElementById('passwordInput').value;
 
-    let balance = document.getElementById("balance-input").value;
- 
+    let balance = document.getElementById('balanceInput').value;
+    // console.log(userId)
+    // console.log(userName)
+    // console.log(userFirstName)
+    // console.log(userlname)
+    // console.log(address)
+    // console.log(userEmail)
+    // console.log(userPassword)
+    // console.log(balance)
+
+
  //the information that will be updated through fields
  let updateInfo ={
         userName:userName,
         userFirstName:userFirstName,
-        userLastName:userLastName,
+        userLastName:userlname,
         address:address,
         userEmail:userEmail,
         userPassword:userPassword,
@@ -82,7 +98,7 @@ async function updateUserInfo(){
 
  let jsonUpdateInfo = JSON.stringify(updateInfo);
 
- //log to make sure correct user data is grabbed
+//  log to make sure correct user data is grabbed
  console.log(updateInfo);
  console.log(jsonUpdateInfo);
  
@@ -113,32 +129,32 @@ async function updateUserInfo(){
 
 
         //console all the json information inside a group
-        console.group("User Data")
+        // console.group("User Data")
         console.log(data);
-        console.log(data[0].u_id);
-        console.log(data[0].username);
-        console.log(data[0].email);
-        console.log(data[0].address);
-        console.log(data[0].balance);
-        console.groupEnd("User Data")
+        // console.log(data[0].userId);
+        // console.log(data[0].username);
+        // console.log(data[0].email);
+        // console.log(data[0].address);
+        // console.log(data[0].balance);
+        // console.groupEnd("User Data")
 
         
         
         // window.location.reload();
 
             //checks to make sure on fields are empty
-            if(username == null || password == null || email == null ||
-            address == null ||lastname == null || firstname == null 
-            && updateUserInfo()){
-            infoLog.innerText = `Sorry ${user} one or more fields is empty or doesn't meet requirements.`;
+    //         if(username == null || password == null || email == null ||
+    //         address == null ||lastname == null || firstname == null 
+    //         && updateUserInfo()){
+    //         infoLog.innerText = `Sorry ${user} one or more fields is empty or doesn't meet requirements.`;
 
 
-            //sends a log describing issue
-            console.log("one or more fields is empty or doesn't meet requirements.")
+    //         //sends a log describing issue
+    //         console.log("one or more fields is empty or doesn't meet requirements.")
         
-            }
+    //         }
 
-    infoLog.innerText = `changes have been saved`;
+    // infoLog.innerText = `changes have been saved`;
         
     } catch (error) {
         alert("There is an error: " + error)
