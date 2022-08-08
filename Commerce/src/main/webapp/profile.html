@@ -11,8 +11,8 @@
 <!-- <h1 id="username-display">username test</h1> -->
 
 <h2>    
-    <input type="button" onclick="window.location.href = 'home.html';" value="Go to Homepage" style="float: left;"/>
-    <input type="button" onclick="window.location.href = 'cart.html';" value="Go to Cart" style="float: right;"/>
+    <button type="button" onclick="window.location.href = 'home.html';" value="Go to Homepage" style="float: left;"/>
+    <button type="button" onclick="window.location.href = 'cart.html';" value="Go to Cart" style="float: right;"/>
 </h2>
 
 
@@ -86,43 +86,42 @@
 
 <br>
 
-<div class="info"> 
+<!-- <div class="info">  -->
     <p>-----------------------------------------------------------------------------------------------------------------------------------------------------</p>   
     <h2>Update Information</h2>
-    <form action="userupdate" method="PUT">
+    <form id="form">
         <label for="username-input"><b>Username</b></label>
-        
-        <input type="text" placeholder="Enter Username" name="username-input" id="username-input" required>
+        <input type="text" placeholder="Enter Username" id="username-input" required>
         <br>
 
-        <label for="f_name-input"><b>First Name</b></label>
-        <input type="text" placeholder="Enter First Name" name="f_name-input" id="f_name-input" required>
+        <label for="f-name-input"><b>First Name</b></label>
+        <input type="text" placeholder="Enter First Name" id="f-name-input" required>
         <br>
 
-        <label for="l_name-input"><b>Last Name</b></label>
-        <input type="text" placeholder="Enter Last Name" name="l_name-input" id="l_name-input" required>
+        <label for="l-name-input"><b>Last Name</b></label>
+        <input type="text" placeholder="Enter Last Name" id="l-name-input" required>
         <br>
 
         <label for="address-input"><b>Address</b></label>
-        <input type="text" placeholder="Enter Address" name="address-input" id="address-input" required>
+        <input type="text" placeholder="Enter Address" id="addressInput" required>
         <br>
 
         <label for="email-input"><b>Email</b></label>
-        <input type="text" placeholder="Enter Email" name="email-input" id="email-input" required>
+        <input type="text" placeholder="Enter Email" id="emailInput" required>
         <br>
 
         <label for="password-input"><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="password-input" id="password-input" required>
+        <input type="password" placeholder="Enter Password" id="passwordInput" required>
         <br>
 
         <label for="balance-input"><b>Balance</b></label>
-        <input type="number" name="balance-input" id="balance-input" required>
+        <input type="number" id="balanceInput" required>
         <br>    
-        <button id="button">Update Information</button>
+        <button id="button" onclick="updateUserInfo(event);">Update Information</button>
     </form>
 
     <p id="infoLog" text-align="center">InfoLog</p>
-</div>
+<!-- </div> -->
 
 
 <div class="info"></div>

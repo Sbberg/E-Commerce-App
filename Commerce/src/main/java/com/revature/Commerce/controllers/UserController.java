@@ -45,8 +45,9 @@ public class UserController {
         return userService.createUser(user) ? CREATION_SUCCESSFUL:CREATION_FAILED;
     }
 
-    @PutMapping("/userupdate")
+    @PutMapping(value="/userupdate", consumes = MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody ClientMessage updateUser(@RequestBody User user){
+        System.out.println(user);
         System.out.println("id: " + user.getUserId());
         System.out.println("balance: " + user.getBalance());
         System.out.println("email: " +  user.getUserEmail());
