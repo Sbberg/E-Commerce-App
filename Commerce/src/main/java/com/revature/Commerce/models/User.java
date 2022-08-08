@@ -44,6 +44,8 @@ public class User {
         this.userId = userId;
     }
 
+
+
     public User(String userName, String userPassword) {
         super();
         this.userName = userName;
@@ -53,6 +55,8 @@ public class User {
     public User(String userName) {
         this.userName = userName;
     }
+
+
 
     public User(String userName, String userPassword, String userEmail, String userFirstName, String userLastName, String address) {
         super();
@@ -74,6 +78,18 @@ public class User {
         this.userLastName = userLastName;
         this.address = address;
         this.balance = balance;
+    }
+
+    public User(String userName, String userPassword, String userEmail, String userFirstName, String userLastName, String address, double balance, int userId) {
+        super();
+        this.userName = userName;
+        this.userPassword = userPassword;
+        this.userEmail = userEmail;
+        this.userFirstName = userFirstName;
+        this.userLastName = userLastName;
+        this.address = address;
+        this.balance = balance;
+        this.userId = userId;
     }
 
     public User(int userId, String userName, String userPassword, String userEmail, String userFirstName, String userLastName, String address) {

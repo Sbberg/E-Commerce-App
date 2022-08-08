@@ -47,6 +47,13 @@ public class UserController {
 
     @PutMapping("/userupdate")
     public @ResponseBody ClientMessage updateUser(@RequestBody User user){
+        System.out.println("id: " + user.getUserId());
+        System.out.println("balance: " + user.getBalance());
+        System.out.println("email: " +  user.getUserEmail());
+        System.out.println("username: " + user.getUserName() );
+        System.out.println("password: " + user.getUserPassword());
+        System.out.println("last: " + user.getUserLastName() );
+        System.out.println("first: " + user.getUserFirstName());
         return userService.updateUser(user) > 0 ? UPDATE_SUCCESSFUL:UPDATE_FAILED;
     }
 

@@ -52,9 +52,9 @@ function showUserInfo(userData){}
 async function updateUserInfo(){
 
     //variable grabbed for user information
-    let userid = user.userId;
+    let userId = user.userId;
 
-    let username = document.getElementById("username-input").value;
+    let userName = document.getElementById("username-input").value;
 
     let userFirstName = document.getElementById("f_name-input").value;
     
@@ -70,14 +70,14 @@ async function updateUserInfo(){
  
  //the information that will be updated through fields
  let updateInfo ={
-        userName:username,
+        userName:userName,
         userFirstName:userFirstName,
         userLastName:userLastName,
         address:address,
         userEmail:userEmail,
         userPassword:userPassword,
         balance:balance,
-        userId:userid
+        userId:userId
  };
 
  let jsonUpdateInfo = JSON.stringify(updateInfo);
