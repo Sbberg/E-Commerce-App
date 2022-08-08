@@ -1,0 +1,65 @@
+h1{
+    text-align: center;
+    font-family: Arial;
+  }
+  body {
+      background: linear-gradient(-45deg, #583b32, #f07aa7, #86cce5, #10e9b6);
+      background-size: 400% 400%;
+      animation: gradient 15s ease infinite;
+      height: 100vh;
+    }
+    
+    @keyframes gradient {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+  .container {
+    width: 100%;
+    display: flex;
+    align-items: stretch;
+    justify-content: space-around;
+  }
+  
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(91, 27, 196, 0.2);
+    max-width: 300px;
+    margin: auto;
+    text-align: center;
+    font-family: arial;
+  }
+  
+  .column {
+    display: flex;
+    float: left;
+    width: 32%;
+    padding: 10px;
+  }
+  
+  .price {
+    color: rgb(0, 0, 0);
+    font-size: 22px;
+  }
+  
+  .card button {
+    border: none;
+    outline: 0;
+    padding: 12px;
+    color: rgb(255, 247, 247);
+    background-color: rgb(145, 11, 11);
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+  }
+  
+  .card button:hover {
+    opacity: 0.7;
+  }
+  

@@ -1,102 +1,131 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Homepage</title>
-</head>
-
-<style>
-h1{
-  text-align: center;
-  font-family: Arial;
-}
-
-.container {
-  width: 100%;
-  display: flex;
-  align-items: stretch;
-  justify-content: space-around;
-}
-
-.card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  max-width: 300px;
-  margin: auto;
-  text-align: center;
-  font-family: arial;
-}
-
-.column {
-  display: flex;
-  float: left;
-  width: 32%;
-  padding: 10px;
-}
-
-.price {
-  color: grey;
-  font-size: 22px;
-}
-
-.card button {
-  border: none;
-  outline: 0;
-  padding: 12px;
-  color: white;
-  background-color: #000;
-  text-align: center;
-  cursor: pointer;
-  width: 100%;
-  font-size: 18px;
-}
-
-.card button:hover {
-  opacity: 0.7;
-}
-</style>
-
 <body>
   <!-- ID changed below -->
 <h1 id="homelabel">Welcome!
     <input type="button" onclick="window.location.href = 'cart.html';" value="Go to Cart" style="float: right;"/>
+    <input type="button" onclick="window.location.href = '';" value="Go to profile" style="float: left;"/>
 </h1>
 <hr>
-<!--<h2 style="text-align:center">Available Products</h2>-->
-
 <div class="container">
-    <div class="column">
-        <div class="card">
-            <img src="https://tinyurl.com/mrycrmfu" alt="Nicol Bolas" style="width:65%">
-            <h1>Nicol Bolas</h1>
-            <p class="price">$19.99</p>
-            <p>Some text about the jeans.</p>
-            <p><button name="nicol" id="nicol">Add to Cart</button></p>
-        </div>
-    </div>
+  <div class="column">
+      <div class="card">
+          <img src="https://tinyurl.com/mrycrmfu" alt="Nicol Bolas" style="width:65%">
+          <h1>Nicol Bolas</h1>
+          <p class="price">$19.99</p>
+          <p>Check out the other Magic The Gathering POP figures from Funko!
+              Stands 6 Inch tall
+              Collect them all!
+              </p>
+          <p><button name="nicol" id="nicol">Add to Cart</button></p>
+          <p class="inventory">100</p>
+      </div>
+  </div>
 
-    <div class="column">
-        <div class="card">
-            <img src="https://m.media-amazon.com/images/I/61sZsAK343L._AC_SX425_.jpg" alt="Grogu" style="width:65%">
-            <h1>Grogu</h1>
-            <p class="price">$9.99</p>
-            <p>Some text about the shirts.</p>
-            <p><button name="grogu" id="grogu">Add to Cart</button></p>
-        </div>
-    </div>
+  <div class="column">
+      <div class="card">
+          <img src="https://m.media-amazon.com/images/I/61sZsAK343L._AC_SX425_.jpg" alt="Grogu" style="width:65%">
+          <h1>Grogu</h1>
+          <p class="price">$9.99</p>
+          <p>Collect Pop! Grogu with Cookie for your collection of Star Wars The Mandalorian.
+              Vinyl bobblehead is approximately 3.75-inches tall.
+              Mando may be busy with serious matters but The Child was hungry.
+              Collect them all!</p>
+          <p><button name="grogu" id="grogu">Add to Cart</button></p>
+          <p class="inventory">100</p>
+      </div>
+  </div>
 
-    <div class="column">
-        <div class="card">
-            <img src="https://tinyurl.com/mvc7564k" alt="Dr. Strange" style="width:50%">
-            <h1>Dr. Strange</h1>
-            <p class="price">$24.99</p>
-            <p>Some text about the shoes.</p>
-            <p><button name="drstrange" id="drstrange">Add to Cart</button></p>
-        </div>
-    </div>
+  <div class="column">
+      <div class="card">
+          <img src="https://tinyurl.com/mvc7564k" alt="Dr. Strange" style="width:50%">
+          <h1>Dr. Strange</h1>
+          <p class="price">$24.99</p>
+          <p>Test the limits of reality and leap into the Marvel multiverse with Pop!
+               Doctor Strange from Doctor Strange in the Multiverse of Madness!</p>
+          <p><button name="drstrange" id="drstrange">Add to Cart</button></p>
+          <p class="inventory">100</p>
+      </div>
+  </div>
+</div>
+<br>
+<div class="container">
+  <div class="column">
+      <div class="card">
+          <img src="https://cdn11.bigcommerce.com/s-xt2pgktzuh/images/stencil/1280x1280/products/1273/3808/889698344494__12615.1652802254.jpg?c=1" alt="Stephen Curry" style="width:65%">
+          <h1>Stephen Curry</h1>
+          <p class="price">$19.99</p>
+          <p>Stylized collectable stands 3 ¾ " tall, perfect for any Warriors fan!</p>
+          <p><button name="Stephen Curry" id="Stephen Curry">Add to Cart</button></p>
+          <p class="inventory">100</p>
+      </div>
+  </div>
+
+  <div class="column">
+      <div class="card">
+          <img src="https://media.gamestop.com/i/gamestop/11144039_ALT01/Funko-POP-Star-Wars-The-Bad-Batch-Vinyl-Figure-5-Pack-GameStop-Exclusive" alt="Star Wars: The Bad Batch Vinyl Figure 5 Pack" style="width:65%">
+          <h1>Star Wars: The Bad Batch Vinyl Figure 5 Pack</h1>
+          <p class="price">$9.99</p>
+          <p>Not all clones are created equal.</p>
+          <p><button name="Star Wars: The Bad Batch Vinyl Figure 5 Pack" id="star wars">Add to Cart</button></p>
+          <p class="inventory">100</p>
+      </div>
+  </div>
+
+  <div class="column">
+      <div class="card">
+          <img src="https://i5.walmartimages.com/asr/8cfd642e-241d-4817-b649-8be244ec5b34_1.6d2e10cd53e4c82a3d8bc27fdf3f7692.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF" alt="Dr. Strange" style="width:50%">
+          <h1>Stranger Things Eleven with Eggos</h1>
+          <p class="price">$24.99</p>
+          <p>From Stranger Things, Eleven with Eggos, as a stylized POP vinyl from Funko.
+          </p>
+          <p><button name="Stranger Things Eleven with Eggos" id="Eleven">Add to Cart</button></p>
+          <p class="inventory">100</p>
+      </div>
+  </div>
+</div>
+<br>
+<div class="container">
+  <div class="column">
+      <div class="card">
+          <img src="https://m.media-amazon.com/images/I/619G9QRFrkL._AC_SX679_.jpg" alt="Bride of Chucky - Chucky" style="width:65%">
+          <h1>Bride of Chucky - Chucky</h1>
+          <p class="price">$19.99</p>
+          <p>Schedule a playdate with Bride of Chucky Pop! Chucky. Capture him to haunt your Pop! Movies collection.</p>
+          <p><button name="Bride of Chucky - Chucky" id="chucky">Add to Cart</button></p>
+          <p class="inventory">100</p>
+      </div>
+  </div>
+
+  <div class="column">
+      <div class="card">
+          <img src="https://m.media-amazon.com/images/I/71y7U+1uaTL._AC_SX679_.jpg" alt="The Nightmare Before Christma" style="width:65%">
+          <h1>The Nightmare Before Christmas</h1>
+          <p class="price">$9.99</p>
+          <p>Bow down before the Pumpkin King! This exclusive Pop! 
+              VHS Cover of The Nightmare Before Christmas features Jack Skellington as he ascends Spiral Hill. 
+              Pop! Jack Skellington comes pre-packaged in a premium protector case along with the VHS cover art from Tim Burton’s stop-motion animated film. 
+              Perfect for any Disney fan, this Pop! V
+               </p>
+          <p><button name="The Nightmare Before Christma" id="Jack Skellington">Add to Cart</button></p>
+          <p class="inventory">100</p>
+      </div>
+  </div>
+
+  <div class="column">
+      <div class="card">
+          <img src="https://m.media-amazon.com/images/I/51bRqd5HngL._AC_.jpg" alt="Deadpool Playtime- Bob Ross" style="width:50%">
+          <h1>Deadpool Playtime- Bob Ross</h1>
+          <p class="price">$24.99</p>
+          <p>From Deadpool Playtime, Bob Ross, as a stylized POP vinyl from Funko!
+              Stylized collectable stands 3 ¾ inches tall, perfect for any Deadpool Playtime fan!</p>
+          <p><button name="Deadpool Playtime- Bob Ross" id="Deadpool">Add to Cart</button></p>
+          <p class="inventory">100</p>
+      </div>
+  </div>
 </div>
 <br>
 <!--copy+paste '<div class="container"></div>' section for additional products-->
 
+<link rel="stylesheet" href="./css/home.css" ></link>
 
 <script src="./javascript/home.js"></script>
 
