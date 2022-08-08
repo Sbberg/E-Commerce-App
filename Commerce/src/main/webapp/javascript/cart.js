@@ -1,173 +1,54 @@
 
-let carts = document.querySelectorAll('.add-cart');
-
-let products = [
-{
-name: 'Nicol Bolas',
-price: 19.99,
-inCart:0
+let button1 = document.getElementById("nicol");
 
 
-},
+//THESE NEED TO BE DEFINED FOR THE CART
+// let cartProduct1 = document.getElementById("cartProduct1").value;
+// console.log(cartProduct1)
+// let cartPrice1 = document.getElementById("cartPrice1").value;
+// console.log(cartPrice1)
 
-{
-name: 'Grogu',
-price: 9.99,
-inCart:0
+//THIS NEED PARENT REFERENCE
+// let cartProduct1Display = document.getElementById("cartProduct1");
+// cartProduct1Display.innerHTML = `${product.p_name}`;
+// let cartPrice1Display = document.getElementById("cartPrice1");
+// cartPrice1Display.innerHTML = `${p_price}`;
 
+//this event auto activates. (or at least did as a console log.)
+button1.onclick = addToCart();
 
-},
+//needs to create cart for current user THEN add to cart
+//if (whatever != null)
+async function addToCart(){
+    console.log()
+    try {
+        //this is currently a get method cause that is the default
+        const raw_response = await fetch (`http://localhost:8080/commerce/products`
+        //THIS CODE CAN BE USED TO CHANGE THE DEFAULT, INFO ISN'T CORRECT LIKE USER/CART ID
+        //,{
+    //     method: "POST",
+    //     Headers:{
+    //         "Content-Type":"application/json",
+    //         "Access-Control-Allow-Origin": "*",
+    //         "userId": cart.cartId
+    //     }
+    // }
+    );
+        
 
-{
-name: 'Dr. Strange',
-price: 24.99,
-inCart:0
+        if(!raw_response.ok){
+            throw new Error(raw_response.status)
+        }
+        
+        console.log("Request complete")
 
-
-}
-
-];
-
-for (let i=0; i < carts.length; i++) {
-carts[i].addEventListener('click', () =>{
-cartNumbers(products[i]);
-totalCost(products[i])
-})
-}
-
-function onLoadCartNumbers() {
-let productNumbers = localStorage.getItem('cartNumbers');
-
-if (productNumbers){
-document.querySelector('.cart span').textContent = productNumbers;
-}
-}
-function cartNumbers(product){
-console.log("The product clicked is", product);
-let productNumbers = localStorage.getItem('cartNumbers');
-
-productNumbers = parseInt(productNumbers);
-
-if(productNumbers){
-localStorage.setItem('cartNumbers', productNumbers + 1);
-document.querySelector('.cart span').textContent = productNumbers + 1;
-
-}else{
-localStorage.setItem('cartNumbers', 1);
-document.querySelector('.cart span').textContent = 1;
-}
-setItems(product);
-}
-
-function setItems(product){
-let cartItems = localStorage.getItem('productsInCart');
-cartItems = JSON.parse(cartItems);
-console.log("Inside of SetItems function");
-console.log("My product is, product");
-
-
-
-if(cartItems != null) {
-
-if(cartItems[product.name].inCart == undefined) {
-cartItems = {
-    ...cartItems,
-[product.tag]: product
-}
-}
-cartItems[product.name].inCart += 1;
-
-}else{
-product.inCart = 1;
-cartItems = {
-[product.name]: product
-}
-}
-
-
-localStorage.setItem("productsInCart", JSON.stringify(cartItems));
-}
-
-function totalCost(product){
-//console.log("The product price is", product.price);
-let cartCost = localStorage.getItem('totalCost');
-//cartCost = parseInt(cartCost);
-console.log(typeof cartCost);
-
-if (cartCost != null) {
-cartCost = parseInt(cartCost);
-localStorage.setItem("totalCost", cartCost + product.price);
-
-}else{
-localStorage.setItem("totalCost", product.price);
-
-}
-
-}
-
-function displayCart(){
-let cartItems = localStorage.getItem("productsInCart");
-cartItems = JSON.parse(cartItems);
-let productContainer = document.querySelector(".products");
-let cartCost = localStorage.getItem('totalCost');
-
-console.log(cartItems);
-if(cartItems && productContainer){
-productContainer.innerHTML = '';
-Object.values(cartItems).map(item => {
-productContainer.innerHTML += `
-<div class="product">
-<ion-icon name="close-circle-outline"></ion-icon>
-
-
-//tag; might need to change to name
-<img src="./images/${item.name}.jpg">
-<span>${item.name}</span>
-</div>
-
-<div class="price">${item.price}</div>
-
-<div class="quantity">
-
-<ion-icon name="caret-back-outline"></ion-icon>
-
-<span>${item.inCart}</span>
-<ion-icon name="caret-forward-outline"></ion-icon>
-
-</div>
-
-<div class="total">
-${item.inCart * item.price}
-</div>
-`;
-
-});
-
-
-
-productContainer.innerHTML += `
-<div class= "basketTotalContainer">
-<h4 class="basketTotalTitle">
-Basket Total
-</h4>
-<h4 class="basketTotal">
-${cartCost}
-</h4>
-`;
-
-}
-
-// function removeItem(name)
-// for (let i=0; i < carts.length; i +=1) {
-//     if (carts[i].name ==name){
-//         carts.splice(i,1)
-//     }
-// }
-
-
-
-
-}
-
-
-onLoadCartNumbers();
+        const json_data = await raw_response.json();
+        
+        //these will need to reference a parent class/local storage like the user i think
+        //look at profile/homepage.js for reference.
+        cartProduct1.innerHTML = `${p_name}`;
+        cartPrice1.innerHTML = `${p_price}`;
+    } catch (error) {
+        alert("Item not added" + error)
+    }
+};

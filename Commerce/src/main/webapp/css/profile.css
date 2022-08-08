@@ -5,6 +5,27 @@ h1{
   .info{
     text-align: center;
   }
+
+  body {
+    background: linear-gradient(-45deg, #583b32, #f07aa7, #86cce5, #10e9b6);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    height: 100vh;
+  }
+   
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+
   
   table.center {
     font-family: arial, sans-serif;
@@ -16,15 +37,16 @@ h1{
   }
   
   td, th {
-    border: 1px solid #dddddd;
+    border: 1px solid #8a0796;
     text-align: center;
     padding: 8px;
   }
   
   tr:nth-child(even) {
-    background-color: #dddddd;
+    background-color: #8880d1;
   }
   div.info{
       
       text-align: center;
   }
+  
