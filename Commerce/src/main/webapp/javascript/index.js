@@ -1,13 +1,37 @@
 //FOR LOGGING IN
 var loginButton = document.getElementById("login-button");
-// var username = document.getElementById("username-sign-in").innerText;
-// var userpassword = document.getElementById("password-sign-in").innerText;
+var username1 = document.getElementById("username-sign-in").value;
+var userpassword = document.getElementById("password-sign-in").value;
 // var userName = username;
 // console.log(userName)
 // var userPassword = userpassword;
 // console.log(userPassword)
 
-// let userjsondata = {
+
+
+
+
+loginButton.addEventListener("click", async() => {
+    try{
+    const rawResponse = await fetch('http://localhost:8080/commerce/userbyusername', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({userName: username1},{userPassword:userpassword})
+      });
+      const content = await rawResponse.json();
+      console.log(rawResponse)
+      console.log(content);
+      localStorage.setItem('currentUser' , JSON.stringify(content));
+      window.location.replace("home.html");
+    }catch(error){
+      console.log(error)
+    }
+    });
+
+// var userjsondata = {
 //     "userName":username,
 //     "userPassword":userpassword
 // } 
@@ -19,27 +43,33 @@ var loginButton = document.getElementById("login-button");
 //     body: JSON.stringify(userjsondata)
 // }
 
-loginButton.addEventListener("click", async () => {
-    try{
-        const raw_response = await fetch(`http://localhost:8080/commerce/users`);
+
+// 2ND ATTEMPT
+// loginButton.addEventListener("click", async () => {
+//     try{
+//         const raw_response = await fetch(`http://localhost:8080/commerce/userbyusername`, {
+//             method: 'POST',
+//             headers: {'Content-Type':'application/json'},
+//             body: JSON.stringify(userjsondata)
+//         });
 
         
-        if(!raw_response.ok){
-            throw new Error(raw_response.status)
-        }
+//         if(!raw_response.ok){
+//             throw new Error(raw_response.status)
+//         }
 
-        const json_data = await raw_response.json();
+//         const json_data = await raw_response.json();
 
-        console.log(json_data)
+//         console.log(json_data)
 
-        localStorage.setItem('allUsers' , JSON.stringify(json_data));
+//         localStorage.setItem('allUsers' , JSON.stringify(json_data));
         
 
-        window.location.replace("home.html");
-    } catch(error){
-        console.log(error);
-    }
-})
+//         window.location.replace("home.html");
+//     } catch(error){
+//         console.log(error);
+//     }
+// })
 
 let signUpButton = document.getElementById("signupbtn");
 
@@ -90,6 +120,7 @@ signUpButton.addEventListener("click", (event) => {
 
 });
 
+//BOOTLEG
 // loginButton.addEventListener("click", async () => {
 //     try{
 //         const raw_response = await fetch(`http://localhost:8080/commerce/users`);
