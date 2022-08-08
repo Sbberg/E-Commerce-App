@@ -1,12 +1,37 @@
 //this finds current user and logs it in console
-let userStorage = localStorage.getItem('currentUser');
-let user = JSON.parse(user);
-console.log(userJSON);
-console.log(userJSON.user_Id);
+let userStorage = localStorage.getItem('recentUser');
+let user = JSON.parse(userStorage);
+console.log(user);
+console.log(user.userId);
+console.log(user.userName);
+
 
 //defines and changes that greeting header
+let usernameDisplay = document.getElementById("username-display");
+    usernameDisplay.innerText = `${user.userName}`
+
+let userFirstNameDisplay = document.getElementById("f_name-display");
+    userFirstNameDisplay.innerText = `${user.userFirstName}`
+
+let userLastNameDisplay = document.getElementById("l_name-input")
+    userLastNameDisplay.innerText =`${user.userLastName}`
+
+let addressDisplay = document.getElementById("address-input")
+    addressDisplay.innerText =`${user.address}`
+
+let userEmailDisplay = document.getElementById("email-input")
+    userEmailDisplay.innerText =`${user.userEmail}`
+
+let userPasswordDisplay = document.getElementById("password-input")
+    userPasswordDisplay.innerText =`${user.userPassword}`
+
+let balanceDisplay = document.getElementById("balance-input")
+    balanceDisplay.innerText =`${user.balance}`
+
 let greeting = document.getElementById("greeting")
-greeting.innerText = `Here you can change your information and add money to your account ${user}`
+greeting.innerText = `Here you can change your information and add money to your account ${user.userFirstName}`;
+
+
 
 let infoLog = document.getElementById("infoLog");
 //infoLog.innerText = `Sorry ${user} one or more fields is empty or doesn't meet requirements.`;
@@ -21,18 +46,7 @@ button.onclick = updateUserInfo;
 
 function showUserInfo(userData){
 
-    //checks to make sure on fields are empty
-    if(username == null || password == null || email == null ||
-        address == null ||lastname == null || firstname == null 
-        && updateUserInfo()){
-            infoLog.innerText = `Sorry ${user} one or more fields is empty or doesn't meet requirements.`;
 
-
-            //sends a log describing issue
-            console.log("one or more fields is empty or doesn't meet requirements.")
-        
-    }
-    infoLog.innerText = `changes have been saved`;
 
 
 }
@@ -42,14 +56,21 @@ function showUserInfo(userData){
 async function updateUserInfo(){
 
     //variable grabbed for user information
-    let userid = user.u_id;
-    let userName = document.getElementById("username-input").value
-    let userFirstName = document.getElementById("f_name-input").value
-    let userLastName = document.getElementById("l_name-input").value
-    let address = document.getElementById("address-input").value
-    let userEmail = document.getElementById("email-input").value
-    let userPassword = document.getElementById("password-input").value
-    let balance = document.getElementById("balance-input").value
+    let userid = user.userId;
+
+    let username = document.getElementById("username-input").value;
+
+    let userFirstName = document.getElementById("f_name-input").value;
+    
+    let userLastName = document.getElementById("l_name-input").value;
+
+    let address = document.getElementById("address-input").value;
+
+    let userEmail = document.getElementById("email-input").value;
+
+    let userPassword = document.getElementById("password-input").value;
+
+    let balance = document.getElementById("balance-input").value;
  
  //the information that will be updated through fields
  let updateInfo ={
@@ -68,7 +89,7 @@ async function updateUserInfo(){
  
 
     try {
-        const raw_response = await fetch("PUT",`http://localhost:8080/commerce/user`,
+        const raw_response = await fetch(`http://localhost:8080/commerce/user`,
             {
 
                 //Put method to update data
@@ -76,8 +97,7 @@ async function updateUserInfo(){
                 headers:{
                     "Content-Type":"application/json",
                     "Access-Control-Allow-Origin": "*",
-                    "User-Id": userJSON.u_Id
-
+                    "User-Id": userJSON.userId
             },
             body:username,
             body:firstname,
@@ -110,6 +130,23 @@ async function updateUserInfo(){
         console.log(data[0].balance);
         console.groupEnd("User Data")
 
+        
+        
+        window.location.reload();
+
+            //checks to make sure on fields are empty
+    if(username == null || password == null || email == null ||
+        address == null ||lastname == null || firstname == null 
+        && updateUserInfo()){
+            infoLog.innerText = `Sorry ${user} one or more fields is empty or doesn't meet requirements.`;
+
+
+            //sends a log describing issue
+            console.log("one or more fields is empty or doesn't meet requirements.")
+        
+    }
+
+    infoLog.innerText = `changes have been saved`;
         
     } catch (error) {
         alert("There is an error: " + error)
