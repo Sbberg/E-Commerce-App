@@ -2,94 +2,60 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width-device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./css/styles.css">
-    <title>Shop</title>
-
+    <link rel="stylesheet" href="./css/cart.css" >
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,900" rel="stylesheet">
+    <title>Shopping Cart</title>
 </head>
 
-
 <body>
-
-<header>
-    <div class="overlay"></div>
-
-    <nav>
-        <h2>Shopping Cart</h2>
-        <ul>
-            <li><a href="home.html">Home</a> </li>
-            <li class="cart">
-                <a href="shoppingcart.html">
-                    <ion-icon name="basket"></ion-icon>Go to Cart<span> 0 </span>
-                </a>
-            </li>
-        </ul>
-    </nav>
-</header>
-
-<div class="products-container">
-    <div class="product-header">
-        <h5 class= "product-title"> Product</h5>
-        <h5 class="price">Price</h5>
-        <h5 class="quantity">Quantity</h5>
-        <h5 class="total">Total</h5>
+<div class="CartContainer">
+    <div class="Header">
+        <h3 class="Heading"><input type="button" onclick="window.location.href = 'home.html';" value="Continue Shopping"/></h3>
+        <h5 class="Action">Remove all</h5>
     </div>
-    <div class="products">
 
+    <div class="Cart-Items">
+        <div class="about">
+            <h1 class="title">Apple Juice</h1>
+        </div>
+        <div class="counter">
+            <div class="btn">+</div>
+            <div class="count">2</div>
+            <div class="btn">-</div>
+        </div>
+        <div class="prices">
+            <div class="amount">$2.99</div>
+            <div class="remove"><u>Remove</u></div>
+        </div>
     </div>
+
+    <div class="Cart-Items pad">
+        <div class="about">
+            <h1 class="title">Grapes Juice</h1>
+        </div>
+        <div class="counter">
+            <div class="btn">+</div>
+            <div class="count">1</div>
+            <div class="btn">-</div>
+        </div>
+        <div class="prices">
+            <div class="amount">$3.19</div>
+            <div class="remove"><u>Remove</u></div>
+        </div>
+    </div>
+    <hr>
+    <div class="checkout">
+        <div class="total">
+            <div>
+                <div class="Subtotal">Sub-Total</div>
+                <div class="items">2 items</div>
+            </div>
+            <div class="total-amount">$6.18</div>
+        </div>
+        <button class="button">Checkout</button></div>
 </div>
 
-<h1>Shop Here
-    <!--    <input type="button" onclick="window.location.href = 'login.html';" value="Login or Sign-Up" style="float: left;"/>-->
-    <!--    <input type="button" onclick="window.location.href = 'index.html';" value="Go to Cart" style="float: right;"/>-->
-</h1>
-<br>
-
-<!--<div class="container">-->
-<!--    <div class="column">-->
-<!--        <div class="card">-->
-<!--            <img src="https://tinyurl.com/mrycrmfu" alt="Nicol Bolas" style="width:65%">-->
-<!--            <h1>Nicol Bolas</h1>-->
-<!--            <p class="price">$19.99</p>-->
-<!--            <a class="add-cart cart 1" href="#">Add Cart</a>-->
-<!--            &lt;!&ndash;            <p><button name="nicol" id="nicol">Add to Cart</button></p>&ndash;&gt;-->
-<!--        </div>-->
-<!--    </div>-->
-
-<!--    <div class="column">-->
-<!--        <div class="card">-->
-<!--            <img src="https://m.media-amazon.com/images/I/61sZsAK343L._AC_SX425_.jpg" alt="Grogu" style="width:65%">-->
-<!--            <h1>Grogu</h1>-->
-<!--            <p class="price">$9.99</p>-->
-<!--            <a class="add-cart cart 2" href="#">Add Cart</a>-->
-<!--            &lt;!&ndash;            <p><button name="grogu" id="grogu">Add to Cart</button></p>&ndash;&gt;-->
-<!--        </div>-->
-<!--    </div>-->
-
-<!--    <div class="column">-->
-<!--        <div class="card">-->
-<!--            <img src="https://tinyurl.com/mvc7564k" alt="Dr. Strange" style="width:50%">-->
-<!--            <h1>Dr. Strange</h1>-->
-<!--            <p class="price">$24.99</p>-->
-<!--            <a class="add-cart cart 3" href="#">Add Cart</a>-->
-<!--            &lt;!&ndash;            <p><button name="drstrange" id="drstrange">Add to Cart</button></p>&ndash;&gt;-->
-<!--        </div>-->
-<!--    </div>-->
-
-<!--</div>-->
-<!--<br>-->
-
-
-<script src="./javascript/shoppingcart.js"></script>
-
-<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
-
-
-
+<script src="./javascript/cart.js"></script>
 
 </body>
 </html>
