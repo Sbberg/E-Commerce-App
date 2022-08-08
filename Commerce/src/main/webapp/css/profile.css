@@ -1,0 +1,30 @@
+h1{
+    text-align: center;
+    font-family: Arial;
+  }
+  .info{
+    text-align: center;
+  }
+  
+  table.center {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 30%;
+    margin-left:auto;
+    margin-right:auto;
+    table-layout: fixed;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+  div.info{
+      
+      text-align: center;
+  }
