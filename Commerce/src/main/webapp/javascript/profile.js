@@ -1,5 +1,5 @@
 //this finds current user and logs it in console
-let userStorage = localStorage.getItem('recentUser');
+let userStorage = localStorage.getItem('currentUser');
 let user = JSON.parse(userStorage);
 console.log(user);
 console.log(user.userId);
@@ -26,7 +26,7 @@ let userPasswordDisplay = document.getElementById("password-input")
     userPasswordDisplay.innerText =`${user.userPassword}`
 
 let balanceDisplay = document.getElementById("balance-input")
-    balanceDisplay.innerText =`${user.balance}`
+    balanceDisplay.innerText =`$${user.balance}`
 
 let greeting = document.getElementById("greeting")
 greeting.innerText = `Here you can change your information and add money to your account ${user.userFirstName}`;
