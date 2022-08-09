@@ -8,12 +8,22 @@ let button7 = document.getElementById("drstrange");
 let button8 = document.getElementById("grogu");
 let button9 = document.getElementById("chucky");
 
+let cartStorage = localStorage.getItem('currentCart');
+let cart =JSON.parse(cartStorage);
+
+console.group("CART")
+console.log(cart);
+console.log(cart.cartTotalPrice);
+console.log(cart.totalQuantityOfProductsInCart);
+console.log(cart.cartAddress);
+console.log(cart.cartUser);
+console.groupEnd("CART")
 
 //THESE NEED TO BE DEFINED FOR THE CART
-// let cartProduct1 = document.getElementById("cartProduct1").value;
-// console.log(cartProduct1)
-// let cartPrice1 = document.getElementById("cartPrice1").value;
-// console.log(cartPrice1)
+ let cartProduct1 = document.getElementById("cartProduct1");
+console.log(cartProduct1)
+let cartPrice1 = document.getElementById("cartPrice1");
+console.log(cartPrice1)
 
 //THIS NEED PARENT REFERENCE
 // let cartProduct1Display = document.getElementById("cartProduct1");
@@ -49,8 +59,8 @@ async function addToCart(){
         const json_data = await raw_response.json();
         //these will need to reference a parent class/local storage like the user i think
         //look at profile/homepage.js for reference.
-        cartProduct1.innerHTML = `${p_name}`;
-        cartPrice1.innerHTML = `${p_price}`;
+        cartProduct1.innerText = `${cart.totalQuantityOfProductsInCart}`;
+        cartPrice1.innerText = `${cart.totalQuantityOfProductsInCart}`;
     } catch (error) {
         alert("Item not added" + error)
     }
