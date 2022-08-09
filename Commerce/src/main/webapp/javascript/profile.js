@@ -1,9 +1,11 @@
 //this finds current user and logs it in console
 let userStorage = localStorage.getItem('currentUser');
+console.log(userStorage);
 let user = JSON.parse(userStorage);
 console.log(user);
 console.log(user.userId);
 console.log(user.userName);
+
 
 
 //defines and changes that greeting header
@@ -130,7 +132,7 @@ function showUserInfo(userData){}
 
         //console all the json information inside a group
         // console.group("User Data")
-        console.log(data);
+        console.log("data: " + data);
         // console.log(data[0].userId);
         // console.log(data[0].username);
         // console.log(data[0].email);
@@ -138,9 +140,21 @@ function showUserInfo(userData){}
         // console.log(data[0].balance);
         // console.groupEnd("User Data")
 
+        // localStorage.setItem('currentUser' , JSON.stringify(jsonUpdateInfo));
+        // let userStorage = localStorage.getItem('currentUser');
+        // console.log("USERSTORAGE "+userStorage);
+        // let user = JSON.parse(userStorage);
+        // console.log("USER "+user);
+        // console.log("LOCALSTORE "+localStorage.getItem('currentUser'))
+        
+
+        setTimeout(()=>{ 
+            
+            //window.location.reload();
+
+        }, 5 * 1000)
         
         
-        // window.location.reload();
 
             //checks to make sure on fields are empty
     //         if(username == null || password == null || email == null ||
@@ -161,3 +175,36 @@ function showUserInfo(userData){}
         
     }
 };
+
+async function login(){
+    
+
+        let loginBody = {
+            userName:user.userName,
+            userPassword:user.userPassword
+        };
+        let JsonLoginBody = JSON.stringify(loginBody);
+        
+
+    try{
+        const raw_response = await fetch(`http://localhost:8080/commerce/userusername`, 
+            {
+                method:"POST",
+                headers:{
+                    "Content-Type":"application/json",
+                    "Access-Control-Allow-Origin": "*"
+            },
+             body:JsonLoginBody
+        });
+
+      const content = await raw_response.json();
+
+      console.log(userName)
+      console.log(userPassword) 
+      console.log(raw_response)
+      console.log(content);
+      localStorage.setItem('currentUser' , JSON.stringify(content));
+    }catch(error){
+      console.log(error)
+    }
+    };
