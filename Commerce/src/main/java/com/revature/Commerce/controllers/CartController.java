@@ -5,6 +5,7 @@ import com.revature.Commerce.models.ClientMessage;
 import com.revature.Commerce.services.CartService;
 import org.springframework.http.HttpStatus;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import static com.revature.Commerce.utils.ClientMessageUtils.*;
@@ -32,11 +33,30 @@ public class CartController {
         return cartService.getAllCarts();
     }
 
-    @PostMapping(value = "/cart")
+    @PostMapping(value = "/cart", consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.ACCEPTED)
     public @ResponseBody ClientMessage createCart(@RequestBody Cart cart){
+        System.out.println(cart);
+        System.out.println(cart.getCartId());
+        System.out.println(cart.getCartAddress());
+        System.out.println(cart.getCartTotalPrice());
+        System.out.println(cart.getTotalQuantityOfProductsInCart());
+        System.out.println(cart.getCartUser());
         return cartService.createCart(cart) ? CREATION_SUCCESSFUL:CREATION_FAILED;
     }
+
+    /*
+        @PostMapping(value = "/userusername", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    public @ResponseBody User getUserByUsername(@RequestBody User user){
+        System.out.println(user);
+        String userName = user.getUserName();
+        String userPassword = user.getUserPassword();
+        System.out.println(userName);
+        System.out.println(userPassword);
+        return userService.getByUsername(userName, userPassword);
+    }
+     */
 
     @PutMapping(value = "/cartByCartId")
     public @ResponseBody ClientMessage updateCartByCartId(@RequestBody Cart cart){

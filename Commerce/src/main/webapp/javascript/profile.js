@@ -56,9 +56,6 @@ function showUserInfo(userData){}
  async function updateUserInfo(event){
     event.preventDefault();
 
-    let form = document.getElementById("form");
-
-
     //variable grabbed for user information
     let userId = user.userId;
 
