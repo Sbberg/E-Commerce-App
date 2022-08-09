@@ -119,17 +119,17 @@ h1{
 <h1>Customer Login</h1>
 <hr>
 <p><b>Please log in to access your account!</b></p>
-<!-- <form action="userbyusername" method="POST"> -->
-    <label>Username</label>
+<form id="loginForm">
+    <label for="usernameSignIn">Username</label>
     <br>
-    <input type="text" id="username-sign-in" name="username-sign-in">
+    <input type="text" id="usernameSignIn">
     <br>
-    <label>Password</label>
+    <label for="passwordSignIn">Password</label>
     <br>
-    <input type="password" id="password-sign-in" name="password-sign-in">
+    <input type="password" id="passwordSignIn">
     <br>
-    <input type="submit" id="login-button" value="Enter">
-<!-- </form> -->
+    <button id="login-button" onclick="loginUser(event);">Login</button>
+</form>
 
 <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">If you don't have an account yet, please sign up!</button>
 
