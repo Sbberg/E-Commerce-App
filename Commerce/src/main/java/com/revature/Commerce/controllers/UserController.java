@@ -31,9 +31,11 @@ public class UserController {
         return userService.getAllUsers();
     }
 
-    @PostMapping(value = "/userbyusername", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "/userusername", consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.ACCEPTED)
-    public @ResponseBody User getUserByUsername(@RequestParam(name = "username-sign-in", defaultValue = "ericcurielput", required = false) String userName,@RequestParam(name = "password-sign-in", defaultValue="ericpasswordput", required = false) String userPassword){ //@RequestParam(name="username-sign-in") @RequestParam(name="password-sign-in")
+    public @ResponseBody User getUserByUsername(@RequestBody User user){//@RequestParam(name="username-sign-in") @RequestParam(name="password-sign-in")
+        String userName = user.getUserName();
+        String userPassword = user.getUserPassword();
         System.out.println(userName);
         System.out.println(userPassword);
         return userService.getByUsername(userName, userPassword);

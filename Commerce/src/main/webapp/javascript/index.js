@@ -1,36 +1,56 @@
 //FOR LOGGING IN
 var loginButton = document.getElementById("login-button");
-var username1 = document.getElementById("username-sign-in").value;
-var userpassword = document.getElementById("password-sign-in").value;
+
 // var userName = username;
-// console.log(userName)
 // var userPassword = userpassword;
-// console.log(userPassword)
 
 
 
 
 
-loginButton.addEventListener("click", async() => {
+async function loginUser(event){
+    event.preventDefault();
+    // loginButton.addEventListener("click", async() => {
+   
+        var userName1 = document.getElementById('usernameSignIn').value;
+        var userPassword1 = document.getElementById('passwordSignIn').value;
+        console.log(userName1)
+        console.log(userPassword1)  
+
+        let loginBody = {
+            userName:userName1,
+            userPassword:userPassword1
+        };
+        console.log(loginBody)
+
+        let JsonLoginBody = JSON.stringify(loginBody);
+        console.log(JsonLoginBody)
+
     try{
-    const rawResponse = await fetch('http://localhost:8080/commerce/userbyusername', {
-        method: 'POST',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({userName: username1},{userPassword:userpassword})
-      });
-      const content = await rawResponse.json();
-      console.log(rawResponse)
+        const raw_response = await fetch(`http://localhost:8080/commerce/userusername`, 
+            {
+                method:"POST",
+                headers:{
+                    "Content-Type":"application/json",
+                    "Access-Control-Allow-Origin": "*",
+                    // "userName": userName1,
+                    // "userPassword": userPassword1
+            },
+             body:JsonLoginBody
+        });
+
+      const content = await raw_response.json();
+
+      console.log(userName1)
+      console.log(userPassword1) 
+      console.log(raw_response)
       console.log(content);
       localStorage.setItem('currentUser' , JSON.stringify(content));
-      window.location.replace("home.html");
+    //   window.location.replace("home.html");
     }catch(error){
       console.log(error)
     }
-    });
-
+    };
 // var userjsondata = {
 //     "userName":username,
 //     "userPassword":userpassword
