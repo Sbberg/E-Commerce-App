@@ -45,6 +45,7 @@ let button = document.getElementById("button");
 //save user info
 // button.onclick = updateUserInfo();
 
+let userId = user.userId;
 
 
 
@@ -57,7 +58,8 @@ function showUserInfo(userData){}
     event.preventDefault();
 
     //variable grabbed for user information
-    let userId = user.userId;
+    
+    
 
     let userName = document.getElementById("username-input").value;
 
@@ -137,17 +139,18 @@ function showUserInfo(userData){}
         // console.log(data[0].balance);
         // console.groupEnd("User Data")
 
-        // localStorage.setItem('currentUser' , JSON.stringify(jsonUpdateInfo));
+        //localStorage.setItem('currentUser' , jsonUpdateInfo);
         // let userStorage = localStorage.getItem('currentUser');
         // console.log("USERSTORAGE "+userStorage);
         // let user = JSON.parse(userStorage);
-        // console.log("USER "+user);
-        // console.log("LOCALSTORE "+localStorage.getItem('currentUser'))
+        console.log("USER "+user);
+        console.log("LOCALSTORE "+localStorage.getItem('currentUser'))
         
+        login();
 
         setTimeout(()=>{ 
             
-            //window.location.reload();
+            window.location.reload();
 
         }, 5 * 1000)
         
@@ -177,14 +180,13 @@ async function login(){
     
 
         let loginBody = {
-            userName:user.userName,
-            userPassword:user.userPassword
+            userId:userId
         };
         let JsonLoginBody = JSON.stringify(loginBody);
         
 
     try{
-        const raw_response = await fetch(`http://localhost:8080/commerce/userusername`, 
+        const raw_response = await fetch(`http://localhost:8080/commerce/userId`, 
             {
                 method:"POST",
                 headers:{
@@ -196,11 +198,14 @@ async function login(){
 
       const content = await raw_response.json();
 
-      console.log(userName)
-      console.log(userPassword) 
-      console.log(raw_response)
+      console.log(user.userName);
+      console.log(user.userPassword);
+      console.log(raw_response);
       console.log(content);
+
       localStorage.setItem('currentUser' , JSON.stringify(content));
+
+      
     }catch(error){
       console.log(error)
     }
