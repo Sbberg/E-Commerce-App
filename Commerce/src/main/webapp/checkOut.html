@@ -1,8 +1,17 @@
+<html>
+    
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./css/cart.css" >
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,900" rel="stylesheet">
+    <title>Checkout</title>
+</head>
+
 <div class="container">
 
-         <link rel="stylesheet" href="./css/checkOut.css" ></link>
-    
-    
+         <link rel="stylesheet" href="./css/checkOut.css" ></link>       
     
         <div class="title">
     
@@ -12,13 +21,13 @@
     
       <div class="d-flex">
     
-        <form action="" method="">
+        <form>
     
           <label>
     
             <span class="fname">First Name <span class="required">*</span></span>
     
-            <input type="text" name="fname">
+            <input type="text" name="fname" id="fName">
     
           </label>
     
@@ -26,7 +35,7 @@
     
             <span class="lname">Last Name <span class="required">*</span></span>
     
-            <input type="text" name="lname">
+            <input type="text" name="lname" id="lName">
     
           </label>
     
@@ -546,7 +555,7 @@
     
             <span>Street Address <span class="required">*</span></span>
     
-            <input type="text" name="houseadd" placeholder="House number and street name" required>
+            <input type="text" name="houseadd" placeholder="House number and street name" id="addressInput" required>
     
           </label>
     
@@ -594,7 +603,7 @@
     
             <span>Email Address <span class="required">*</span></span>
     
-            <input type="email" name="city">
+            <input type="email" name="city" id="emailInput">
     
           </label>
     
@@ -612,17 +621,17 @@
     
             <tr>
     
-              <td>Product Name x 2(Qty)</td>
+              <td >Product Name x 2(Qty)</td>
     
-              <td>$00.00</td>
+              <td id="Product1">$00.00</td>
     
             </tr>
     
             <tr>
     
-              <td>Subtotal</td>
+              <td >Subtotal</td>
     
-              <td>$00.00</td>
+              <td id="subtotal">$00.00</td>
     
             </tr>
     
@@ -638,7 +647,7 @@
     
           <div>
     
-            <input type="radio" name="dbt" value="dbt" checked>Account Balance
+            <input type="radio" name="dbt" value="dbt" checked>Account Balance</input>
     
           </div>
     
@@ -673,4 +682,4 @@
       </div>
     
     
-    
+    </html>
