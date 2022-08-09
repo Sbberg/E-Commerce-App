@@ -9,10 +9,51 @@ let button8 = document.getElementById("grogu");
 let button9 = document.getElementById("chucky");
 
 //Getting Specific Amounts of Specific Products in Cart
-// var editNicolInCart = new Number(JSON.parse(localStorage.getItem('nicolInCart')));
-// console.log(editNicolInCart);
-// var nicolDisplay = document.getElementById("nicol");
-// nicolDisplay.innerText =`${editNicolInCart}`;
+var editNicolInCart = new Number(JSON.parse(localStorage.getItem('nicolInCart')));
+console.log(editNicolInCart);
+var nicolDisplay = document.getElementById("nicol");
+nicolDisplay.innerText =`${editNicolInCart}`;
+
+var editGroguInCart = new Number(JSON.parse(localStorage.getItem('groguInCart')));
+console.log(editGroguInCart);
+var groguDisplay = document.getElementById("grogu");
+groguDisplay.innerText =`${editGroguInCart}`;
+
+var editDrStrangeInCart = new Number(JSON.parse(localStorage.getItem('drStrangeInCart')));
+console.log(editDrStrangeInCart);
+var drStrangeDisplay = document.getElementById("drStrange");
+drStrangeDisplay.innerText =`${editDrStrangeInCart}`;
+
+var editStephenCurryInCart = new Number(JSON.parse(localStorage.getItem('stephenCurryInCart')));
+console.log(editStephenCurryInCart);
+var stephenCurryDisplay = document.getElementById("stephenCurry");
+stephenCurryDisplay.innerText =`${editStephenCurryInCart}`;
+
+var editStarWarsInCart = new Number(JSON.parse(localStorage.getItem('starWarsInCart')));
+console.log(editStarWarsInCart);
+var starWarsDisplay = document.getElementById("starWars");
+starWarsDisplay.innerText =`${editStarWarsInCart}`;
+
+var editElevenInCart = new Number(JSON.parse(localStorage.getItem('elevenInCart')));
+console.log(editElevenInCart);
+var elevenDisplay = document.getElementById("eleven");
+elevenDisplay.innerText =`${editElevenInCart}`;
+
+var editChuckyInCart = new Number(JSON.parse(localStorage.getItem('chuckyBrideInCart')));
+console.log(editChuckyInCart);
+var chuckyDisplay = document.getElementById("chucky");
+chuckyDisplay.innerText =`${editChuckyInCart}`;
+
+var editJackInCart = new Number(JSON.parse(localStorage.getItem('jackInCart')));
+console.log(editJackInCart);
+var jackSkellingtonDisplay = document.getElementById("jackSkellington");
+jackSkellingtonDisplay.innerText =`${editJackInCart}`;
+
+var editDeadpoolInCart = new Number(JSON.parse(localStorage.getItem('deadpoolInCart')));
+console.log(editDeadpoolInCart);
+var deadpoolDisplay = document.getElementById("deadpool");
+deadpoolDisplay.innerText =`${editDeadpoolInCart}`;
+
 getAllCarts();
 async function getAllCarts(){
     try {
@@ -39,6 +80,7 @@ async function getAllCarts(){
     }
 };
 
+//Getting Current Cart
 var allCarts = JSON.parse(localStorage.getItem('allCarts'));
 console.log(allCarts);
 var allCartsLength = allCarts.length;
@@ -46,8 +88,20 @@ console.log(allCartsLength-1);
 var currentCart = allCarts[(allCartsLength-1)];
 console.log(currentCart);
 
+//Storing Current Cart
 localStorage.setItem('currentCart',JSON.stringify(currentCart));
 
+
+//Total Price of Cart sent from Home Page
+var totalPrice = currentCart.cartTotalPrice;
+console.log(totalPrice);
+var totalPriceField = document.getElementById("totalPrice");
+totalPriceField.innerText = `$ ${totalPrice}`;
+
+//Total Amount of Items in Cart sent from Home Page
+var totalItems = currentCart.totalQuantityOfProductsInCart;
+var totalItemsField = document.getElementById("totalItems");
+totalItemsField.innerText = `${totalItems} items`;
 
 
 
