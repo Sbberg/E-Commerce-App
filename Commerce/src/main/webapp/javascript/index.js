@@ -46,7 +46,7 @@ async function loginUser(event){
       console.log(raw_response)
       console.log(content);
       localStorage.setItem('currentUser' , JSON.stringify(content));
-    //   window.location.replace("home.html");
+      window.location.replace("home.html");
     }catch(error){
       console.log(error)
     }

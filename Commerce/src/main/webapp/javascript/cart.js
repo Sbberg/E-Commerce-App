@@ -1,5 +1,12 @@
-
-let button1 = document.getElementById("nicol");
+let button1 = document.getElementById("nicol")
+let button2 = document.getElementById("Stephen Curry");
+let button3 = document.getElementById("star wars");
+let button4 = document.getElementById("Eleven");
+let button5 = document.getElementById("Jack Skellington");
+let button6 = document.getElementById("Deadpool");
+let button7 = document.getElementById("drstrange");
+let button8 = document.getElementById("grogu");
+let button9 = document.getElementById("chucky");
 
 
 //THESE NEED TO BE DEFINED FOR THE CART
@@ -20,6 +27,7 @@ button1.onclick = addToCart();
 //needs to create cart for current user THEN add to cart
 //if (whatever != null)
 async function addToCart(){
+
     console.log()
     try {
         //this is currently a get method cause that is the default
@@ -34,16 +42,11 @@ async function addToCart(){
     //     }
     // }
     );
-        
-
         if(!raw_response.ok){
             throw new Error(raw_response.status)
         }
-        
         console.log("Request complete")
-
         const json_data = await raw_response.json();
-        
         //these will need to reference a parent class/local storage like the user i think
         //look at profile/homepage.js for reference.
         cartProduct1.innerHTML = `${p_name}`;
@@ -52,3 +55,7 @@ async function addToCart(){
         alert("Item not added" + error)
     }
 };
+
+function cartPrice(){
+
+}

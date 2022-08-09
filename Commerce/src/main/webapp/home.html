@@ -1,3 +1,10 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome!</title>
+</head>
+
 <body>
   <!-- ID changed below -->
 <h1 id="homelabel">Welcome!
@@ -12,10 +19,15 @@
           <h1>Nicol Bolas</h1>
           <p class="price">$19.99</p>
           <p>Check out the other Magic The Gathering POP figures from Funko!
-              Stands 6 Inch tall
+              Stands 6" tall.
               Collect them all!
               </p>
-          <p><button name="nicol" id="nicol">Add to Cart</button></p>
+          <p><button id="nicolbtn" onclick="cartProductNicol(event);">Add to Cart</button></p>
+          <select type="number" name="nicol" id="nicol">
+            <option value=1>1</option>
+            <option value=2>2</option>
+            <option value=3>3</option>
+          </select>
           <p class="inventory">100</p>
       </div>
   </div>
@@ -25,11 +37,16 @@
           <img src="https://m.media-amazon.com/images/I/61sZsAK343L._AC_SX425_.jpg" alt="Grogu" style="width:65%">
           <h1>Grogu</h1>
           <p class="price">$9.99</p>
-          <p>Collect Pop! Grogu with Cookie for your collection of Star Wars The Mandalorian.
-              Vinyl bobblehead is approximately 3.75-inches tall.
+          <p>Collect Pop! Grogu for your collection of Star Wars The Mandalorian.
+              Stands 3.75" tall.
               Mando may be busy with serious matters but The Child was hungry.
               Collect them all!</p>
-          <p><button name="grogu" id="grogu">Add to Cart</button></p>
+          <p><button id="grogubtn" onclick="addToCart();">Add to Cart</button></p>
+          <select name="grogu" id="grogu">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
           <p class="inventory">100</p>
       </div>
   </div>
@@ -41,7 +58,12 @@
           <p class="price">$24.99</p>
           <p>Test the limits of reality and leap into the Marvel multiverse with Pop!
                Doctor Strange from Doctor Strange in the Multiverse of Madness!</p>
-          <p><button name="drstrange" id="drstrange">Add to Cart</button></p>
+          <p><button id="drstrangebtn" onclick="addToCart();">Add to Cart</button></p>
+          <select name="drstrange" id="drstrange">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
           <p class="inventory">100</p>
       </div>
   </div>
@@ -53,8 +75,13 @@
           <img src="https://cdn11.bigcommerce.com/s-xt2pgktzuh/images/stencil/1280x1280/products/1273/3808/889698344494__12615.1652802254.jpg?c=1" alt="Stephen Curry" style="width:65%">
           <h1>Stephen Curry</h1>
           <p class="price">$19.99</p>
-          <p>Stylized collectable stands 3 ¾ " tall, perfect for any Warriors fan!</p>
-          <p><button name="Stephen Curry" id="Stephen Curry">Add to Cart</button></p>
+          <p>Stylized collectable stands 3.75" tall, perfect for any Warriors fan!</p>
+          <p><button id="Stephen Currybtn" onclick="addToCart();">Add to Cart</button></p>
+          <select name="Stephen Curry" id="Stephen Curry">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
           <p class="inventory">100</p>
       </div>
   </div>
@@ -65,7 +92,12 @@
           <h1>Star Wars: The Bad Batch Vinyl Figure 5 Pack</h1>
           <p class="price">$9.99</p>
           <p>Not all clones are created equal.</p>
-          <p><button name="Star Wars: The Bad Batch Vinyl Figure 5 Pack" id="star wars">Add to Cart</button></p>
+          <p><button id="star warsbtn" onclick="addToCart();">Add to Cart</button></p>
+          <select name="star wars" id="star wars">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
           <p class="inventory">100</p>
       </div>
   </div>
@@ -77,7 +109,12 @@
           <p class="price">$24.99</p>
           <p>From Stranger Things, Eleven with Eggos, as a stylized POP vinyl from Funko.
           </p>
-          <p><button name="Stranger Things Eleven with Eggos" id="Eleven">Add to Cart</button></p>
+          <p><button id="Elevenbtn" onclick="addToCart();">Add to Cart</button></p>
+          <select name="Eleven" id="Eleven">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
           <p class="inventory">100</p>
       </div>
   </div>
@@ -90,7 +127,12 @@
           <h1>Bride of Chucky - Chucky</h1>
           <p class="price">$19.99</p>
           <p>Schedule a playdate with Bride of Chucky Pop! Chucky. Capture him to haunt your Pop! Movies collection.</p>
-          <p><button name="Bride of Chucky - Chucky" id="chucky">Add to Cart</button></p>
+          <p><button id="chuckybtn" onclick="addToCart();">Add to Cart</button></p>
+          <select name="chucky" id="chucky">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
           <p class="inventory">100</p>
       </div>
   </div>
@@ -101,11 +143,15 @@
           <h1>The Nightmare Before Christmas</h1>
           <p class="price">$9.99</p>
           <p>Bow down before the Pumpkin King! This exclusive Pop! 
-              VHS Cover of The Nightmare Before Christmas features Jack Skellington as he ascends Spiral Hill. 
-              Pop! Jack Skellington comes pre-packaged in a premium protector case along with the VHS cover art from Tim Burton’s stop-motion animated film. 
-              Perfect for any Disney fan, this Pop! V
+              VHS Cover of The Nightmare Before Christmas features Jack Skellington as he ascends Spiral Hill.
+              Perfect for any Disney fan, this Pop!
                </p>
-          <p><button name="The Nightmare Before Christma" id="Jack Skellington">Add to Cart</button></p>
+          <p><button id="Jack Skellingtonbtn" onclick="addToCart();">Add to Cart</button></p>
+          <select name="Jack Skellington" id="Jack Skellington">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
           <p class="inventory">100</p>
       </div>
   </div>
@@ -113,11 +159,16 @@
   <div class="column">
       <div class="card">
           <img src="https://m.media-amazon.com/images/I/51bRqd5HngL._AC_.jpg" alt="Deadpool Playtime- Bob Ross" style="width:50%">
-          <h1>Deadpool Playtime- Bob Ross</h1>
+          <h1>Deadpool Playtime - Bob Ross</h1>
           <p class="price">$24.99</p>
           <p>From Deadpool Playtime, Bob Ross, as a stylized POP vinyl from Funko!
               Stylized collectable stands 3 ¾ inches tall, perfect for any Deadpool Playtime fan!</p>
-          <p><button name="Deadpool Playtime- Bob Ross" id="Deadpool">Add to Cart</button></p>
+          <p><button id="Deadpoolbtn" onclick="addToCart();">Add to Cart</button></p>
+          <select name="Deadpool" id="Deadpool">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
           <p class="inventory">100</p>
       </div>
   </div>
@@ -128,7 +179,7 @@
 <link rel="stylesheet" href="./css/home.css" ></link>
 
 <script src="./javascript/home.js"></script>
-<script src="./javascript/cart.js"></script>
+<!-- <script src="./javascript/cart.js"></script> -->
 
 </body>
 </html>
