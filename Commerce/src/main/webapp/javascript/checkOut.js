@@ -9,16 +9,16 @@ console.log(user.userName);
 console.groupEnd("USER");
 
 //Finds user's cart and price and logs it
-let cartStorage = localStorage.getItem('userCart');
+let cartStorage = localStorage.getItem('currentCart');
 let cart =JSON.parse(cartStorage);
 
-// console.group("CART")
-// console.log(cart);
-// console.log(cart.cartTotalPrice);
-// console.log(cart.totalQuantityOfProductsInCart);
-// console.log(cart.cartAddress);
-// console.log(cart.cartUser);
-// console.groupEnd("CART")
+console.group("CART")
+console.log(cart);
+console.log(cart.cartTotalPrice);
+console.log(cart.totalQuantityOfProductsInCart);
+console.log(cart.cartAddress);
+console.log(cart.cartUser);
+console.groupEnd("CART")
 
 //THIS WAS A TEST TO SEE ABOUT INTERPOLATING HTML CODE
 //var FirstNameDisplay =`<input type="text" name="fname" placeholder=${user.userFirstName} id="fName"/>`
@@ -42,5 +42,5 @@ subtotal = document.getElementById("subtotal").value;
 subtotalDisplay = document.getElementById("subtotal");
 console.log(subtotalDisplay);
 //THIS NEEDS TO BE CHANGED TO CART TOTAL
-subtotalDisplay.innerText = `$${user.balance + user.balance * 400.49} and ${8+9}`
+subtotalDisplay.innerText = `$${user.balance} - $${cart.cartTotalPrice}`
 

@@ -253,7 +253,8 @@ async function createCart(event){
         console.log(JSON.stringify(data));
 
         localStorage.setItem('currentCart', JSON.stringify(data));
-        window.replace("checkOut.html");
+        window.location.replace("cart.html");
+
     }catch(error){
         console.log(error)
     }
