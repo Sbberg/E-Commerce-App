@@ -30,6 +30,7 @@ public class CartController {
 
     @GetMapping(value = "/carts") 
     public @ResponseBody List<Cart> getAll(){
+        System.out.println("Getting all Carts");
         return cartService.getAllCarts();
     }
 
