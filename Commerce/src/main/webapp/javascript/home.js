@@ -17,6 +17,43 @@ var chuckyBrideInCart = new Number(0);
 var jackInCart = new Number(0);
 var deadpoolInCart = new Number(0);
 
+var nicolName = document.getElementById("nicolName").innerText;
+localStorage.setItem('nicolName', nicolName);
+console.log(localStorage.getItem('nicolName'));
+
+var groguName = document.getElementById("groguName").innerText;
+localStorage.setItem('groguName', groguName);
+console.log(localStorage.getItem('groguName'));
+
+var drStrangeName = document.getElementById("drStrangeName").innerText;
+localStorage.setItem('drStrangeName', drStrangeName);
+console.log(localStorage.getItem('drStrangeName'));
+
+var stephenCurryName = document.getElementById("stephenCurryName").innerText;
+localStorage.setItem('stephenCurryName', stephenCurryName);
+console.log(localStorage.getItem('stephenCurryName'));
+
+var starWarsName = document.getElementById("starWarsName").innerText;
+localStorage.setItem('starWarsName', starWarsName);
+console.log(localStorage.getItem('starWarsName'));
+
+var elevenName = document.getElementById("elevenName").innerText;
+localStorage.setItem('elevenName', elevenName);
+console.log(localStorage.getItem('elevenName'));
+
+var chuckyName = document.getElementById("chuckyName").innerText;
+localStorage.setItem('chuckyName', chuckyName);
+console.log(localStorage.getItem('chuckyName'));
+
+var jackSkellingtonName = document.getElementById("jackSkellingtonName").innerText;
+localStorage.setItem('jackSkellingtonName', jackSkellingtonName);
+console.log(localStorage.getItem('jackSkellingtonName'));
+
+var deadpoolName = document.getElementById("deadpoolName").innerText;
+localStorage.setItem('deadpoolName', deadpoolName);
+console.log(localStorage.getItem('deadpoolName'));
+
+
 function cartProductNicol(){
     var a = new Number(document.getElementById("nicol").value);
 
@@ -28,6 +65,8 @@ function cartProductNicol(){
     totalPrice = totalPrice + realprice1;
     nicolInCart=a;
     localStorage.setItem('nicolInCart' , JSON.stringify(nicolInCart));
+    localStorage.setItem('nicolPriceInCart', price1);
+    console.log(localStorage.getItem('nicolPriceInCart'))
     console.log(JSON.stringify(nicolInCart));
 
     console.log(a);
@@ -51,6 +90,8 @@ function cartProductGrogu(){
     totalPrice = totalPrice + realprice2;
     groguInCart = b;
     localStorage.setItem('groguInCart' , JSON.stringify(groguInCart));
+    localStorage.setItem('groguPriceInCart', price2);
+    console.log(localStorage.getItem('groguPriceInCart'))
 
     console.log(b);
 
@@ -73,6 +114,8 @@ function cartProductDrStrange(){
     totalPrice = totalPrice + realprice3;
     drStrangeInCart = c;
     localStorage.setItem('drStrangeInCart' , JSON.stringify(drStrangeInCart));
+    localStorage.setItem('drStrangePriceInCart', price3);
+    console.log(localStorage.getItem('drStrangePriceInCart'))
 
     console.log(c);
     console.log(pricestring3);
@@ -94,6 +137,9 @@ function cartProductStephenCurry(){
     totalPrice = totalPrice + realprice4;
     stephenCurryInCart = d;
     localStorage.setItem('stephenCurryInCart' , JSON.stringify(stephenCurryInCart));
+    localStorage.setItem('stephenCurryPriceInCart', price4);
+    console.log(localStorage.getItem('stephenCurryPriceInCart'))
+    
 
     console.log(d);
     console.log(pricestring4);
@@ -115,6 +161,8 @@ function cartProductStarWars(){
     totalPrice = totalPrice + realprice5;
     starWarsInCart = e;
     localStorage.setItem('starWarsInCart' , JSON.stringify(starWarsInCart));
+    localStorage.setItem('starWarsPriceInCart', price5);
+    console.log(localStorage.getItem('starWarsPriceInCart'))
 
     console.log(e);
     console.log(pricestring5);
@@ -136,6 +184,8 @@ function cartProductEleven(){
     totalPrice = totalPrice + realprice6;
     elevenInCart = f;
     localStorage.setItem('elevenInCart' , JSON.stringify(elevenInCart));
+    localStorage.setItem('elevenPriceInCart', price6);
+    console.log(localStorage.getItem('elevenPriceInCart'))
 
     console.log(f);
     console.log(pricestring6);
@@ -158,6 +208,8 @@ function cartProductChucky(){
     totalPrice = totalPrice + realprice7;
     chuckyBrideInCart = g;
     localStorage.setItem('chuckyBrideInCart' , JSON.stringify(chuckyBrideInCart));
+    localStorage.setItem('chuckyBridePriceInCart', price7);
+    console.log(localStorage.getItem('chuckyBridePriceInCart'))
 
     console.log(g);
     console.log(pricestring7);
@@ -179,6 +231,8 @@ function cartProductJackSkellington(){
     totalPrice = totalPrice + realprice8;
     jackInCart = h;
     localStorage.setItem('jackInCart' , JSON.stringify(jackInCart));
+    localStorage.setItem('jackPriceInCart', price8);
+    console.log(localStorage.getItem('jackPriceInCart'))
 
     console.log(h);
     console.log(pricestring8);
@@ -201,6 +255,8 @@ function cartProductDeadpool(){
     totalPrice = totalPrice + realprice9;
     deadpoolInCart = i;
     localStorage.setItem('deadpoolInCart' , JSON.stringify(deadpoolInCart));
+    localStorage.setItem('deadpoolPriceInCart', price9);
+    console.log(localStorage.getItem('deadpoolPriceInCart'))
 
     console.log(i);
     console.log(pricestring9);
@@ -252,7 +308,7 @@ async function createCart(event){
         console.log(data);
         console.log(JSON.stringify(data));
 
-        localStorage.setItem('currentCart', JSON.stringify(data));
+        localStorage.setItem('currentCart',jsonCartInfo);
         window.location.replace("cart.html");
 
     }catch(error){
