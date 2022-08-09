@@ -33,7 +33,8 @@ public class UserController {
 
     @PostMapping(value = "/userusername", consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.ACCEPTED)
-    public @ResponseBody User getUserByUsername(@RequestBody User user){//@RequestParam(name="username-sign-in") @RequestParam(name="password-sign-in")
+    public @ResponseBody User getUserByUsername(@RequestBody User user){
+        System.out.println(user);
         String userName = user.getUserName();
         String userPassword = user.getUserPassword();
         System.out.println(userName);
