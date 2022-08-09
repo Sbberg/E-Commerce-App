@@ -42,6 +42,13 @@ public class UserController {
         return userService.getByUsername(userName, userPassword);
     }
 
+    @PostMapping(value = "/userId", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    public @ResponseBody User postUserId(@RequestBody User user){
+        int userId = user.getUserId();
+        return userService.getUserById(userId);
+    }
+
     @PostMapping("/user")
     @ResponseStatus(HttpStatus.ACCEPTED)
     public @ResponseBody ClientMessage createUser(@RequestBody User user){
