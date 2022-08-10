@@ -2076,3 +2076,15 @@
 2022-08-10 14:13:48 INFO  LoggingAspect:17 - Info advice before method: class com.revature.Commerce.services.ProductServiceImpl: getAllProducts
 2022-08-10 14:13:48 INFO  LoggingAspect:22 - Info advice after [Method Was Successful]: class com.revature.Commerce.services.ProductServiceImpl: getAllProducts
 2022-08-10 14:13:48 INFO  LoggingAspect:37 - End of Advice
+2022-08-10 13:50:08 INFO  LoggingAspect:32 - Info advice around method: class com.revature.Commerce.services.UserServiceImpl: getByUsername
+2022-08-10 13:50:08 INFO  LoggingAspect:17 - Info advice before method: class com.revature.Commerce.services.UserServiceImpl: getByUsername
+2022-08-10 13:50:08 INFO  LoggingAspect:22 - Info advice after [Method Was Successful]: class com.revature.Commerce.services.UserServiceImpl: getByUsername
+2022-08-10 13:50:08 INFO  LoggingAspect:37 - End of Advice
+2022-08-10 13:50:15 INFO  LoggingAspect:32 - Info advice around method: class com.revature.Commerce.services.CartServiceImpl: createCart
+2022-08-10 13:50:15 INFO  LoggingAspect:17 - Info advice before method: class com.revature.Commerce.services.CartServiceImpl: createCart
+2022-08-10 13:50:15 INFO  LoggingAspect:22 - Info advice after [Method Was Successful]: class com.revature.Commerce.services.CartServiceImpl: createCart
+2022-08-10 13:50:15 INFO  LoggingAspect:37 - End of Advice
+2022-08-10 13:52:22 INFO  LoggingAspect:32 - Info advice around method: class com.revature.Commerce.services.CartServiceImpl: createCart
+2022-08-10 13:52:22 INFO  LoggingAspect:17 - Info advice before method: class com.revature.Commerce.services.CartServiceImpl: createCart
+2022-08-10 13:52:22 INFO  LoggingAspect:22 - Info advice after [Method Was Successful]: class com.revature.Commerce.services.CartServiceImpl: createCart
+2022-08-10 13:52:22 INFO  LoggingAspect:37 - End of Advice
