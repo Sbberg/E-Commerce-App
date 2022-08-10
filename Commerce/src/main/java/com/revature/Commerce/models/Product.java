@@ -12,7 +12,7 @@ public class Product {
     @Column(name = "p_id")
     private int productId;
 
-    @Column(name = "p_name", nullable = false, unique = true)
+    @Column(name = "p_name", nullable = false)
     private String productName;
 
     @Column(name="p_price",nullable = false)
@@ -33,6 +33,12 @@ public class Product {
     public Product(int productId) {
         super();
         this.productId = productId;
+    }
+
+    public Product(int productId, int inventory) {
+        super();
+        this.productId = productId;
+        this.inventory = inventory;
     }
 
     public Product(String productName) {
