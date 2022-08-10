@@ -43,7 +43,7 @@ deadpoolDisplay.innerText =`${editDeadpoolInCart}`;
 //Total Price of Cart sent from Home Page
 var totalPrice = Number(c_Cart.cartTotalPrice);
 var totalPriceField = document.getElementById("totalPrice");
-totalPriceField.innerText = `$${c_Cart.cartTotalPrice}`
+totalPriceField.innerText = `$${c_Cart.cartTotalPrice.toFixed(2)}`
 
 
 //Total Amount of Items in Cart sent from Home Page
@@ -86,54 +86,34 @@ console.log(editJackInCart);
 console.log(editDeadpoolInCart);
 console.groupEnd("Local Products")
 
-console.log("Total Price: " + totalPrice.toFixed());
-console.log("Total Price type: " + typeof(Number(totalPrice.toFixed())) + " " + Number(totalPrice.toFixed(2)) );
-console.log("TotalQuantity: " + c_Cart.totalQuantityOfProductsInCart)
-console.log("TotalQuantity Type: " + typeof(c_Cart.totalQuantityOfProductsInCart))
 
+console.log("Total Price type: " + typeof(Number(totalPrice.toFixed()))  + Number(totalPrice.toFixed(2)) );
+console.log("TotalQuantity: " + c_Cart.totalQuantityOfProductsInCart + " " + typeof(c_Cart.totalQuantityOfProductsInCart))
+
+
+//Update function that is called on confirm Amount
 async function totalUpdate(){
+    console.group("UpdateFunction")
+    //Quantity
     cartNum = Number(newAmt1)+Number(newAmt2)+Number(newAmt3)+Number(newAmt4)+Number(newAmt5)+Number(newAmt6)+Number(newAmt7)+Number(newAmt8)+Number(newAmt9);
     console.log("CartNum: " + cartNum)
     c_Cart.totalQuantityOfProductsInCart = Number(cartNum);
     
+    //Price
+    //c_Cart.cartTotalPrice = Number(c_Cart.cartTotalPrice) + Number(newAmt1 * newPrice1)+Number(newAmt2* newPrice2)+Number(newAmt3 * newPrice3)+Number(newAmt4* newPrice4)+Number(newAmt5* newPrice5)+Number(newAmt6* newPrice6)+Number(newAmt7* newPrice7)+Number(newAmt8* newPrice8)+Number(newAmt9* newPrice9)
+    console.log("CartTotalPrice: " + c_Cart.cartTotalPrice)
     console.log(c_Cart.totalQuantityOfProductsInCart)
     localStorage.setItem('currentCart' , JSON.stringify(c_Cart));    
     setTimeout(()=>{
-        window.location.reload();
-    }, 6000)
-    
+        //window.location.reload();
+    }, 5000)
+    console.groupEnd("UpdateFunction")
 }
 
-async function getAllCarts(){
-    try {
-        const raw_response = await fetch(`http://3.84.16.120:8080/commerce/carts`,
-        {
-            headers:{
-                "Content-Type":"application/json",
-                "Access-Control-Allow-Origin": "*", 
-            } 
-        });
-
-        if(!raw_response.ok){
-            throw new Error(raw_response.status)
-        }
-
-        const data = await raw_response.json();
-
-        console.log(data);
-        console.log(JSON.stringify(data));
-        localStorage.setItem('allCarts',JSON.stringify(data));
-
-    }catch(error){
-        console.log(error)
-    }
-};
 
 //TOTAL CART PRODUCT QUANTITY AFTER ADJUSTMENTS
 function addUpNewAmts(event){
     event.preventDefault;
-
-    
     
     window.location.replace("checkOut.html");
 }
@@ -152,7 +132,7 @@ function changeNicolAmt(event){
     console.log("NewAmt1 " + typeof(newAmt1) + newAmt1)
     nicolInCart = JSON.parse(localStorage.getItem('nicolInCart'))
     console.log("nicolincart " + typeof(nicolInCart) + nicolInCart)
-    localStorage.setItem('nicolInCart' , JSON.stringify(nicolInCart))
+    
 
 
     console.log("Amount: " + nicolInCart);
@@ -160,34 +140,57 @@ function changeNicolAmt(event){
     let price1 = Number(pricestring1.slice(1,pricestring1.length));
     console.log("Price 1: " + typeof(price1) + price1)
     newPrice1 = price1 * newAmt1;
-    console.log("New Price "+ typeof(newPrice1) +newPrice1)
+    console.log("new price 1:" + newPrice1)
+    
 
     if(Number(newAmt1) > Number(JSON.parse(localStorage.getItem('nicolInCart')))){
-        totalPrice = totalPrice + (newPrice1-totalPrice);
-        console.log("TPrice: "+ typeof(totalPrice) + totalPrice)        
-        localStorage.setItem('nicolInCart', JSON.stringify(newAmt1))
-        console.log("Price of products: " + JSON.parse(localStorage.getItem('nicolInCart')))
+
+        //Total price
+        oldAmount = Number(JSON.parse(localStorage.getItem('nicolInCart'))) * price1
+        totalPrice = totalPrice - oldAmount;
+        totalPrice = totalPrice + newPrice1;        
+        nicolInCart = Number(newAmt1);
+
+        //console checks
+        console.log("IF");
+        console.log("Old Amount: "+ oldAmount)
+        console.log("TPrice: "+ typeof(totalPrice) + totalPrice); 
+        console.log("New Price "+ typeof(newPrice1) + newPrice1);         
+        console.log("Quantity of products: " + JSON.parse(localStorage.getItem('nicolInCart')))
         console.log("Total quantity: " + c_Cart.totalQuantityOfProductsInCart)
+
+        //set local storage
+        localStorage.setItem('nicolInCart', newAmt1)
+        localStorage.setItem('currentCart', JSON.stringify(c_Cart))
+
 
     } else if(Number(newAmt1) < Number(JSON.parse(localStorage.getItem('nicolInCart')))){
         
-        totalPrice = totalPrice - (totalPrice-newPrice1);
-        console.log("TPrice: "+ typeof(totalPrice) + totalPrice)
-        console.log()
-        localStorage.setItem('nicolInCart', JSON.stringify(newAmt1))
-        console.log(JSON.parse(localStorage.getItem('nicolInCart')))
+        //Total price
+        totalPrice = totalPrice - newPrice1;       
+        nicolInCart = Number(newAmt1);
 
+        //console check and data save
+        console.log("ELSE IF")        
+        console.log(JSON.parse(localStorage.getItem('nicolInCart')))
+        console.log("New Price "+ typeof(newPrice1) +newPrice1)
+        console.log("TPrice: "+ typeof(totalPrice) + totalPrice)
+
+        //sets local storage 
+        localStorage.setItem('nicolInCart', JSON.stringify(newAmt1))
+        localStorage.setItem('currentCart', JSON.stringify(c_Cart))
+        console.log(c_Cart)
     } else {        
         
         console.log("ELSE")
-        console.log(typeof(Number(newAmt1)) + (Number(newAmt1)))
         console.log(typeof(Number(JSON.parse(localStorage.getItem('nicolInCart')))) + Number(JSON.parse(localStorage.getItem('nicolInCart'))))
         localStorage.setItem('nicolInCart', JSON.stringify(newAmt1))
-        console.log(JSON.parse(localStorage.getItem('nicolInCart')))
+        nicolInCart = Number(newAmt1);
     }
-    nicolInCart = Number(newAmt1);
-    console.log("TPrice: "+ typeof(totalPrice) + totalPrice)
+
     c_Cart.cartTotalPrice = Number(totalPrice);
+    
+
     console.log("c_CART: "+ typeof(c_Cart.cartTotalPrice) + c_Cart.cartTotalPrice)
     totalUpdate();
     
@@ -210,7 +213,7 @@ function changeGroguAmt(event){
     var pricestring2 = document.getElementById("cartPrice2").innerText;
     let price2 = Number(pricestring2.slice(1,pricestring2.length));
     newPrice2 = price2 * newAmt2;
-    console.log(newPrice2)
+    console.log(newPrice2);
 
     if(newAmt2 > JSON.parse(localStorage.getItem('groguInCart'))){
         totalPrice = totalPrice + (newPrice2-totalPrice);
@@ -218,19 +221,19 @@ function changeGroguAmt(event){
         localStorage.setItem('groguInCart', JSON.stringify(newAmt2))
         console.log("Price of products: " + JSON.parse(localStorage.getItem('groguInCart')))
         console.log("Total quantity: " + c_Cart.totalQuantityOfProductsInCart)
-
+        localStorage.setItem('currentCart', JSON.stringify(c_Cart))
     } else if(newAmt2 < JSON.parse(localStorage.getItem('groguInCart'))){
         totalPrice = totalPrice - (totalPrice-newPrice2);
         
         localStorage.setItem('groguInCart', JSON.stringify(newAmt2))
         console.log(JSON.parse(localStorage.getItem('groguInCart')))
-
+        localStorage.setItem('currentCart', JSON.stringify(c_Cart))
     } else {        
         localStorage.setItem('groguInCart', JSON.stringify(newAmt2))
         console.log(JSON.parse(localStorage.getItem('groguInCart')))
     }
     nicolInCart = Number(newAmt2);
-    c_Cart.cartTotalPrice = totalPrice;
+    c_Cart.cartTotalPrice = Number(totalPrice);
     totalUpdate()
 
 }
