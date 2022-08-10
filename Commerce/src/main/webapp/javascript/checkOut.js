@@ -56,7 +56,7 @@ console.groupEnd("CART")
 
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------
-getAllProducts(); //To open on page load
+getAllProducts(); //To run on page load
 async function getAllProducts(){
     try{
         const raw_response = await fetch(`http://3.84.16.120:8080/commerce/products`,
@@ -94,7 +94,7 @@ console.log(allProducts)
 
 //Nicol Bolas Product Array and Inventory
 var nicolBolasProduct = allProducts[5];
-var nicolBolasId = nicolBolasProduct.productId;
+var nicolBolasId = 8;
 var nicolBolasOldInventory = nicolBolasProduct.inventory;
 var nicolPurchased = JSON.parse(localStorage.getItem('nicolInCart'));
 var newNicolInventoryAmt = nicolBolasOldInventory - nicolPurchased;
@@ -112,7 +112,7 @@ console.groupEnd("Nicol Bolas Data");
 
 //Stephen Curry Product Array and Inventory
 var stephenCurryProduct = allProducts[1];
-var stephenCurryId = stephenCurryProduct.productId;
+var stephenCurryId = 10
 var stephenCurryOldInventory = stephenCurryProduct.inventory;
 var stephenCurryPurchased =JSON.parse(localStorage.getItem('stephenCurryInCart'));
 var newStephenCurryInventoryAmt = stephenCurryOldInventory - stephenCurryPurchased;
@@ -129,7 +129,7 @@ console.groupEnd("Stephen Curry Data");
 //Star Wars Bad Batch Array and Inventory
 
 var starWarsProduct = allProducts[2];
-var starWarsId = starWarsProduct.productId;
+var starWarsId = 17
 var starWarsOldInventory = starWarsProduct.inventory;
 var starWarsPurchased = JSON.parse(localStorage.getItem('starWarsInCart'));
 var newStarWarsInventoryAmt = starWarsOldInventory - starWarsPurchased;
@@ -145,7 +145,7 @@ console.groupEnd("Bad Batch Data");
 
 //Eleven Array and Inventory
 var elevenProduct = allProducts[3];
-var elevenId = elevenProduct.productId;
+var elevenId = 16;
 var elevenOldInventory = elevenProduct.inventory;
 var elevenPurchased = JSON.parse(localStorage.getItem('elevenInCart'));
 var newElevenInventoryAmt = elevenOldInventory - elevenPurchased;
@@ -161,7 +161,7 @@ console.groupEnd("Eleven Data");
 
 //Jack Skellington Array and Inventory
 var jackSkellingtonProduct = allProducts[4]
-var jackSkellingtonId = jackSkellingtonProduct.productId;
+var jackSkellingtonId = 12;
 var jackSkellingtonOldInventory = jackSkellingtonProduct.inventory;
 var jackSkellingtonPurchased = JSON.parse(localStorage.getItem('jackInCart'));
 var newJackSkellingtonInventoryAmt = jackSkellingtonOldInventory - jackSkellingtonPurchased;
@@ -179,7 +179,7 @@ console.groupEnd("Jack Skellington Data");
 
 //Deadpool Array and Inventory
 var deadpoolProduct = allProducts[5]
-var deadpoolId = deadpoolProduct.productId;
+var deadpoolId = 13;
 var deadpoolOldInventory = deadpoolProduct.inventory;
 var deadpoolPurchased = JSON.parse(localStorage.getItem('deadpoolInCart'));
 var newDeadpoolInventoryAmt = deadpoolOldInventory - deadpoolPurchased;
@@ -197,7 +197,7 @@ console.groupEnd("Deadpool Data");
 
 //Dr. Strange Array and Inventory
 var drStrangeProduct = allProducts[6]
-var drStrangeId = drStrangeProduct.productId;
+var drStrangeId = 7;
 var drStrangeOldInventory = drStrangeProduct.inventory;
 var drStrangePurchased = JSON.parse(localStorage.getItem('drStrangeInCart'));
 var newDrStrangeInventoryAmt = drStrangeOldInventory - drStrangePurchased;
@@ -213,7 +213,7 @@ console.groupEnd("Dr. Strange");
 
 //Grogu Array and Inventory
 var groguProduct = allProducts[7]
-var groguId = groguProduct.productId;
+var groguId = 1;
 var groguOldInventory = groguProduct.inventory;
 var groguPurchased = JSON.parse(localStorage.getItem('groguInCart'));
 var newGroguInventoryAmt = groguOldInventory - groguPurchased;
@@ -229,7 +229,7 @@ console.groupEnd("Grogu Data");
 
 //Chucky Array and Inventory
 var chuckyProduct = allProducts[6]
-var chuckyId = chuckyProduct.productId;
+var chuckyId = 15;
 var chuckyOldInventory = chuckyProduct.inventory;
 var chuckyPurchased = JSON.parse(localStorage.getItem('chuckyBrideInCart'));
 var newChuckyInventoryAmt = chuckyOldInventory - chuckyPurchased;
@@ -256,20 +256,23 @@ console.groupEnd("Grogu Data");
 //TESTED AND WORKS JUST NEED TO TIE IT TO A BUTTON
 
 //SETTING NEW USER BALANCE/DATA FOR UPDATE
-let updateInfo = {
-    userName:username,
-    userFirstName:userFirstName,
-    userLastName:userLastName,
-    address:userAddress,
-    userEmail:userEmail,
-    userPassword:userPassword,
-    balance:userNewBalance,
-    userId:userid
-};
+
 
 //UPDATE USER
 async function updateUserBalance(event){
     event.preventDefault();
+
+    let updateInfo = {
+        userName:username,
+        userFirstName:userFirstName,
+        userLastName:userLastName,
+        address:userAddress,
+        userEmail:userEmail,
+        userPassword:userPassword,
+        balance:userNewBalance,
+        userId:userid
+    };
+    
 
     let jsonUpdateInfo = JSON.stringify(updateInfo);
 
@@ -340,23 +343,27 @@ async function updateUserBalance(event){
 
 //UPDATING NICOL BOLAS INVENTORY
 
-let nicolBolasUpdateInfo = {
-    productName:"Nicol Bolas",
-    price:19.99,
-    productCategory:"Magic The Gathering",
-    inventory:newNicolInventoryAmt,
-    productId:nicolBolasId
-};
 
-let jsonNicolBolasUpdateInfo = JSON.stringify(nicolBolasUpdateInfo);
-
-console.group("Nicol Bolas Data Sent to Server")
-console.log(nicolBolasUpdateInfo);
-console.log(jsonNicolBolasUpdateInfo);
-console.groupEnd("Nicol Bolas Data Sent to Server")
 
 async function updateNicolBolas(event){
     event.preventDefault();
+
+    let nicolBolasUpdateInfo = {
+        productName:"Nicol Bolas",
+        price:19.99,
+        productCategory:"Magic The Gathering",
+        inventory:newNicolInventoryAmt,
+        productId:nicolBolasId
+    };
+    
+    let jsonNicolBolasUpdateInfo = JSON.stringify(nicolBolasUpdateInfo);
+    
+    console.group("Nicol Bolas Data Sent to Server")
+    console.log(nicolBolasUpdateInfo);
+    console.log(jsonNicolBolasUpdateInfo);
+    console.groupEnd("Nicol Bolas Data Sent to Server")
+
+
     try{
         const raw_response = await fetch(`http://3.84.16.120:8080/commerce/productinventory`,
         {
@@ -400,23 +407,24 @@ async function updateNicolBolas(event){
 
 //UPDATING STEPHEN CURRY INVENTORY
 
-let stephenCurryUpdateInfo = {
-    productName:"Stephen Curry",
-    price:19.99,
-    productCategory:"NBA",
-    inventory:newStephenCurryInventoryAmt,
-    productId:stephenCurryId
-};
-
-let jsonStephenCurryUpdateInfo = JSON.stringify(stephenCurryUpdateInfo);
-
-console.group("Stephen Curry Data Sent to Server")
-console.log(stephenCurryUpdateInfo);
-console.log(jsonStephenCurryUpdateInfo);
-console.groupEnd("Stephen Curry Data Sent to Server")
-
 async function updateStephenCurry(event){
     event.preventDefault();
+
+    let stephenCurryUpdateInfo = {
+        productName:"Stephen Curry",
+        price:19.99,
+        productCategory:"NBA",
+        inventory:newStephenCurryInventoryAmt,
+        productId:stephenCurryId
+    };
+    
+    let jsonStephenCurryUpdateInfo = JSON.stringify(stephenCurryUpdateInfo);
+    
+    console.group("Stephen Curry Data Sent to Server")
+    console.log(stephenCurryUpdateInfo);
+    console.log(jsonStephenCurryUpdateInfo);
+    console.groupEnd("Stephen Curry Data Sent to Server")
+
     try{
         const raw_response = await fetch(`http://3.84.16.120:8080/commerce/productinventory`,
         {
@@ -453,23 +461,24 @@ async function updateStephenCurry(event){
 
 //UPDATING STAR WARS INVENTORY
 
-let badBatchUpdateInfo = {
-    productName:"Bad Batch",
-    price:9.99,
-    productCategory:"Star Wars",
-    inventory:newStarWarsInventoryAmt,
-    productId:starWarsId
-};
-
-let jsonBadBatchUpdateInfo = JSON.stringify(badBatchUpdateInfo);
-
-console.group("Bad Batch Data Sent to Server")
-console.log(badBatchUpdateInfo);
-console.log(jsonBadBatchUpdateInfo);
-console.groupEnd("Bad Batch Data Sent to Server")
-
 async function updateBadBatch(event){
     event.preventDefault();
+
+    let badBatchUpdateInfo = {
+        productName:"Bad Batch",
+        price:9.99,
+        productCategory:"Star Wars",
+        inventory:newStarWarsInventoryAmt,
+        productId:starWarsId
+    };
+    
+    let jsonBadBatchUpdateInfo = JSON.stringify(badBatchUpdateInfo);
+    
+    console.group("Bad Batch Data Sent to Server")
+    console.log(badBatchUpdateInfo);
+    console.log(jsonBadBatchUpdateInfo);
+    console.groupEnd("Bad Batch Data Sent to Server")
+
     try{
         const raw_response = await fetch(`http://3.84.16.120:8080/commerce/productinventory`,
         {
@@ -500,23 +509,26 @@ async function updateBadBatch(event){
 //----------------------------------------------------------------------------------------------------------------
 
 //UPDATING ELEVEN
-let elevenUpdateInfo = {
-    productName:"Eleven",
-    price:24.99,
-    productCategory:"Stranger Things",
-    inventory:newElevenInventoryAmt,
-    productId:elevenId
-};
 
-let jsonElevenUpdateInfo = JSON.stringify(elevenUpdateInfo);
-
-console.group("Eleven Data Sent to Server")
-console.log(elevenUpdateInfo);
-console.log(jsonElevenUpdateInfo);
-console.groupEnd("Nicol Bolas Data Sent to Server")
 
 async function updateEleven(event){
     event.preventDefault();
+
+    let elevenUpdateInfo = {
+        productName:"Eleven",
+        price:24.99,
+        productCategory:"Stranger Things",
+        inventory:newElevenInventoryAmt,
+        productId:elevenId
+    };
+    
+    let jsonElevenUpdateInfo = JSON.stringify(elevenUpdateInfo);
+    
+    console.group("Eleven Data Sent to Server")
+    console.log(elevenUpdateInfo);
+    console.log(jsonElevenUpdateInfo);
+    console.groupEnd("Eleven Data Sent to Server")
+
     try{
         const raw_response = await fetch(`http://3.84.16.120:8080/commerce/productinventory`,
         {
@@ -550,23 +562,24 @@ async function updateEleven(event){
 
 //UPDATE JACK SKELLINGTON
 
-let jackSkellingtonUpdateInfo = {
-    productName:"Jack Skellington",
-    price:9.99,
-    productCategory:"The Nightmare Before Christmas",
-    inventory:newJackSkellingtonInventoryAmt,
-    productId:jackSkellingtonId
-};
-
-let jsonJackSkellingtonUpdateInfo = JSON.stringify(jackSkellingtonUpdateInfo);
-
-console.group("Jack Skellington Data Sent to Server")
-console.log(jackSkellingtonUpdateInfo);
-console.log(jsonJackSkellingtonUpdateInfo);
-console.groupEnd("Jack Skellington Data Sent to Server")
-
 async function updateJackSkellington(event){
     event.preventDefault();
+
+    let jackSkellingtonUpdateInfo = {
+        productName:"Jack Skellington",
+        price:9.99,
+        productCategory:"The Nightmare Before Christmas",
+        inventory:newJackSkellingtonInventoryAmt,
+        productId:jackSkellingtonId
+    };
+    
+    let jsonJackSkellingtonUpdateInfo = JSON.stringify(jackSkellingtonUpdateInfo);
+    
+    console.group("Jack Skellington Data Sent to Server")
+    console.log(jackSkellingtonUpdateInfo);
+    console.log(jsonJackSkellingtonUpdateInfo);
+    console.groupEnd("Jack Skellington Data Sent to Server")
+
     try{
         const raw_response = await fetch(`http://3.84.16.120:8080/commerce/productinventory`,
         {
@@ -598,23 +611,25 @@ async function updateJackSkellington(event){
 
 //UPDATE DEADPOOL INVENTORY
 
-let deadpoolUpdateInfo = {
-    productName:"Deadpool Playtime - Bob Ross",
-    price:24.99,
-    productCategory:"Marvel",
-    inventory:newDeadpoolInventoryAmt,
-    productId:deadpoolId
-};
-
-let jsonDeadpoolUpdateInfo = JSON.stringify(deadpoolUpdateInfo);
-
-console.group("Deadpool Data Sent to Server")
-console.log(deadpoolUpdateInfo);
-console.log(jsonDeadpoolUpdateInfo);
-console.groupEnd("Deadpool Data Sent to Server")
 
 async function updateDeadpool(event){
     event.preventDefault();
+
+    let deadpoolUpdateInfo = {
+        productName:"Deadpool Playtime - Bob Ross",
+        price:24.99,
+        productCategory:"Marvel",
+        inventory:newDeadpoolInventoryAmt,
+        productId:deadpoolId
+    };
+    
+    let jsonDeadpoolUpdateInfo = JSON.stringify(deadpoolUpdateInfo);
+    
+    console.group("Deadpool Data Sent to Server")
+    console.log(deadpoolUpdateInfo);
+    console.log(jsonDeadpoolUpdateInfo);
+    console.groupEnd("Deadpool Data Sent to Server")
+
     try{
         const raw_response = await fetch(`http://3.84.16.120:8080/commerce/productinventory`,
         {
@@ -645,20 +660,170 @@ async function updateDeadpool(event){
 //----------------------------------------------------------------------------------------------------------------
 
 //UPDATE DR STRANGE
-drStrangeId
-newDrStrangeInventoryAmt
 
-let drStrangeUpdateInfo = {
-    productName:"Dr Strange",
-    price:19.99,
-    productCategory:"Magic The Gathering",
-    inventory:newNicolInventoryAmt,
-    productId:nicolBolasId
+async function updateDrStrange(event){
+    event.preventDefault();
+
+    let drStrangeUpdateInfo = {
+        productName:"Dr Strange",
+        price:19.99,
+        productCategory:"Magic The Gathering",
+        inventory:newDrStrangeInventoryAmt,
+        productId:drStrangeId
+    };
+    
+    let jsonDrStrangeUpdateInfo = JSON.stringify(drStrangeUpdateInfo);
+    
+    console.group("Dr. Strange Data Sent to Server")
+    console.log(drStrangeUpdateInfo);
+    console.log(jsonDrStrangeUpdateInfo);
+    console.groupEnd("Dr. Strange Data Sent to Server")
+
+    try{
+        const raw_response = await fetch(`http://3.84.16.120:8080/commerce/productinventory`,
+        {
+            method:"PUT",
+            headers:{
+                "Content-Type":"application/json",
+                "Access-Control-Allow-Origin": "*",
+        },
+        body:jsonDrStrangeUpdateInfo
+    });
+
+    if(!raw_response.ok){
+        throw new Error(raw_response.status)
+    }
+
+    console.log("Request was completed")   
+
+    const data = await raw_response.json();
+
+    console.log("data: " + data);
+    
+    }catch (error){
+        alert("There is an error: "+error)
+    }
+};
+
+//----------------------------------------------------------------------------------------------------------------
+//----------------------------------------------------------------------------------------------------------------
+
+//UPDATE GROGU
+
+async function updateGrogu(event){
+    event.preventDefault();
+
+    let groguUpdateInfo = {
+        productName:"Grogu",
+        price:9.99,
+        productCategory:"Star Wars",
+        inventory:newGroguInventoryAmt,
+        productId:groguId
+    };
+    
+    let jsonGroguUpdateInfo = JSON.stringify(groguUpdateInfo);
+    
+    console.group("Grogu Data Sent to Server")
+    console.log(groguUpdateInfo);
+    console.log(jsonGroguUpdateInfo);
+    console.groupEnd("Grogu Data Sent to Server")
+
+    try{
+        const raw_response = await fetch(`http://3.84.16.120:8080/commerce/productinventory`,
+        {
+            method:"PUT",
+            headers:{
+                "Content-Type":"application/json",
+                "Access-Control-Allow-Origin": "*",
+        },
+        body:jsonGroguUpdateInfo
+    });
+
+    if(!raw_response.ok){
+        throw new Error(raw_response.status)
+    }
+
+    console.log("Request was completed")   
+
+    const data = await raw_response.json();
+
+    console.log("data: " + data);
+    
+    }catch (error){
+        alert("There is an error: "+error)
+    }
+};
+
+//----------------------------------------------------------------------------------------------------------------
+//----------------------------------------------------------------------------------------------------------------
+
+//UPDATE CHUCKY
+
+async function updateChucky(event){
+    event.preventDefault();
+
+    let chuckyUpdateInfo = {
+        productName:"Bride of Chucky",
+        price:19.99,
+        productCategory:"Chucky",
+        inventory:newChuckyInventoryAmt,
+        productId:chuckyId
+    };
+    
+    let jsonChuckyUpdateInfo = JSON.stringify(chuckyUpdateInfo);
+    
+    console.group("Chucky Data Sent to Server")
+    console.log(chuckyUpdateInfo);
+    console.log(jsonChuckyUpdateInfo);
+    console.groupEnd("Chucky Data Sent to Server")
+
+    try{
+        const raw_response = await fetch(`http://3.84.16.120:8080/commerce/productinventory`,
+        {
+            method:"PUT",
+            headers:{
+                "Content-Type":"application/json",
+                "Access-Control-Allow-Origin": "*",
+        },
+        body:jsonChuckyUpdateInfo
+    });
+
+    if(!raw_response.ok){
+        throw new Error(raw_response.status)
+    }
+
+    console.log("Request was completed")   
+
+    const data = await raw_response.json();
+
+    console.log("data: " + data);
+    
+    }catch (error){
+        alert("There is an error: "+error)
+    }
 };
 
 
 //----------------------------------------------------------------------------------------------------------------
 //----------------------------------------------------------------------------------------------------------------
+
+function megaUpdatefunction(event){
+    event.preventDefault();
+
+    updateNicolBolas();
+    updateStephenCurry();
+    updateBadBatch();
+    updateEleven();
+    updateJackSkellington();
+    updateDeadpool();
+    updateDrStrange();
+    updateGrogu();
+    updateChucky();
+}
+
+
+
+
 //THIS WAS A TEST TO SEE ABOUT INTERPOLATING HTML CODE
 //var FirstNameDisplay =`<input type="text" name="fname" placeholder=${user.userFirstName} id="fName"/>`
 
