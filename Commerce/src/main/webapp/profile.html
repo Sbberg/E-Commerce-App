@@ -11,8 +11,8 @@
 <!-- <h1 id="username-display">username test</h1> -->
 
 <h2>    
-    <button type="button" onclick="window.location.href = 'home.html';" value="Go to Homepage" style="float: left;"/>
-    <button type="button" onclick="window.location.href = 'cart.html';" value="Go to Cart" style="float: right;"/>
+    <button type="button" onclick="window.location.href = 'home.html';" style="float: left;">Go to Homepage</button>
+    <button type="button" onclick="window.location.href = 'cart.html';" style="float: right;">Go to Cart</button>
 </h2>
 
 
@@ -49,8 +49,6 @@
         <td>Balance</td>
         <td contenteditable='true' id="balance-input">?</td>
     </tr>
-
-
 </table>
 <br>
 
@@ -85,9 +83,13 @@
 </div> -->
 
 <br>
+<hr>
 
+<<<<<<< Updated upstream
 <!-- <div class="info">  -->
     
+=======
+>>>>>>> Stashed changes
     <h2>Update Information</h2>
     <form id="form">
         <label for="username-input"><b>Username</b></label>
@@ -102,18 +104,18 @@
         <input type="text" placeholder="Enter Last Name" id="l-name-input" required>
         <br>
         <br>
+        <label for="email-input"><b>Email</b></label>
+        <input type="text" placeholder="Enter Email" id="emailInput" required>
+        <br>
+        <br>
         <label for="address-input"><b>Address</b></label>
         <input type="text" placeholder="Enter Address" id="addressInput" required>
         <br>
         <br>
-        <label for="email-input"><b>Email</b></label>
-        <input type="text" placeholder="Enter Email" id="emailInput" required>
-        <br>
-        
         <label for="password-input"><b>Password</b></label>
         <input type="password" placeholder="Enter Password" id="passwordInput" required>
         <br>
-
+        <br>
         <label for="balance-input"><b>Balance</b></label>
         <input type="number" id="balanceInput" required>
         <br>  
@@ -121,10 +123,6 @@
         <button id="button" onclick="updateUserInfo(event);">Update Information</button>
     </form>
 
-   
-
-
-<div class="info"></div>
 <script src="./javascript/profile.js"></script>
 </body>
 
