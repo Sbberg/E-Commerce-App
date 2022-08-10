@@ -6,12 +6,11 @@ import com.revature.Commerce.models.Product;
 import com.revature.Commerce.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin(origins = {"http://127.0.0.1:5500"})
+@CrossOrigin
 @RestController
 @RequestMapping("/commerce")
 public class ProductController {
@@ -35,9 +34,16 @@ public class ProductController {
         return productService.createProduct(product) ? CREATION_SUCCESSFUL:CREATION_FAILED;
     }
 
-    @PutMapping("/product")
+    @PutMapping(value = "/productinventory")
     public @ResponseBody ClientMessage updateProduct(@RequestBody Product product){
-        return productService.updateProduct(product) > 0 ? UPDATE_SUCCESSFUL:UPDATE_FAILED;
+        System.out.println(product.getInventory());
+        System.out.println(product.getProductId());
+        return productService.updateProductInventory(product) > 0 ? UPDATE_SUCCESSFUL:UPDATE_FAILED;
+    }
+
+    @PutMapping(value = "/product")
+    public @ResponseBody ClientMessage updateWholeProduct(@RequestBody Product product){
+        return productService.updateWholeProduct(product) > 0 ? UPDATE_SUCCESSFUL:UPDATE_FAILED;
     }
 
     @DeleteMapping("/product")

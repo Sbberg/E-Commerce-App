@@ -12,7 +12,11 @@ public interface ProductService {
 
     List<Product> getAllProducts();
 
-    int updateProduct(Product product);
+    int updateProductInventory(Product product);
+
+    int updateWholeProduct(Product product);
+
+
 
     boolean deleteProduct(Product product);
 
