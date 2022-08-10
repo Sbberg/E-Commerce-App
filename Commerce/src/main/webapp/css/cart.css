@@ -43,38 +43,32 @@ body{
 
 .Cart-Items{
 	margin: auto;
-	width: 90%;
+	width: 120%;
 	height: 25%;
 	display: flex;
-	justify-content: space-between;
+	gap: 100px;
+	/* justify-content: space-between; */
 	align-items: center;
 }
 
 .about{
 	height: 100%;
-	width: 24%;
+	width: 40%;
 }
 .title{
-	padding-top: 10px;
+	padding-top: 20px;
+	padding-right: 50px;
 	line-height: 10px;
 	font-size: 32px;
 	font-family: 'Open Sans';
 	font-weight: 800;
 	color: #202020;
 }
-.subtitle{
-	line-height: 10px;
-	font-size: 18px;
-	font-family: 'Open Sans';
-	font-weight: 600;
-	color: #909090;
-}
 
 .counter{
-	width: 15%;
+	width: 10%;
 	display: flex;
 	justify-content: space-between;
-	align-items: center;
 }
 
 .count{
@@ -86,6 +80,7 @@ body{
 
 .prices{
 	height: 100%;
+	padding-left: 250px;
 	text-align: right;
 }
 .amount{
@@ -95,24 +90,7 @@ body{
 	font-weight: 800;
 	color: #202020;
 }
-.save{
-	padding-top: 5px;
-	font-size: 14px;
-	font-family: 'Open Sans';
-	font-weight: 600;
-	color: #1687d9;
-	cursor: pointer;
-}
 
-.pad{
-	margin-top: 5px;
-}
-
-hr{
-	width: 66%;
-	float: right;
-	margin-right: 5%;
-}
 .checkout{
 	padding-top: 75px;
 	float: right;
