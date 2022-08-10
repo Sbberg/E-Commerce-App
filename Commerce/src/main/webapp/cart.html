@@ -7,13 +7,12 @@
     <title>Shopping Cart</title>
 </head>
 
-<!-- <h2><input type="button" onclick="window.location.href = 'checkOut.html';" value="Go to profile" style="float: left;"/></h2> -->
-
 <body>
 <div class="CartContainer">
     <div class="Header">
-        <h3 class="Heading"><input type="button" onclick="window.location.href = 'home.html';" value="Continue Shopping"/></h3>
-        <h5 class="Action">Remove all</h5>
+        <h3 class="Heading">
+        <button class="button" onclick="window.location.href = 'home.html';">Continue Shopping</button>
+        </h3>
     </div>
 
     <div class="Cart-Items">
@@ -21,30 +20,31 @@
             <h1 class="title">Nicol</h1>
         </div>
         <div class="counter">
-            <div class="btn" id="nicolIncrement">+</div>
+            <select type="number" name="nicol" id="nicolSelector">
+                <option value=0>0</option>
+                <option value=1>1</option>
+                <option value=2>2</option>
+                <option value=3>3</option>
+                <option value=4>4</option>
+                <option value=5>5</option>
+              </select>
             <div class="count" id="nicol"></div>
-            <div class="btn">-</div>
         </div>
         <div class="prices">
             <div class="amount" id="cartPrice1">$19.99</div>
-            <div class="remove"><u>Remove</u></div>
         </div>
     </div>
-
-    <hr>
 
     <div class="Cart-Items">
         <div class="about">
             <h1 class="title">Grogu</h1>
         </div>
         <div class="counter">
-            <div class="btn" id="groguIncrement">+</div>
+
             <div class="count" id="grogu"></div>
-            <div class="btn">-</div>
         </div>
         <div class="prices">
             <div class="amount" id="cartPrice2">$9.99</div>
-            <div class="remove"><u>Remove</u></div>
         </div>
     </div>
 
@@ -53,13 +53,18 @@
             <h1 class="title">Dr. Strange</h1>
         </div>
         <div class="counter">
-            <div class="btn">+</div>
+            <select type="number" name="drStrange" id="drStrangeSelector">
+                <option value=0>0</option>
+                <option value=1>1</option>
+                <option value=2>2</option>
+                <option value=3>3</option>
+                <option value=4>4</option>
+                <option value=5>5</option>
+              </select>
             <div class="count" id="drStrange"></div>
-            <div class="btn">-</div>
         </div>
         <div class="prices">
             <div class="amount" id="cartPrice3">$24.99</div>
-            <div class="remove"><u>Remove</u></div>
         </div>
     </div>
 
@@ -68,13 +73,18 @@
             <h1 class="title">Stephen Curry</h1>
         </div>
         <div class="counter">
-            <div class="btn">+</div>
+            <select type="number" name="stephenCurry" id="stephenCurrySelector">
+                <option value=0>0</option>
+                <option value=1>1</option>
+                <option value=2>2</option>
+                <option value=3>3</option>
+                <option value=4>4</option>
+                <option value=5>5</option>
+              </select>
             <div class="count" id="stephenCurry"></div>
-            <div class="btn">-</div>
         </div>
         <div class="prices">
             <div class="amount" id="cartPrice4">$19.99</div>
-            <div class="remove"><u>Remove</u></div>
         </div>
     </div>
 
@@ -83,13 +93,18 @@
             <h1 class="title">Star Wars: The Bad Batch</h1>
         </div>
         <div class="counter">
-            <div class="btn">+</div>
+            <select type="number" name="starWars" id="starWarsSelector">
+                <option value=0>0</option>
+                <option value=1>1</option>
+                <option value=2>2</option>
+                <option value=3>3</option>
+                <option value=4>4</option>
+                <option value=5>5</option>
+              </select>
             <div class="count" id="starWars"></div>
-            <div class="btn">-</div>
         </div>
         <div class="prices">
             <div class="amount" id="cartPrice5">$9.99</div>
-            <div class="remove"><u>Remove</u></div>
         </div>
     </div>
 
@@ -98,13 +113,18 @@
             <h1 class="title">Eleven: With Waffles!</h1>
         </div>
         <div class="counter">
-            <div class="btn">+</div>
+            <select type="number" name="eleven" id="elevenSelector">
+                <option value=0>0</option>
+                <option value=1>1</option>
+                <option value=2>2</option>
+                <option value=3>3</option>
+                <option value=4>4</option>
+                <option value=5>5</option>
+              </select>
             <div class="count" id="eleven"></div>
-            <div class="btn">-</div>
         </div>
         <div class="prices">
             <div class="amount" id="cartPrice6">$24.99</div>
-            <div class="remove"><u>Remove</u></div>
         </div>
     </div>
 
@@ -113,13 +133,18 @@
             <h1 class="title">Bride of Chucky</h1>
         </div>
         <div class="counter">
-            <div class="btn">+</div>
+            <select type="number" name="chucky" id="chuckySelector">
+                <option value=0>0</option>
+                <option value=1>1</option>
+                <option value=2>2</option>
+                <option value=3>3</option>
+                <option value=4>4</option>
+                <option value=5>5</option>
+              </select>
             <div class="count" id="chucky"></div>
-            <div class="btn">-</div>
         </div>
         <div class="prices">
             <div class="amount" id="cartPrice7">$19.99</div>
-            <div class="remove"><u>Remove</u></div>
         </div>
     </div>
 
@@ -128,13 +153,18 @@
             <h1 class="title">Jack Skellington</h1>
         </div>
         <div class="counter">
-            <div class="btn">+</div>
+            <select type="number" name="jackSkellington" id="jackSkellingtonSelector">
+                <option value=0>0</option>
+                <option value=1>1</option>
+                <option value=2>2</option>
+                <option value=3>3</option>
+                <option value=4>4</option>
+                <option value=5>5</option>
+              </select>
             <div class="count" id="jackSkellington"></div>
-            <div class="btn">-</div>
         </div>
         <div class="prices">
             <div class="amount" id="cartPrice8">$9.99</div>
-            <div class="remove"><u>Remove</u></div>
         </div>
     </div>
 
@@ -143,13 +173,18 @@
             <h1 class="title">Deadpool: Bob Ross</h1>
         </div>
         <div class="counter">
-            <div class="btn">+</div>
+            <select type="number" name="deadpool" id="deadpoolSelector">
+                <option value=0>0</option>
+                <option value=1>1</option>
+                <option value=2>2</option>
+                <option value=3>3</option>
+                <option value=4>4</option>
+                <option value=5>5</option>
+              </select>
             <div class="count" id="deadpool"></div>
-            <div class="btn">-</div>
         </div>
         <div class="prices">
             <div class="amount" id="cartPrice9">$24.99</div>
-            <div class="remove"><u>Remove</u></div>
         </div>
     </div>
 
