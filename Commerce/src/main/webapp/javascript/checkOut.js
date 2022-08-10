@@ -807,6 +807,34 @@ async function updateChucky(event){
 //----------------------------------------------------------------------------------------------------------------
 //----------------------------------------------------------------------------------------------------------------
 
+
+//UPDATING CART
+
+console.group("CART")
+console.log(cart);
+console.log(cart.cartTotalPrice);
+console.log(cart.totalQuantityOfProductsInCart);
+console.log(cart.cartAddress);
+console.log(cart.cartUser);
+console.groupEnd("CART")
+
+async function updateCart(event){
+    event.preventDefault();
+
+    let cartUpdateInfo = {
+        cartTotalPrice:cart.cartTotalPrice,
+        totalQuantityOfProductsInCart:cart.totalQuantityOfProductsInCart,
+        cartAddress:cart.cartAddress,
+        cartUser:cart.cartUser
+    };
+
+
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------
+//----------------------------------------------------------------------------------------------------------------
 function megaUpdatefunction(event){
     event.preventDefault();
 
@@ -948,3 +976,4 @@ function megaUpdatefunction(event){
 //     console.groupEnd("Item Removal")
 // }
 
+}

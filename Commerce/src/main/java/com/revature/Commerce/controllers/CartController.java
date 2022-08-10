@@ -9,7 +9,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import static com.revature.Commerce.utils.ClientMessageUtils.*;
-@CrossOrigin(origins = {"http://127.0.0.1:5500"})
+@CrossOrigin
 @RestController
 @RequestMapping("/commerce")
 public class CartController {
