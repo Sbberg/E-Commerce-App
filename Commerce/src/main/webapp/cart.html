@@ -28,6 +28,7 @@
                 <option value=4>4</option>
                 <option value=5>5</option>
               </select>
+              <button id="nicolBtnSelector" onclick="changeNicolAmt(event)">Confirm New Amount</button>
             <div class="count" id="nicol"></div>
         </div>
         <div class="prices">
@@ -40,7 +41,15 @@
             <h1 class="title">Grogu</h1>
         </div>
         <div class="counter">
-
+            <select type="number" name="grogu" id="groguSelector">
+                <option value=0>0</option>
+                <option value=1>1</option>
+                <option value=2>2</option>
+                <option value=3>3</option>
+                <option value=4>4</option>
+                <option value=5>5</option>
+              </select>
+              <button id="groguBtnSelector" onclick="changeGroguAmt(event);">Confirm New Amount</button>
             <div class="count" id="grogu"></div>
         </div>
         <div class="prices">
@@ -61,6 +70,7 @@
                 <option value=4>4</option>
                 <option value=5>5</option>
               </select>
+              <button id="drStrangeBtnSelector">Confirm New Amount</button>
             <div class="count" id="drStrange"></div>
         </div>
         <div class="prices">
@@ -81,6 +91,7 @@
                 <option value=4>4</option>
                 <option value=5>5</option>
               </select>
+              <button id="stephenCurryBtnSelector">Confirm New Amount</button>
             <div class="count" id="stephenCurry"></div>
         </div>
         <div class="prices">
@@ -90,7 +101,7 @@
 
     <div class="Cart-Items">
         <div class="about">
-            <h1 class="title">Star Wars: The Bad Batch</h1>
+            <h1 class="title">SW:The Bad Batch</h1>
         </div>
         <div class="counter">
             <select type="number" name="starWars" id="starWarsSelector">
@@ -101,6 +112,7 @@
                 <option value=4>4</option>
                 <option value=5>5</option>
               </select>
+              <button id="starWarsBtnSelector">Confirm New Amount</button>
             <div class="count" id="starWars"></div>
         </div>
         <div class="prices">
@@ -121,6 +133,7 @@
                 <option value=4>4</option>
                 <option value=5>5</option>
               </select>
+              <button id="elevenBtnSelector">Confirm New Amount</button>
             <div class="count" id="eleven"></div>
         </div>
         <div class="prices">
@@ -141,6 +154,7 @@
                 <option value=4>4</option>
                 <option value=5>5</option>
               </select>
+              <button id="chuckyBtnSelector">Confirm New Amount</button>
             <div class="count" id="chucky"></div>
         </div>
         <div class="prices">
@@ -161,6 +175,7 @@
                 <option value=4>4</option>
                 <option value=5>5</option>
               </select>
+              <button id="jackSkellingtonBtnSelector">Confirm New Amount</button>
             <div class="count" id="jackSkellington"></div>
         </div>
         <div class="prices">
@@ -181,6 +196,7 @@
                 <option value=4>4</option>
                 <option value=5>5</option>
               </select>
+              <button id="deadpoolBtnSelector">Confirm New Amount</button>
             <div class="count" id="deadpool"></div>
         </div>
         <div class="prices">
@@ -189,13 +205,13 @@
     </div>
 
     <div class="checkout">
-        <div class="total">
+        <!-- <div class="total">
             <div>
                 <div class="Subtotal">Sub-Total</div>
                 <div class="items" id="totalItems"></div>
             </div>
             <div class="total-amount" id="totalPrice"></div>
-        </div>
+        </div> -->
         <button class="button" onclick="window.location.href = 'checkOut.html';">Checkout</button></div>
 </div>
 

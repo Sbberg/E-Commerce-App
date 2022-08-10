@@ -17,6 +17,8 @@ var chuckyBrideInCart = new Number(0);
 var jackInCart = new Number(0);
 var deadpoolInCart = new Number(0);
 
+
+
 var nicolName = document.getElementById("nicolName").innerText;
 localStorage.setItem('nicolName', nicolName);
 console.log(localStorage.getItem('nicolName'));
