@@ -299,7 +299,7 @@ async function createCart(event){
     console.log(jsonCartInfo);
 
     try{
-        const raw_response = await fetch(`http://localhost:8080/commerce/cart`,
+        const raw_response = await fetch(`http://3.84.16.120:8080/commerce/cart`,
         {
             method:"POST",
             headers:{

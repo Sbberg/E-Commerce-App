@@ -1,9 +1,6 @@
 package com.revature.Commerce.repos;
 
 import com.revature.Commerce.models.Cart;
-import com.revature.Commerce.models.Product;
-import com.revature.Commerce.models.User;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;

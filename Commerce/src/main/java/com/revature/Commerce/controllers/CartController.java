@@ -46,18 +46,6 @@ public class CartController {
         return cartService.createCart(cart) ? CREATION_SUCCESSFUL:CREATION_FAILED;
     }
 
-    /*
-        @PostMapping(value = "/userusername", consumes = MediaType.APPLICATION_JSON_VALUE)
-    @ResponseStatus(HttpStatus.ACCEPTED)
-    public @ResponseBody User getUserByUsername(@RequestBody User user){
-        System.out.println(user);
-        String userName = user.getUserName();
-        String userPassword = user.getUserPassword();
-        System.out.println(userName);
-        System.out.println(userPassword);
-        return userService.getByUsername(userName, userPassword);
-    }
-     */
 
     @PutMapping(value = "/cartByCartId")
     public @ResponseBody ClientMessage updateCartByCartId(@RequestBody Cart cart){
