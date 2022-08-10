@@ -1,12 +1,12 @@
-let button1 = document.getElementById("nicol")
-let button2 = document.getElementById("Stephen Curry");
-let button3 = document.getElementById("star wars");
-let button4 = document.getElementById("Eleven");
-let button5 = document.getElementById("Jack Skellington");
-let button6 = document.getElementById("Deadpool");
-let button7 = document.getElementById("drstrange");
-let button8 = document.getElementById("grogu");
-let button9 = document.getElementById("chucky");
+// let button1 = document.getElementById("nicol")
+// let button2 = document.getElementById("Stephen Curry");
+// let button3 = document.getElementById("star wars");
+// let button4 = document.getElementById("Eleven");
+// let button5 = document.getElementById("Jack Skellington");
+// let button6 = document.getElementById("Deadpool");
+// let button7 = document.getElementById("drstrange");
+// let button8 = document.getElementById("grogu");
+// let button9 = document.getElementById("chucky");
 
 //Getting Specific Amounts of Specific Products in Cart
 var editNicolInCart = new Number(JSON.parse(localStorage.getItem('nicolInCart')));
@@ -96,15 +96,91 @@ localStorage.setItem('currentCart',JSON.stringify(currentCart));
 var totalPrice = currentCart.cartTotalPrice;
 console.log(totalPrice);
 var totalPriceField = document.getElementById("totalPrice");
-totalPriceField.innerText = `$ ${totalPrice}`;
+
 
 //Total Amount of Items in Cart sent from Home Page
 var totalItems = currentCart.totalQuantityOfProductsInCart;
 var totalItemsField = document.getElementById("totalItems");
-totalItemsField.innerText = `${totalItems} items`;
+
+var newAmt1;
+var newAmt2;
+var newAmt3;
+var newAmt4;
+var newAmt5;
+var newAmt6;
+var newAmt7;
+var newAmt8;
+var newAmt9;
+
+var newPrice1;
+var newPrice2;
+var newPrice3;
+var newPrice4;
+var newPrice5;
+var newPrice6;
+var newPrice7;
+var newPrice8;
+var newPrice9;
 
 
+//TOTAL CART PRODUCT QUANTITY AFTER ADJUSTMENTS
+function addUpNewAmts(event){
+    event.preventDefault;
 
+    currentCart.totalQuantityOfProductsInCart = newAmt1+newAmt2+newAmt3+newAmt4+newAmt5+newAmt6+newAmt7+newAmt8+newAmt9;
+    currentCart.cartTotalPrice = newPrice1+newPrice2+newPrice3+newPrice4+newPrice5+newPrice6+newPrice7+newPrice8+newPrice9;
+
+    window.location.replace("checkOut.html");
+}
+
+//Onclick Button Updates
+function changeNicolAmt(event){
+    event.preventDefault;
+
+    var newAmt1 = document.getElementById("nicolSelector").value;
+    nicolInCart = newAmt1;
+    localStorage.setItem('nicolInCart' , JSON.stringify(nicolInCart))
+    console.log(nicolInCart);
+    var pricestring1 = document.getElementById("cartPrice1").innerText;
+    let price1 = new Number(pricestring1.slice(1,pricestring1.length));
+    let newPrice1 = price1 * newAmt1;
+    console.log(newPrice1)
+
+    if(newAmt1 > JSON.parse(localStorage.getItem('nicolInCart'))){
+        totalPrice = totalPrice + (newPrice1-totalPrice);
+        currentCart.cartTotalPrice = totalPrice;
+        localStorage.setItem('nicolInCart', JSON.stringify(newAmt1))
+        console.log(JSON.parse(localStorage.getItem('nicolInCart')))
+        console.log(currentCart.totalQuantityOfProductsInCart)
+
+    } else if(newAmt1 < JSON.parse(localStorage.getItem('nicolInCart'))){
+        totalPrice = totalPrice - (totalPrice-newPrice1);
+        currentCart.cartTotalPrice = totalPrice;
+        localStorage.setItem('nicolInCart', JSON.stringify(newAmt1))
+        console.log(JSON.parse(localStorage.getItem('nicolInCart')))
+
+    } else {
+        currentCart.cartTotalPrice = totalPrice;
+        localStorage.setItem('nicolInCart', JSON.stringify(newAmt1))
+        console.log(JSON.parse(localStorage.getItem('nicolInCart')))
+    }
+}
+
+console.log(newAmt1);
+
+function changeGroguAmt(event){
+    event.preventDefault;
+
+    let newAmt2 = document.getElementById("groguSelector").value;
+    groguInCart = newAmt2;
+    localStorage.setItem('groguInCart' , JSON.stringify(groguInCart));
+    console.log(groguInCart);
+
+    var pricestring2 = document.getElementById("cartPrice2").innerText;
+    let price2 = new Number(pricestring2.slice(1,pricestring2.length));
+    let newPrice2 = price2 * newAmt2;
+    console.log(newPrice2);
+}
 
 
 
