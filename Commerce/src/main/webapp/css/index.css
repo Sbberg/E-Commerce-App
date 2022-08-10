@@ -1,37 +1,48 @@
+
+
 body {font-family: Arial, Helvetica, sans-serif;}
     * {box-sizing: border-box;}
-
+  
+    
+    
 h1{
   text-align: center;
   font-family: Arial;
+
+  background: linear-gradient(-45deg, #583b32, #f07aa7, #86cce5, #10e9b6);
+  
 }
+
+
 
     /* Full-width input fields */
     input[type=text], input[type=password] {
-      width: 50%;
-      padding: 15px;
+      width: 30%;
+      padding: 10px;
       margin: 5px 0 22px 0;
       display: inline-block;
       border: none;
-      background: #f1f1f1;
+      background: #e0b1b1;
+    
     }
 
     /* Add a background color when the inputs get focus */
     input[type=text]:focus, input[type=password]:focus {
-      background-color: rgb(219, 103, 103);
+        background: linear-gradient(-45deg, #583b32, #f07aa7, #86cce5, #10e9b6);
       outline: none;
+      
     }
     
 
     /* Set a style for all buttons */
     button {
       background-color: #04AA6D;
-      color: white;
+      color: rgb(22, 19, 19);
       padding: 14px 20px;
       margin: 8px 0;
       border: none;
       cursor: pointer;
-      width: 50%;
+      width: 10%;
       opacity: 0.9;
     }
 
@@ -42,7 +53,7 @@ h1{
     /* Extra styles for the cancel button */
     .cancelbtn {
       padding: 14px 20px;
-      background-color: #f44336;
+      background-color: #eb2214;
     }
 
     /* Float cancel and signup buttons and add an equal width */
@@ -53,7 +64,7 @@ h1{
 
     /* Add padding to container elements */
     .container {
-      padding: 16px;
+      padding: 10px;
     }
 
     /* The Modal (background) */
@@ -66,22 +77,22 @@ h1{
       width: 100%; /* Full width */
       height: 100%; /* Full height */
       overflow: auto; /* Enable scroll if needed */
-      background-color: #474e5d;
+      background: linear-gradient(-45deg, #583b32, #f07aa7, #86cce5, #10e9b6);
       padding-top: 50px;
     }
 
     /* Modal Content/Box */
     .modal-content {
-      background-color: #fefefe;
-      margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
-      border: 1px solid #888;
-      width: 80%; /* Could be more or less, depending on screen size */
+      background-color: #f7f2f2;
+      margin: 5% auto 7% auto; /* 5% from the top, 15% from the bottom and centered */
+      border: 1px solid rgb(0, 0, 0);
+      width: 50%; /* Could be more or less, depending on screen size */
     }
 
     /* Style the horizontal ruler */
     hr {
-      border: 1px solid #f1f1f1;
-      margin-bottom: 25px;
+      border: 1px solid #9a9fb9;
+      margin-bottom: 40px;
     }
 
     /* The Close Button (x) */
@@ -106,4 +117,5 @@ h1{
       clear: both;
       display: table;
     } 
+    
     
