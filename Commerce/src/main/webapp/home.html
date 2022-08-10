@@ -8,8 +8,8 @@
 <body>
   <!-- ID changed below -->
 <h1 id="homelabel">Welcome!
-    <input type="button" onclick="window.location.href = 'cart.html';" value="Go to Cart" style="float: right;"/>
-    <input type="button" onclick="window.location.href = 'profile.html';" value="Go to profile" style="float: left;"/>
+    <button type="button" onclick="window.location.href = 'profile.html';" style="float: left;">Go to Profile</button>
+    <button type="button" onclick="createCart(event)" style="float: right;">Finalize Your Cart</button>
 </h1>
 <hr>
 <div class="container">
@@ -18,10 +18,7 @@
           <img src="https://tinyurl.com/mrycrmfu" alt="Nicol Bolas" style="width:65%">
           <h1 id="nicolName">Nicol Bolas</h1>
           <p class="price" id="nicolprice">$19.99</p>
-          <p>Check out the other Magic The Gathering POP figures from Funko!
-              Stands 6" tall.
-              Collect them all!
-              </p>
+          <p>Check out this Magic The Gathering POP figure from Funko! Stands 6" tall.</p>
           <p><button id="nicolbtn" onclick="cartProductNicol(event);">Add to Cart</button></p>
           <select type="number" name="nicol" id="nicol">
             <option value=1>1</option>
@@ -37,10 +34,8 @@
           <img src="https://m.media-amazon.com/images/I/61sZsAK343L._AC_SX425_.jpg" alt="Grogu" style="width:65%">
           <h1 id="groguName">Grogu</h1>
           <p class="price" id="groguprice">$9.99</p>
-          <p>Collect Pop! Grogu for your collection of Star Wars The Mandalorian.
-              Stands 3.75" tall.
-              Mando may be busy with serious matters but The Child was hungry.
-              Collect them all!</p>
+          <p>Collect Pop! Grogu for your collection of Star Wars The Mandalorian. Stands 3.75" tall.
+            Mando may be busy with serious matters but The Child was hungry.</p>
           <p><button id="grogubtn" onclick="cartProductGrogu(event);">Add to Cart</button></p>
           <select type="number" name="grogu" id="grogu">
             <option value=1>1</option>
@@ -56,8 +51,7 @@
           <img src="https://tinyurl.com/mvc7564k" alt="Dr. Strange" style="width:50%">
           <h1 id="drStrangeName">Dr. Strange</h1>
           <p class="price" id="drstrangeprice">$24.99</p>
-          <p>Test the limits of reality and leap into the Marvel multiverse with Pop!
-               Doctor Strange from Doctor Strange in the Multiverse of Madness!</p>
+          <p>Test the limits of reality and leap into the Marvel multiverse with Pop!</p>
           <p><button id="drstrangebtn" onclick="cartProductDrStrange(event);">Add to Cart</button></p>
           <select type="number" name="drstrange" id="drstrange">
             <option value=1>1</option>
@@ -89,9 +83,9 @@
   <div class="column">
       <div class="card">
           <img src="https://media.gamestop.com/i/gamestop/11144039_ALT01/Funko-POP-Star-Wars-The-Bad-Batch-Vinyl-Figure-5-Pack-GameStop-Exclusive" alt="Star Wars: The Bad Batch Vinyl Figure 5 Pack" style="width:65%">
-          <h1 id="starWarsName">Star Wars: The Bad Batch Vinyl Figure 5 Pack</h1>
+          <h1 id="starWarsName">Star Wars: The Bad Batch - 5 Pack</h1>
           <p class="price" id="starwarsprice">$9.99</p>
-          <p>Not all clones are created equal.</p>
+          <p>Not all clones are created equal. Add the experimental clone trooper team to your Star Wars collection!</p>
           <p><button id="star warsbtn" onclick="cartProductStarWars(event);">Add to Cart</button></p>
           <select type="number" name="star wars" id="star wars">
             <option value=1>1</option>
@@ -105,7 +99,7 @@
   <div class="column">
       <div class="card">
           <img src="https://i5.walmartimages.com/asr/8cfd642e-241d-4817-b649-8be244ec5b34_1.6d2e10cd53e4c82a3d8bc27fdf3f7692.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF" alt="Dr. Strange" style="width:50%">
-          <h1 id="elevenName">Stranger Things Eleven with Eggos</h1>
+          <h1 id="elevenName">Stranger Things: Eleven with Eggos</h1>
           <p class="price" id="elevenprice">$24.99</p>
           <p>From Stranger Things, Eleven with Eggos, as a stylized POP vinyl from Funko.
           </p>
@@ -124,7 +118,7 @@
   <div class="column">
       <div class="card">
           <img src="https://m.media-amazon.com/images/I/619G9QRFrkL._AC_SX679_.jpg" alt="Bride of Chucky - Chucky" style="width:65%">
-          <h1 id="chuckyName">Bride of Chucky - Chucky</h1>
+          <h1 id="chuckyName">Bride of Chucky: Chucky</h1>
           <p class="price" id="chuckyprice">$19.99</p>
           <p>Schedule a playdate with Bride of Chucky Pop! Chucky. Capture him to haunt your Pop! Movies collection.</p>
           <p><button id="chuckybtn" onclick="cartProductChucky(event);">Add to Cart</button></p>
@@ -144,7 +138,6 @@
           <p class="price" id="jackprice">$9.99</p>
           <p>Bow down before the Pumpkin King! This exclusive Pop! 
               VHS Cover of The Nightmare Before Christmas features Jack Skellington as he ascends Spiral Hill.
-              Perfect for any Disney fan, this Pop!
                </p>
           <p><button id="Jack Skellingtonbtn" onclick="cartProductJackSkellington(event);">Add to Cart</button></p>
           <select type="number" name="Jack Skellington" id="Jack Skellington">
@@ -181,6 +174,5 @@
 <script src="./javascript/home.js"></script>
 <!-- <script src="./javascript/cart.js"></script> -->
 
-<button type="button" onclick="createCart(event)">Finalize Your Cart</button>
 </body>
 </html>
