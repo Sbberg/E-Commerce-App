@@ -31,8 +31,7 @@ let balanceDisplay = document.getElementById("balance-input")
     balanceDisplay.innerText =`$${user.balance}`
 
 let greeting = document.getElementById("greeting")
-greeting.innerText = `Here you can change your information and add money to your account ${user.userFirstName}`;
-
+greeting.innerText = `Welcome ${user.userFirstName}! Here you can change your information and add money to your account.`;
 
 
 let infoLog = document.getElementById("infoLog");
