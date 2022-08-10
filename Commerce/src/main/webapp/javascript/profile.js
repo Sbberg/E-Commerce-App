@@ -48,7 +48,7 @@ let userId = user.userId;
 
 
 
-function showUserInfo(userData){}
+// function showUserInfo(userData){}
 
 //onclick on html button
 
