@@ -8,93 +8,51 @@
 // let button8 = document.getElementById("grogu");
 // let button9 = document.getElementById("chucky");
 
-//Getting Specific Amounts of Specific Products in Cart
+let c_Cart = localStorage.getItem('currentCart')
+
+
+//Getting Specific Amounts of Specific Products in Cart and displaying their names
 var editNicolInCart = new Number(JSON.parse(localStorage.getItem('nicolInCart')));
-console.log(editNicolInCart);
 var nicolDisplay = document.getElementById("nicol");
 nicolDisplay.innerText =`${editNicolInCart}`;
 
 var editGroguInCart = new Number(JSON.parse(localStorage.getItem('groguInCart')));
-console.log(editGroguInCart);
 var groguDisplay = document.getElementById("grogu");
 groguDisplay.innerText =`${editGroguInCart}`;
 
 var editDrStrangeInCart = new Number(JSON.parse(localStorage.getItem('drStrangeInCart')));
-console.log(editDrStrangeInCart);
 var drStrangeDisplay = document.getElementById("drStrange");
 drStrangeDisplay.innerText =`${editDrStrangeInCart}`;
 
 var editStephenCurryInCart = new Number(JSON.parse(localStorage.getItem('stephenCurryInCart')));
-console.log(editStephenCurryInCart);
 var stephenCurryDisplay = document.getElementById("stephenCurry");
 stephenCurryDisplay.innerText =`${editStephenCurryInCart}`;
 
 var editStarWarsInCart = new Number(JSON.parse(localStorage.getItem('starWarsInCart')));
-console.log(editStarWarsInCart);
 var starWarsDisplay = document.getElementById("starWars");
 starWarsDisplay.innerText =`${editStarWarsInCart}`;
 
 var editElevenInCart = new Number(JSON.parse(localStorage.getItem('elevenInCart')));
-console.log(editElevenInCart);
 var elevenDisplay = document.getElementById("eleven");
 elevenDisplay.innerText =`${editElevenInCart}`;
 
 var editChuckyInCart = new Number(JSON.parse(localStorage.getItem('chuckyBrideInCart')));
-console.log(editChuckyInCart);
 var chuckyDisplay = document.getElementById("chucky");
 chuckyDisplay.innerText =`${editChuckyInCart}`;
 
 var editJackInCart = new Number(JSON.parse(localStorage.getItem('jackInCart')));
-console.log(editJackInCart);
 var jackSkellingtonDisplay = document.getElementById("jackSkellington");
 jackSkellingtonDisplay.innerText =`${editJackInCart}`;
 
 var editDeadpoolInCart = new Number(JSON.parse(localStorage.getItem('deadpoolInCart')));
-console.log(editDeadpoolInCart);
 var deadpoolDisplay = document.getElementById("deadpool");
 deadpoolDisplay.innerText =`${editDeadpoolInCart}`;
 
-getAllCarts();
-async function getAllCarts(){
-    try {
-        const raw_response = await fetch(`http://localhost:8080/commerce/carts`,
-        {
-            headers:{
-                "Content-Type":"application/json",
-                "Access-Control-Allow-Origin": "*", 
-            } 
-        });
 
-        if(!raw_response.ok){
-            throw new Error(raw_response.status)
-        }
-
-        const data = await raw_response.json();
-
-        console.log(data);
-        console.log(JSON.stringify(data));
-        localStorage.setItem('allCarts',JSON.stringify(data));
-
-    }catch(error){
-        console.log(error)
-    }
-};
-
-//Getting Current Cart
-var allCarts = JSON.parse(localStorage.getItem('allCarts'));
-console.log(allCarts);
-var allCartsLength = allCarts.length;
-console.log(allCartsLength-1);
-var currentCart = allCarts[(allCartsLength-1)];
-console.log(currentCart);
-
-//Storing Current Cart
-localStorage.setItem('currentCart',JSON.stringify(currentCart));
 
 
 //Total Price of Cart sent from Home Page
 var totalPrice = currentCart.cartTotalPrice;
-console.log(totalPrice);
 var totalPriceField = document.getElementById("totalPrice");
 
 
@@ -123,6 +81,72 @@ var newPrice8;
 var newPrice9;
 
 
+//logs all the local product amounts
+console.group("Local Products")
+console.log(editNicolInCart);
+console.log(editGroguInCart);
+console.log(editDrStrangeInCart);
+console.log(editStephenCurryInCart);
+console.log(editStarWarsInCart);
+console.log(editElevenInCart);
+console.log(editChuckyInCart);
+console.log(editJackInCart);
+console.log(editDeadpoolInCart);
+console.groupEnd("Local Products")
+
+console.log("Total Price: " + totalPrice);
+
+
+
+
+async function getAllCarts(){
+    try {
+        const raw_response = await fetch(`http://localhost:8080/commerce/carts`,
+        {
+            headers:{
+                "Content-Type":"application/json",
+                "Access-Control-Allow-Origin": "*", 
+            } 
+        });
+
+        if(!raw_response.ok){
+            throw new Error(raw_response.status)
+        }
+
+        const data = await raw_response.json();
+
+        console.log(data);
+        console.log(JSON.stringify(data));
+        localStorage.setItem('allCarts',JSON.stringify(data));
+
+    }catch(error){
+        console.log(error)
+    }
+};
+
+//Getting Current Cart
+var allCarts = JSON.parse(localStorage.getItem('allCarts'));
+var allCartsLength = allCarts.length;
+var currentCart = allCarts[(allCartsLength-1)];
+
+//Logging the Carts
+console.group("AllCarts")
+
+getAllCarts();
+console.log("All Carts: " + allCarts);
+console.log("All Carts -1 : " +allCartsLength-1);
+console.log("Current Cart: " + currentCart);
+
+console.groupEnd("AllCarts")
+
+
+//Storing Current Cart
+localStorage.setItem('currentCart',JSON.stringify(currentCart));
+
+
+
+
+
 //TOTAL CART PRODUCT QUANTITY AFTER ADJUSTMENTS
 function addUpNewAmts(event){
     event.preventDefault;
@@ -137,10 +161,14 @@ function addUpNewAmts(event){
 function changeNicolAmt(event){
     event.preventDefault;
 
+
+    console.group("NICOL")
     var newAmt1 = document.getElementById("nicolSelector").value;
     nicolInCart = newAmt1;
     localStorage.setItem('nicolInCart' , JSON.stringify(nicolInCart))
-    console.log(nicolInCart);
+
+
+    console.log("Amount: " + nicolInCart);
     var pricestring1 = document.getElementById("cartPrice1").innerText;
     let price1 = new Number(pricestring1.slice(1,pricestring1.length));
     let newPrice1 = price1 * newAmt1;
@@ -150,8 +178,8 @@ function changeNicolAmt(event){
         totalPrice = totalPrice + (newPrice1-totalPrice);
         currentCart.cartTotalPrice = totalPrice;
         localStorage.setItem('nicolInCart', JSON.stringify(newAmt1))
-        console.log(JSON.parse(localStorage.getItem('nicolInCart')))
-        console.log(currentCart.totalQuantityOfProductsInCart)
+        console.log("Price of products: " + JSON.parse(localStorage.getItem('nicolInCart')))
+        console.log("Total quantity: " + currentCart.totalQuantityOfProductsInCart)
 
     } else if(newAmt1 < JSON.parse(localStorage.getItem('nicolInCart'))){
         totalPrice = totalPrice - (totalPrice-newPrice1);
@@ -159,11 +187,13 @@ function changeNicolAmt(event){
         localStorage.setItem('nicolInCart', JSON.stringify(newAmt1))
         console.log(JSON.parse(localStorage.getItem('nicolInCart')))
 
-    } else {
-        currentCart.cartTotalPrice = totalPrice;
+    } else {        
         localStorage.setItem('nicolInCart', JSON.stringify(newAmt1))
         console.log(JSON.parse(localStorage.getItem('nicolInCart')))
     }
+    window.location.reload();
+
+    console.groupEnd("NICOL")
 }
 
 console.log(newAmt1);
