@@ -124,17 +124,17 @@ async function getAllCarts(){
 };
 
 //Getting Current Cart
-var allCarts = JSON.parse(localStorage.getItem('allCarts'));
-var allCartsLength = allCarts.length;
-var currentCart = allCarts[(allCartsLength-1)];
+// var allCarts = JSON.parse(localStorage.getItem('allCarts'));
+// var allCartsLength = allCarts.length;
+// var currentCart = allCarts[(allCartsLength-1)];
 
 //Logging the Carts
-console.group("AllCarts")
+
 
 getAllCarts();
-console.log("All Carts: " + allCarts);
-console.log("All Carts -1 : " +allCartsLength-1);
-console.log("Current Cart: " + currentCart);
+//  console.log("All Carts: " + allCarts);
+// console.log("All Carts -1 : " +allCartsLength-1);
+// console.log("Current Cart: " + currentCart);
 
 console.groupEnd("AllCarts")
 
@@ -147,17 +147,21 @@ console.groupEnd("AllCarts")
 function addUpNewAmts(event){
     event.preventDefault;
 
-    currentCart.totalQuantityOfProductsInCart = newAmt4+newAmt2+newAmt3+newAmt4+newAmt5+newAmt6+newAmt7+newAmt8+newAmt9;
-    currentCart.cartTotalPrice = newPrice4+newPrice2+newPrice3+newPrice4+newPrice5+newPrice6+newPrice7+newPrice8+newPrice9;
+    c_Cart.totalQuantityOfProductsInCart = newAmt1+newAmt2+newAmt3+newAmt4+newAmt5+newAmt6+newAmt7+newAmt8+newAmt9;
+    c_Cart.cartTotalPrice = newPrice1+newPrice2+newPrice3+newPrice4+newPrice5+newPrice6+newPrice7+newPrice8+newPrice9;
 
     window.location.replace("checkOut.html");
 }
+
+
+//------------------------------------------------------------------------------------------
+
 
 //Onclick Button Updates
 
 //THIS IS PRODUCT 1
 function changeNicolAmt(event){
-    event.preventDefault;
+    event.preventDefault();
 
     newAmt1 = document.getElementById("nicolSelector").value;
     nicolInCart = newAmt1;
@@ -172,14 +176,14 @@ function changeNicolAmt(event){
 
     if(newAmt1 > JSON.parse(localStorage.getItem('nicolInCart'))){
         totalPrice = totalPrice + (newPrice1-totalPrice);
-        currentCart.cartTotalPrice = totalPrice;
+        c_Cart.cartTotalPrice = totalPrice;
         localStorage.setItem('nicolInCart', JSON.stringify(newAmt1))
         console.log("Price of products: " + JSON.parse(localStorage.getItem('nicolInCart')))
-        console.log("Total quantity: " + currentCart.totalQuantityOfProductsInCart)
+        console.log("Total quantity: " + c_Cart.totalQuantityOfProductsInCart)
 
     } else if(newAmt1 < JSON.parse(localStorage.getItem('nicolInCart'))){
         totalPrice = totalPrice - (totalPrice-newPrice1);
-        currentCart.cartTotalPrice = totalPrice;
+        c_Cart.cartTotalPrice = totalPrice;
         localStorage.setItem('nicolInCart', JSON.stringify(newAmt1))
         console.log(JSON.parse(localStorage.getItem('nicolInCart')))
 
@@ -196,10 +200,10 @@ function changeNicolAmt(event){
 
 //THIS IS PRODUCT 2
 function changeGroguAmt(event){
-    event.preventDefault;
+    event.preventDefault();
 
     newAmt2 = document.getElementById("groguSelector").value;
-    groguInCart = newAmt4;
+    groguInCart = newAmt2;
     localStorage.setItem('groguInCart' , JSON.stringify(groguInCart))
 
 
@@ -207,18 +211,18 @@ function changeGroguAmt(event){
     var pricestring2 = document.getElementById("cartPrice2").innerText;
     let price2 = new Number(pricestring2.slice(1,pricestring2.length));
     newPrice2 = price2 * newAmt2;
-    console.log(newPrice4)
+    console.log(newPrice2)
 
     if(newAmt2 > JSON.parse(localStorage.getItem('groguInCart'))){
-        totalPrice = totalPrice + (newPrice4-totalPrice);
-        currentCart.cartTotalPrice = totalPrice;
+        totalPrice = totalPrice + (newPrice2-totalPrice);
+        c_Cart.cartTotalPrice = totalPrice;
         localStorage.setItem('groguInCart', JSON.stringify(newAmt2))
         console.log("Price of products: " + JSON.parse(localStorage.getItem('groguInCart')))
-        console.log("Total quantity: " + currentCart.totalQuantityOfProductsInCart)
+        console.log("Total quantity: " + c_Cart.totalQuantityOfProductsInCart)
 
     } else if(newAmt2 < JSON.parse(localStorage.getItem('groguInCart'))){
-        totalPrice = totalPrice - (totalPrice-newPrice4);
-        currentCart.cartTotalPrice = totalPrice;
+        totalPrice = totalPrice - (totalPrice-newPrice2);
+        c_Cart.cartTotalPrice = totalPrice;
         localStorage.setItem('groguInCart', JSON.stringify(newAmt2))
         console.log(JSON.parse(localStorage.getItem('groguInCart')))
 
@@ -234,7 +238,7 @@ function changeGroguAmt(event){
 
 //THIS IS PRODUCT 3
 function changeStrangeAmt(event){
-    event.preventDefault;
+    event.preventDefault();
 
 
     newAmt3 = document.getElementById("drStrangeSelector").value;
@@ -249,15 +253,15 @@ function changeStrangeAmt(event){
     console.log(newPrice3)
 
     if(newAmt3 > JSON.parse(localStorage.getItem('drStrangeInCart'))){
-        totalPrice = totalPrice + (newPrice4-totalPrice);
-        currentCart.cartTotalPrice = totalPrice;
+        totalPrice = totalPrice + (newPrice3-totalPrice);
+        c_Cart.cartTotalPrice = totalPrice;
         localStorage.setItem('drStrangeInCart', JSON.stringify(newAmt3))
         console.log("Price of products: " + JSON.parse(localStorage.getItem('drStrangeInCart')))
-        console.log("Total quantity: " + currentCart.totalQuantityOfProductsInCart)
+        console.log("Total quantity: " + c_Cart.totalQuantityOfProductsInCart)
 
     } else if(newAmt3 < JSON.parse(localStorage.getItem('nicolInCart'))){
-        totalPrice = totalPrice - (totalPrice-newPrice4);
-        currentCart.cartTotalPrice = totalPrice;
+        totalPrice = totalPrice - (totalPrice-newPrice3);
+        c_Cart.cartTotalPrice = totalPrice;
         localStorage.setItem('drStrangeInCart', JSON.stringify(newAmt3))
         console.log(JSON.parse(localStorage.getItem('drStrangeInCart')))
 
@@ -272,7 +276,7 @@ function changeStrangeAmt(event){
 
 //THIS IS PRODUCT 4
 function changeCurryAmt(event){
-    event.preventDefault;
+    event.preventDefault();
 
 
 
@@ -289,14 +293,14 @@ function changeCurryAmt(event){
 
     if(newAmt4 > JSON.parse(localStorage.getItem('stephenCurryInCart'))){
         totalPrice = totalPrice + (newPrice4-totalPrice);
-        currentCart.cartTotalPrice = totalPrice;
+        c_Cart.cartTotalPrice = totalPrice;
         localStorage.setItem('stephenCurryInCart', JSON.stringify(newAmt4))
         console.log("Price of products: " + JSON.parse(localStorage.getItem('stephenCurryInCart')))
-        console.log("Total quantity: " + currentCart.totalQuantityOfProductsInCart)
+        console.log("Total quantity: " + c_Cart.totalQuantityOfProductsInCart)
 
     } else if(newAmt4 < JSON.parse(localStorage.getItem('stephenCurryInCart'))){
         totalPrice = totalPrice - (totalPrice-newPrice4);
-        currentCart.cartTotalPrice = totalPrice;
+        c_Cart.cartTotalPrice = totalPrice;
         localStorage.setItem('stephenCurryInCart', JSON.stringify(newAmt4))
         console.log(JSON.parse(localStorage.getItem('stephenCurryInCart')))
 
@@ -312,7 +316,7 @@ function changeCurryAmt(event){
 
 //THIS IS PRODUCT 5
 function changeBatchAmt(event){
-    event.preventDefault;
+    event.preventDefault();
 
 
     newAmt5 = document.getElementById("starWarsSelector").value;
@@ -328,14 +332,14 @@ function changeBatchAmt(event){
 
     if(newAmt5 > JSON.parse(localStorage.getItem('starWarsInCart'))){
         totalPrice = totalPrice + (newPrice5-totalPrice);
-        currentCart.cartTotalPrice = totalPrice;
+        c_Cart.cartTotalPrice = totalPrice;
         localStorage.setItem('starWarsInCart', JSON.stringify(newAmt5))
         console.log("Price of products: " + JSON.parse(localStorage.getItem('starWarsInCart')))
-        console.log("Total quantity: " + currentCart.totalQuantityOfProductsInCart)
+        console.log("Total quantity: " + c_Cart.totalQuantityOfProductsInCart)
 
     } else if(newAmt5 < JSON.parse(localStorage.getItem('starWarsInCart'))){
         totalPrice = totalPrice - (totalPrice-newPrice5);
-        currentCart.cartTotalPrice = totalPrice;
+        c_Cart.cartTotalPrice = totalPrice;
         localStorage.setItem('starWarsInCart', JSON.stringify(newAmt5))
         console.log(JSON.parse(localStorage.getItem('starWarsInCart')))
 
@@ -352,7 +356,7 @@ function changeBatchAmt(event){
 
 //THIS IS PRODUCT 6
 function changeWafflesAmt(event){
-    event.preventDefault;
+    event.preventDefault();
 
 
     newAmt6 = document.getElementById("elevenSelector").value;
@@ -368,14 +372,14 @@ function changeWafflesAmt(event){
 
     if(newAmt6 > JSON.parse(localStorage.getItem('nicolInelevenInCartCart'))){
         totalPrice = totalPrice + (newPrice6-totalPrice);
-        currentCart.cartTotalPrice = totalPrice;
+        c_Cart.cartTotalPrice = totalPrice;
         localStorage.setItem('elevenInCart', JSON.stringify(newAmt6))
         console.log("Price of products: " + JSON.parse(localStorage.getItem('elevenInCart')))
-        console.log("Total quantity: " + currentCart.totalQuantityOfProductsInCart)
+        console.log("Total quantity: " + c_Cart.totalQuantityOfProductsInCart)
 
     } else if(newAmt6 < JSON.parse(localStorage.getItem('elevenInCart'))){
         totalPrice = totalPrice - (totalPrice-newPrice6);
-        currentCart.cartTotalPrice = totalPrice;
+        c_Cart.cartTotalPrice = totalPrice;
         localStorage.setItem('elevenInCart', JSON.stringify(newAmt6))
         console.log(JSON.parse(localStorage.getItem('elevenInCart')))
 
@@ -390,7 +394,7 @@ function changeWafflesAmt(event){
 
 //THIS IS PRODUCT 7
 function changeChuckyAmt(event){
-    event.preventDefault;
+    event.preventDefault();
 
     newAmt7 = document.getElementById("chuckySelector").value;
     chuckyBrideInCart = newAmt7;
@@ -405,14 +409,14 @@ function changeChuckyAmt(event){
 
     if(newAmt7 > JSON.parse(localStorage.getItem('chuckyBrideInCart'))){
         totalPrice = totalPrice + (newPrice7-totalPrice);
-        currentCart.cartTotalPrice = totalPrice;
+        c_Cart.cartTotalPrice = totalPrice;
         localStorage.setItem('chuckyBrideInCart', JSON.stringify(newAmt7))
         console.log("Price of products: " + JSON.parse(localStorage.getItem('chuckyBrideInCart')))
-        console.log("Total quantity: " + currentCart.totalQuantityOfProductsInCart)
+        console.log("Total quantity: " + c_Cart.totalQuantityOfProductsInCart)
 
     } else if(newAmt7 < JSON.parse(localStorage.getItem('chuckyBrideInCart'))){
         totalPrice = totalPrice - (totalPrice-newPrice7);
-        currentCart.cartTotalPrice = totalPrice;
+        c_Cart.cartTotalPrice = totalPrice;
         localStorage.setItem('chuckyBrideInCart', JSON.stringify(newAmt7))
         console.log(JSON.parse(localStorage.getItem('chuckyBrideInCart')))
 
@@ -428,7 +432,7 @@ function changeChuckyAmt(event){
 
 //THIS IS PRODUCT 8
 function changeJackAmt(event){
-    event.preventDefault;
+    event.preventDefault();
 
 
     newAmt8 = document.getElementById("jackSkellingtonSelector").value;
@@ -444,14 +448,14 @@ function changeJackAmt(event){
 
     if(newAmt8 > JSON.parse(localStorage.getItem('jackInCart'))){
         totalPrice = totalPrice + (newPrice8-totalPrice);
-        currentCart.cartTotalPrice = totalPrice;
+        c_Cart.cartTotalPrice = totalPrice;
         localStorage.setItem('jackInCart', JSON.stringify(newAmt8))
         console.log("Price of products: " + JSON.parse(localStorage.getItem('jackInCart')))
-        console.log("Total quantity: " + currentCart.totalQuantityOfProductsInCart)
+        console.log("Total quantity: " + c_Cart.totalQuantityOfProductsInCart)
 
     } else if(newAmt8 < JSON.parse(localStorage.getItem('jackInCart'))){
         totalPrice = totalPrice - (totalPrice-newPrice8);
-        currentCart.cartTotalPrice = totalPrice;
+        c_Cart.cartTotalPrice = totalPrice;
         localStorage.setItem('jackInCart', JSON.stringify(newAmt8))
         console.log(JSON.parse(localStorage.getItem('jackInCart')))
 
@@ -467,29 +471,29 @@ function changeJackAmt(event){
 
 //THIS IS PRODUCT 9
 function changeBobAmt(event){
-    event.preventDefault;
+    event.preventDefault();
 
 
-    newAmt9 = document.getElementById("deadpoolSelectorr").value;
+    newAmt9 = document.getElementById("deadpoolSelector").value;
     deadpoolInCart = newAmt9;
     localStorage.setItem('deadpoolInCart' , JSON.stringify(deadpoolInCart))
     var pricestring9 = document.getElementById("cartPrice9").innerText;
-    let price9 = new Number(pricestring9.slice(1,pricestring1.length));
+    let price9 = new Number(pricestring9.slice(1,pricestring9.length));
     newPrice9 = price9 * newAmt9;
     console.log("Amount: " + deadpoolInCart);    
     
     console.log(newPrice9)
 
-    if(newAmt4 > JSON.parse(localStorage.getItem('deadpoolInCart'))){
-        totalPrice = totalPrice + (newPrice4-totalPrice);
-        currentCart.cartTotalPrice = totalPrice;
+    if(newAmt9 > JSON.parse(localStorage.getItem('deadpoolInCart'))){
+        totalPrice = totalPrice + (newPrice9-totalPrice);
+        c_Cart.cartTotalPrice = totalPrice;
         localStorage.setItem('deadpoolInCart', JSON.stringify(newAmt9))
         console.log("Price of products: " + JSON.parse(localStorage.getItem('deadpoolInCart')))
-        console.log("Total quantity: " + currentCart.totalQuantityOfProductsInCart)
+        console.log("Total quantity: " + c_Cart.totalQuantityOfProductsInCart)
 
-    } else if(newAmt4 < JSON.parse(localStorage.getItem('nicolInCart'))){
+    } else if(newAmt9 < JSON.parse(localStorage.getItem('nicolInCart'))){
         totalPrice = totalPrice - (totalPrice-newPrice9);
-        currentCart.cartTotalPrice = totalPrice;
+        c_Cart.cartTotalPrice = totalPrice;
         localStorage.setItem('deadpoolInCart', JSON.stringify(newAmt9))
         console.log(JSON.parse(localStorage.getItem('deadpoolInCart')))
 
@@ -510,7 +514,7 @@ function changeBobAmt(event){
 
 
 
-console.log(newAmt4);
+
 
 function changeGroguAmt(event){
     event.preventDefault;

@@ -1,26 +1,41 @@
+
 //this finds current user and logs it in console
 let userStorage = localStorage.getItem('currentUser');
 let user = JSON.parse(userStorage);
 
+
+//Finds user's cart and price and logs it
+let cartStorage = localStorage.getItem('currentCart');
+let cart = JSON.parse(cartStorage);
+
+
 //User Fields
 var userid = user.userId;
+var username = user.userName;
 var userFirstName = user.userFirstName;
 var userLastName = user.userLastName;
 var userAddress = user.address;
 var userEmail = user.userEmail;
 var userPassword = user.userPassword;
 var userOldBalance = user.balance;
+var userNewBalance = userOldBalance - cart.cartTotalPrice;
+
 
 
 console.group("USER")
 console.log(user)
 console.log(user.userId);
 console.log(user.userName);
+console.log(user.userFirstName);
+console.log(user.userLastName);
+console.log(user.address);
+console.log(user.userEmail);
+console.log(user.userPassword);
+console.log(user.balance);
+console.log(userNewBalance);
 console.groupEnd("USER");
 
-//Finds user's cart and price and logs it
-let cartStorage = localStorage.getItem('currentCart');
-let cart =JSON.parse(cartStorage);
+
 
 console.group("CART")
 console.log(cart);
@@ -64,39 +79,74 @@ console.log(allProducts)
 //Nicol Bolas Product Array and Inventory
 var nicolBolasProduct = allProducts[0];
 var nicolBolasOldInventory = nicolBolasProduct.inventory;
+var nicolPurchased = localStorage.getItem('nicolInCart');
+var newNicolInventoryAmt = nicolBolasOldInventory - nicolPurchased;
 
 //Stephen Curry Product Array and Inventory
 var stephenCurryProduct = allProducts[1];
 var stephenCurryOldInventory = stephenCurryProduct.inventory;
+var stephenCurryPurchased = localStorage.getItem('stephenCurryInCart');
+var newStephenCurryInventoryAmt = stephenCurryOldInventory - stephenCurryPurchased;
 
 //Star Wars Bad Batch Array and Inventory
 var starWarsProduct = allProducts[2];
 var starWarsOldInventory = starWarsProduct.inventory;
+var starWarsPurchased = localStorage.getItem('starWarsInCart');
+var newStarWarsInventoryAmt = starWarsOldInventory - starWarsPurchased;
+
 
 //Eleven Array and Inventory
 var elevenProduct = allProducts[3];
 var elevenOldInventory = elevenProduct.inventory;
+var elevenPurchased = localStorage.getItem('elevenInCart');
+var newElevenInventoryAmt = elevenOldInventory - elevenPurchased;
 
 //Jack Skellington Array and Inventory
 var jackSkellingtonProduct = allProducts[4]
 var jackSkellingtonOldInventory = jackSkellingtonProduct.inventory;
+var jackSkellingtonPurchased = localStorage.getItem('jackInCart');
+var newJackSkellingtonInventoryAmt = jackSkellingtonOldInventory - jackSkellingtonPurchased;
 
 //Deadpool Array and Inventory
 var deadpoolProduct = allProducts[5]
 var deadpoolOldInventory = deadpoolProduct.inventory;
+var deadpoolPurchased = localStorage.getItem('deadpoolInCart');
+var newDeadpoolInventoryAmt = deadpoolOldInventory - deadpoolPurchased;
 
 //Dr. Strange Array and Inventory
 var drStrangeProduct = allProducts[6]
 var drStrangeOldInventory = drStrangeProduct.inventory;
+var drStrangePurchased = localStorage.getItem('drStrangeInCart');
+var newDrStrangeInventoryAmt = drStrangeOldInventory - drStrangePurchased;
 
 //Grogu Array and Inventory
 var groguProduct = allProducts[7]
 var groguOldInventory = groguProduct.inventory;
+var groguPurchased = localStorage.getItem('groguInCart');
+var newGroguInventoryAmt = groguOldInventory - groguPurchased;
 
 //Chucky Array and Inventory
 var chuckyProduct = allProducts[9]
 var chuckyOldInventory = chuckyProduct.inventory;
+var chuckyPurchased = localStorage.getItem('chuckyBrideInCart');
+var newChuckyInventoryAmt = chuckyOldInventory - chuckyPurchased;
 
+
+//PUTTING NEW USER BALANCE
+let updateInfo = {
+    userName:username,
+    userFirstName:userFirstName,
+    userLastName:userLastName,
+    address:userAddress,
+    userEmail:userEmail,
+    userPassword:userPassword,
+    balance:userNewBalance,
+    userId:userid
+};
+
+async function updateUserBalance(event){
+    event.preventDefault();
+}
 
 
 
