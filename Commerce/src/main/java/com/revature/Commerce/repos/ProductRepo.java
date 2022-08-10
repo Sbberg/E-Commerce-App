@@ -24,6 +24,3 @@ public interface ProductRepo extends JpaRepository<Product,Integer> {
 
 
 }
-
-//    @Query(value = "UPDATE products SET p_name=?1, p_price=?2, p_category=?3, p_inventory=?4 WHERE p_id=?5", nativeQuery = true)
-//    int update(String productName, double price, String productCategory, int inventory, int productId);

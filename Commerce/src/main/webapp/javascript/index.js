@@ -26,7 +26,7 @@ async function loginUser(event){
         console.log(JsonLoginBody)
 
     try{
-        const raw_response = await fetch(`http://localhost:8080/commerce/userusername`, 
+        const raw_response = await fetch(`http://3.84.16.120:8080/commerce/userusername`, 
             {
                 method:"POST",
                 headers:{
@@ -90,7 +90,7 @@ signUpButton.addEventListener("click", (event) => {
         }
     };
 
-    xhttp.open("POST",`http://localhost:8080/commerce/user`);
+    xhttp.open("POST",`http://3.84.16.120:8080/commerce/user`);
 
     xhttp.setRequestHeader("Content-Type","application/json");
     xhttp.setRequestHeader("Access-Control-Allow-Origin", "*");
@@ -99,25 +99,3 @@ signUpButton.addEventListener("click", (event) => {
 
 });
 
-//BOOTLEG
-// loginButton.addEventListener("click", async () => {
-//     try{
-//         const raw_response = await fetch(`http://localhost:8080/commerce/users`);
-
-        
-//         if(!raw_response.ok){
-//             throw new Error(raw_response.status)
-//         }
-
-//         const json_data = await raw_response.json();
-
-//         console.log(json_data)
-
-//         localStorage.setItem('currentUser' , JSON.stringify(json_data));
-        
-
-//         window.location.replace("home.html");
-//     } catch(error){
-//         console.log(error);
-//     }
-// })

@@ -13,7 +13,7 @@ import static com.revature.Commerce.utils.ClientMessageUtils.*;
 import static org.springframework.http.MediaType.APPLICATION_JSON;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
-@CrossOrigin //(allowedHeaders = {"Access-Control-Allow-Origin", "http://127.0.0.1:5500"}) // origins = {"http://127.0.0.1:5500"}
+@CrossOrigin
 @RestController
 @RequestMapping("/commerce")
 public class UserController {
@@ -73,11 +73,3 @@ public class UserController {
         return userService.deleteUser(user) ? DELETION_SUCCESSFUL:DELETION_FAILED;
     }
 }
-
-//    @GetMapping("/userbyusername")
-//    @ResponseStatus(HttpStatus.ACCEPTED)
-//    public @ResponseBody User getUserByUsername(@RequestParam String userName,String userPassword){ //@RequestParam(name="username-sign-in") @RequestParam(name="password-sign-in")
-//        System.out.println(userName);
-//        System.out.println(userPassword);
-//        return userService.getByUsername(userName, userPassword);
-//    }

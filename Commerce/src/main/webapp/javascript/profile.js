@@ -64,7 +64,6 @@ let userId = user.userId;
 
     let userFirstName = document.getElementById("f-name-input").value;
     
-    // let userLastName = document.getElementById("l_name-input").value;
     let userlname = document.getElementById('l-name-input').value;
 
     let address = document.getElementById('addressInput').value;
@@ -104,7 +103,7 @@ let userId = user.userId;
  
 
     try {
-        const raw_response = await fetch(`http://localhost:8080/commerce/userupdate`,
+        const raw_response = await fetch(`http://3.84.16.120:8080/commerce/userupdate`,
             {
 
                 //Put method to update data
@@ -154,20 +153,6 @@ let userId = user.userId;
         }, 5 * 1000)
         
         
-
-            //checks to make sure on fields are empty
-    //         if(username == null || password == null || email == null ||
-    //         address == null ||lastname == null || firstname == null 
-    //         && updateUserInfo()){
-    //         infoLog.innerText = `Sorry ${user} one or more fields is empty or doesn't meet requirements.`;
-
-
-    //         //sends a log describing issue
-    //         console.log("one or more fields is empty or doesn't meet requirements.")
-        
-    //         }
-
-    // infoLog.innerText = `changes have been saved`;
         
     } catch (error) {
         alert("There is an error: " + error)
@@ -185,7 +170,7 @@ async function login(){
         
 
     try{
-        const raw_response = await fetch(`http://localhost:8080/commerce/userId`, 
+        const raw_response = await fetch(`http://3.84.16.120:8080/commerce/userId`, 
             {
                 method:"POST",
                 headers:{

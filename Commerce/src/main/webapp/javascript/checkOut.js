@@ -59,7 +59,7 @@ console.groupEnd("CART")
 getAllProducts(); //To open on page load
 async function getAllProducts(){
     try{
-        const raw_response = await fetch(`http://localhost:8080/commerce/products`,
+        const raw_response = await fetch(`http://3.84.16.120:8080/commerce/products`,
         {
             headers:{
                 "Content-Type":"application/json",
@@ -279,7 +279,7 @@ async function updateUserBalance(event){
     console.groupEnd("JSON User Data sent to Server");
 
     try{
-        const raw_response = await fetch(`http://localhost:8080/commerce/userupdate`,
+        const raw_response = await fetch(`http://3.84.16.120:8080/commerce/userupdate`,
         {                //Put method to update data
             method:"PUT",
             headers:{
@@ -358,7 +358,7 @@ console.groupEnd("Nicol Bolas Data Sent to Server")
 async function updateNicolBolas(event){
     event.preventDefault();
     try{
-        const raw_response = await fetch(`http://localhost:8080/commerce/productinventory`,
+        const raw_response = await fetch(`http://3.84.16.120:8080/commerce/productinventory`,
         {
             method:"PUT",
             headers:{
@@ -418,7 +418,7 @@ console.groupEnd("Stephen Curry Data Sent to Server")
 async function updateStephenCurry(event){
     event.preventDefault();
     try{
-        const raw_response = await fetch(`http://localhost:8080/commerce/productinventory`,
+        const raw_response = await fetch(`http://3.84.16.120:8080/commerce/productinventory`,
         {
             method:"PUT",
             headers:{
@@ -471,7 +471,7 @@ console.groupEnd("Bad Batch Data Sent to Server")
 async function updateBadBatch(event){
     event.preventDefault();
     try{
-        const raw_response = await fetch(`http://localhost:8080/commerce/productinventory`,
+        const raw_response = await fetch(`http://3.84.16.120:8080/commerce/productinventory`,
         {
             method:"PUT",
             headers:{
@@ -518,7 +518,7 @@ console.groupEnd("Nicol Bolas Data Sent to Server")
 async function updateEleven(event){
     event.preventDefault();
     try{
-        const raw_response = await fetch(`http://localhost:8080/commerce/productinventory`,
+        const raw_response = await fetch(`http://3.84.16.120:8080/commerce/productinventory`,
         {
             method:"PUT",
             headers:{
@@ -568,7 +568,7 @@ console.groupEnd("Jack Skellington Data Sent to Server")
 async function updateJackSkellington(event){
     event.preventDefault();
     try{
-        const raw_response = await fetch(`http://localhost:8080/commerce/productinventory`,
+        const raw_response = await fetch(`http://3.84.16.120:8080/commerce/productinventory`,
         {
             method:"PUT",
             headers:{
@@ -616,7 +616,7 @@ console.groupEnd("Deadpool Data Sent to Server")
 async function updateDeadpool(event){
     event.preventDefault();
     try{
-        const raw_response = await fetch(`http://localhost:8080/commerce/productinventory`,
+        const raw_response = await fetch(`http://3.84.16.120:8080/commerce/productinventory`,
         {
             method:"PUT",
             headers:{
@@ -640,6 +640,22 @@ async function updateDeadpool(event){
         alert("There is an error: "+error)
     }
 };
+
+//----------------------------------------------------------------------------------------------------------------
+//----------------------------------------------------------------------------------------------------------------
+
+//UPDATE DR STRANGE
+drStrangeId
+newDrStrangeInventoryAmt
+
+let drStrangeUpdateInfo = {
+    productName:"Dr Strange",
+    price:19.99,
+    productCategory:"Magic The Gathering",
+    inventory:newNicolInventoryAmt,
+    productId:nicolBolasId
+};
+
 
 //----------------------------------------------------------------------------------------------------------------
 //----------------------------------------------------------------------------------------------------------------
