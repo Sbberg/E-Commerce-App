@@ -17,7 +17,15 @@ var chuckyBrideInCart = new Number(0);
 var jackInCart = new Number(0);
 var deadpoolInCart = new Number(0);
 
-
+localStorage.setItem('nicolInCart', JSON.stringify(0));
+localStorage.setItem('groguInCart', JSON.stringify(0));
+localStorage.setItem('drStrangeInCart', JSON.stringify(0));
+localStorage.setItem('stephenCurryInCart', JSON.stringify(0));
+localStorage.setItem('starWarsInCart', JSON.stringify(0));
+localStorage.setItem('elevenInCart', JSON.stringify(0));
+localStorage.setItem('chuckyBrideInCart', JSON.stringify(0));
+localStorage.setItem('jackInCart', JSON.stringify(0));
+localStorage.setItem('deadpoolInCart', JSON.stringify(0));
 
 var nicolName = document.getElementById("nicolName").innerText;
 localStorage.setItem('nicolName', nicolName);
