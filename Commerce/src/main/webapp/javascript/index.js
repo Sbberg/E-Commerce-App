@@ -55,6 +55,7 @@ let signUpButton = document.getElementById("signupbtn");
 signUpButton.addEventListener("click", (event) => {
     event.preventDefault();
 
+
     let xhttp = new XMLHttpRequest();
 
     let userName = document.getElementById("username-signup").value
@@ -81,7 +82,7 @@ signUpButton.addEventListener("click", (event) => {
         if(this.readyState == 4 && xhttp.status === 200){
             console.log(xhttp.responseText);
 
-            window.location.replace("home.html");
+
 
         }  else if(this.readyState == 4 && xhttp.status == 204){
 
@@ -96,6 +97,7 @@ signUpButton.addEventListener("click", (event) => {
     xhttp.setRequestHeader("Access-Control-Allow-Origin", "*");
 
     xhttp.send(JSON.stringify(signupInfo));
+
 
 });
 

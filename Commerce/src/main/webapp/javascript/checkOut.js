@@ -10,11 +10,12 @@ let cartStorage = localStorage.getItem('currentCart');
 let cart = JSON.parse(cartStorage);
 
 subtotal = document.getElementById("subtotal")
-subtotal.innerText = `$${cart.cartTotalPrice}`
+subtotal.innerText = `$${cart.cartTotalPrice.toFixed(2)}`
 products = document.getElementById("products")
 products.innerText =`${cart.totalQuantityOfProductsInCart}`
 balancetext = document.getElementById("after-balance")
-balancetext.innerText =`${user.balance} - ${cart.cartTotalPrice} = ${user.balance - cart.cartTotalPrice}`
+var realbalancetext = user.balance - cart.cartTotalPrice;
+balancetext.innerText =`${user.balance.toFixed(2)} - ${cart.cartTotalPrice.toFixed(2)} = ${realbalancetext.toFixed(2)}`
 
 //User Fields
 var userid = user.userId;
