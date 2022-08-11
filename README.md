@@ -1,7 +1,7 @@
 # E-Commerce-App
 This group project was completed as part of the Revature Java-Angular-AWS training program. For our E-Commerce project, we developed an application for purchasing Funko Pops!
 
-![image](https://user-images.githubusercontent.com/107434843/184016689-760a1000-d4a0-4b46-8249-ae18fdb7cad5.png)
+![image](https://user-images.githubusercontent.com/107434843/184056273-99cafe75-6a46-41b0-90e2-04b139b38461.png)
 
 With this project being a training program assignment, it was a learning experience full of learning opportunities! This was our first project working on a team, while also working remotely, so we collaborated our schedules often to be able to work together. We also communicated what each person was working on, that way when we'd push to our GitHub repository there were minimal merge conflicts. When it came to assigning responsibilities, we went off of who felt the most confident in what!
 
