@@ -15,7 +15,7 @@ products = document.getElementById("products")
 products.innerText =`${cart.totalQuantityOfProductsInCart}`
 balancetext = document.getElementById("after-balance")
 var realbalancetext = user.balance - cart.cartTotalPrice;
-balancetext.innerText =`${user.balance.toFixed(2)} - ${cart.cartTotalPrice.toFixed(2)} = ${realbalancetext.toFixed(2)}`
+balancetext.innerText =`$${user.balance.toFixed(2)} - $${cart.cartTotalPrice.toFixed(2)} = $${realbalancetext.toFixed(2)}`
 
 //User Fields
 var userid = user.userId;
