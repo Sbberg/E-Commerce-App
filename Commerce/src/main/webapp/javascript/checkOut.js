@@ -92,8 +92,52 @@ const allProducts = JSON.parse(localStorage.getItem('allProducts'));
 console.log(allProducts)
 
 
+//ITERATING THROUGH allProducts Array and assigning Individual Products
+//to element in allProducts Array
+
+allProducts.forEach(element => {
+
+    if(element.productId == 8){
+        nicolBolasProduct = allProducts[allProducts.indexOf(element)];
+    }
+
+    if(element.productId == 10){
+        stephenCurryProduct = allProducts[allProducts.indexOf(element)];
+    }
+
+    if(element.productId == 17){
+        starWarsProduct = allProducts[allProducts.indexOf(element)];
+    }
+
+    if(element.productId == 7){
+        drStrangeProduct = allProducts[allProducts.indexOf(element)];
+    }
+
+    if(element.productId == 1){
+        groguProduct = allProducts[allProducts.indexOf(element)];
+    }
+
+    if(element.productId == 12){
+        jackSkellingtonProduct = allProducts[allProducts.indexOf(element)];
+    }
+
+    if(element.productId == 16){
+        elevenProduct = allProducts[allProducts.indexOf(element)];
+    }
+
+    if(element.productId == 13){
+        deadpoolProduct = allProducts[allProducts.indexOf(element)];
+    }
+
+    if(element.productId == 15){
+        chuckyProduct = allProducts[allProducts.indexOf(element)];
+    } 
+
+});
+
+
 //Nicol Bolas Product Array and Inventory
-var nicolBolasProduct = allProducts[5];
+var nicolBolasProduct;
 var nicolBolasId = 8;
 var nicolBolasOldInventory = nicolBolasProduct.inventory;
 var nicolPurchased = JSON.parse(localStorage.getItem('nicolInCart'));
@@ -111,7 +155,7 @@ console.groupEnd("Nicol Bolas Data");
 
 
 //Stephen Curry Product Array and Inventory
-var stephenCurryProduct = allProducts[1];
+var stephenCurryProduct;
 var stephenCurryId = 10
 var stephenCurryOldInventory = stephenCurryProduct.inventory;
 var stephenCurryPurchased =JSON.parse(localStorage.getItem('stephenCurryInCart'));
@@ -128,7 +172,7 @@ console.groupEnd("Stephen Curry Data");
 
 //Star Wars Bad Batch Array and Inventory
 
-var starWarsProduct = allProducts[2];
+var starWarsProduct;
 var starWarsId = 17
 var starWarsOldInventory = starWarsProduct.inventory;
 var starWarsPurchased = JSON.parse(localStorage.getItem('starWarsInCart'));
@@ -144,7 +188,7 @@ console.groupEnd("Bad Batch Data");
 //----------------------------------------------------------------------------------------------------------------
 
 //Eleven Array and Inventory
-var elevenProduct = allProducts[3];
+var elevenProduct;
 var elevenId = 16;
 var elevenOldInventory = elevenProduct.inventory;
 var elevenPurchased = JSON.parse(localStorage.getItem('elevenInCart'));
@@ -160,7 +204,7 @@ console.groupEnd("Eleven Data");
 //----------------------------------------------------------------------------------------------------------------
 
 //Jack Skellington Array and Inventory
-var jackSkellingtonProduct = allProducts[4]
+var jackSkellingtonProduct;
 var jackSkellingtonId = 12;
 var jackSkellingtonOldInventory = jackSkellingtonProduct.inventory;
 var jackSkellingtonPurchased = JSON.parse(localStorage.getItem('jackInCart'));
@@ -178,7 +222,7 @@ console.groupEnd("Jack Skellington Data");
 
 
 //Deadpool Array and Inventory
-var deadpoolProduct = allProducts[5]
+var deadpoolProduct;
 var deadpoolId = 13;
 var deadpoolOldInventory = deadpoolProduct.inventory;
 var deadpoolPurchased = JSON.parse(localStorage.getItem('deadpoolInCart'));
@@ -196,7 +240,7 @@ console.groupEnd("Deadpool Data");
 
 
 //Dr. Strange Array and Inventory
-var drStrangeProduct = allProducts[6]
+var drStrangeProduct;
 var drStrangeId = 7;
 var drStrangeOldInventory = drStrangeProduct.inventory;
 var drStrangePurchased = JSON.parse(localStorage.getItem('drStrangeInCart'));
@@ -212,7 +256,7 @@ console.groupEnd("Dr. Strange");
 //----------------------------------------------------------------------------------------------------------------
 
 //Grogu Array and Inventory
-var groguProduct = allProducts[7]
+var groguProduct;
 var groguId = 1;
 var groguOldInventory = groguProduct.inventory;
 var groguPurchased = JSON.parse(localStorage.getItem('groguInCart'));
@@ -228,7 +272,7 @@ console.groupEnd("Grogu Data");
 //----------------------------------------------------------------------------------------------------------------
 
 //Chucky Array and Inventory
-var chuckyProduct = allProducts[6]
+var chuckyProduct;
 var chuckyId = 15;
 var chuckyOldInventory = chuckyProduct.inventory;
 var chuckyPurchased = JSON.parse(localStorage.getItem('chuckyBrideInCart'));
@@ -450,10 +494,6 @@ async function updateStephenCurry(event){
         alert("There is an error: "+error)
     }
 };
-
-
-
-
 
 
 //----------------------------------------------------------------------------------------------------------------
@@ -828,152 +868,60 @@ async function updateCart(event){
         cartUser:cart.cartUser
     };
 
+    let jsonCartUpdateInfo = JSON.stringify(cartUpdateInfo);
 
+    console.group("Cart Data Sent to Server")
+    console.log(cartUpdateInfo);
+    console.log(jsonCartUpdateInfo);
+    console.groupEnd("Cart Data Sent to Server")
 
+    try{
+        const raw_response = await fetch(`http://3.84.16.120:8080/commerce/productinventory`,
+        {
+            method:"PUT",
+            headers:{
+                "Content-Type":"application/json",
+                "Access-Control-Allow-Origin": "*",
+        },
+        body:jsonCartUpdateInfo
+    });
 
+    if(!raw_response.ok){
+        throw new Error(raw_response.status)
+    }
+
+    console.log("Request was completed")   
+
+    const data = await raw_response.json();
+
+    console.log("data: " + data);
+    
+    }catch (error){
+        alert("There is an error: "+error)
+    }
+};
 
 
 //----------------------------------------------------------------------------------------------------------------
 //----------------------------------------------------------------------------------------------------------------
+
 function megaUpdatefunction(event){
     event.preventDefault();
 
-    updateNicolBolas();
-    updateStephenCurry();
-    updateBadBatch();
-    updateEleven();
-    updateJackSkellington();
-    updateDeadpool();
-    updateDrStrange();
-    updateGrogu();
-    updateChucky();
+    //Product Put
+    updateNicolBolas(event);
+    updateStephenCurry(event);
+    updateBadBatch(event);
+    updateEleven(event);
+    updateJackSkellington(event);
+    updateDeadpool(event);
+    updateDrStrange(event);
+    updateGrogu(event);
+    updateChucky(event);
+
+    //Cart Put
+    updateCart(event);
 }
 
-
-
-
-//THIS WAS A TEST TO SEE ABOUT INTERPOLATING HTML CODE
-//var FirstNameDisplay =`<input type="text" name="fname" placeholder=${user.userFirstName} id="fName"/>`
-
-//THIS DOES NOT WORK RIGHT NOW
-//these were used to TRY TO auto add user info into input fields
-// FirstName = document.getElementById("fName").value;
-// FirstNameDisplay = document.getElementById("fName");
-// document.getElementById("fName").innerHTML = `${user.userFirstName}`
-// FirstNameDisplay.innerHtml =`${user.userFirstName}`
-// LastName = document.getElementById("lName").value;
-// emailInput = document.getElementById("emailInput").value;
-// emailInput.innerText = `${user.emailInput}`
-// addressInput = document.getElementById("addressInput").value;
-
-//gets subtotal and displays it in html
-//subtotal = document.getElementById("subtotal");
-// subtotalDisplay = document.getElementById("subtotal");
-// console.log(subtotalDisplay);
-
-
-//THIS STILL NEEDS AN ID IN THE HTML TO DISPLAY
-// totalAfter = document.getElementById("total")
-// totalAfter.innerText = (user.balance - cart.cartTotalPrice);
-
-
-//THIS NEEDS TO BE CHANGED TO CART TOTAL
-// subtotalDisplay.innerText = `$${cart.cartTotalPrice}`;
-
-// let balance = user.balance;
-
-// async function purchase(event){
-//     event.preventDefault();
-//     console.group("Purchase")
-
-    
-//     let balanceBody = {
-//         userId:userId,
-//         balance:balance
-//     };
-//     let JsonBalance = JSON.stringify(balanceBody);
-//     console.log(balanceBody)
-//     console.log(JsonBalance)
-    
-
-// try{
-//     const raw_response = await fetch(`http://localhost:8080/commerce/`, 
-//         {
-//             method:"PUT",
-//             headers:{
-//                 "Content-Type":"application/json",
-//                 "Access-Control-Allow-Origin": "*"
-//         },
-//          body:JsonBalance
-//     });
-
-
-
-    
-//     const content = await raw_response.json();
-
-//       console.log("Balance: " + user.balance);
-//       console.log("RESPONSE: " + raw_response);
-//       console.log("Content :" + content);
-
-//       localStorage.setItem('currentUser' , JSON.stringify(content));
-
-      
-//     }catch(error){
-//       console.log("ERROR: " + error)
-//     }
-//     console.groupEnd("Purchase")
-// }
-
-
-// async function purchase(){
-
-//     console.group("Item Removal")
-
-
-//     let cartTotalPrice = cart.cartTotalPrice;
-
-    
-//     let cartbody = {
-//         cartId:cartId,
-//         cartTotalPrice:cart.cartTotalPrice,
-//         totalQuantityOfProductsInCart:cart.totalQuantityOfProductsInCart
-//     };
-//     let JsonCart = JSON.stringify(balanceBody);
-//     console.log(cartBody)
-//     console.log(JsonCart)
-    
-
-// try{
-//     const raw_response = await fetch(`http://localhost:8080/commerce/`, 
-//         {
-//             method:"PUT",
-//             headers:{
-//                 "Content-Type":"application/json",
-//                 "Access-Control-Allow-Origin": "*"
-//         },
-//          body:JsonCart
-//     });
-
-
-
-    
-//     const content = await raw_response.json();
-
-//       console.log("Cart Price: " + cart.cartTotalPrice);
-//       console.log("Cart Quantity: " + cart.totalQuantityOfProductsInCart);
-//       console.log("Cart Address: " + cart.cartAddress);
-//       console.log("Cart User: " + cart.cartUser);
-//       console.log("Cart RESPONSE: " + raw_response);
-//       console.log("Cart Content :" + content);
-
-//       localStorage.setItem('currentUser' , JSON.stringify(content));
-
-      
-//     }catch(error){
-//       console.log("ERROR: " + error)
-//     }
-//     console.groupEnd("Item Removal")
-// }
-
-}
+//-----------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------
