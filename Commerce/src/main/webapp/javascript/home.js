@@ -1,10 +1,18 @@
+
+//==========================================================================================================
+//                                      SETTING VARIABLES AND LOCAL STORAGE
+//=========================================================================================================
 var cart = [];
 var userStorage = JSON.parse(localStorage.getItem('currentUser'));
-console.log(userStorage);
 var cartUser = userStorage.userId;
-console.log(cartUser);
 var cartAddress = userStorage.address;
+
+//Logs for local data
+console.log(userStorage);
+console.log(cartUser);
 console.log(cartAddress);
+
+//Resets all the the product values for cart page
 var totalProducts=new Number(0);
 var totalPrice=new Number(0);
 var nicolInCart=new Number(0);
@@ -17,53 +25,66 @@ var chuckyBrideInCart = new Number(0);
 var jackInCart = new Number(0);
 var deadpoolInCart = new Number(0);
 
-localStorage.setItem('nicolInCart', JSON.stringify(0));
-localStorage.setItem('groguInCart', JSON.stringify(0));
-localStorage.setItem('drStrangeInCart', JSON.stringify(0));
-localStorage.setItem('stephenCurryInCart', JSON.stringify(0));
-localStorage.setItem('starWarsInCart', JSON.stringify(0));
-localStorage.setItem('elevenInCart', JSON.stringify(0));
-localStorage.setItem('chuckyBrideInCart', JSON.stringify(0));
-localStorage.setItem('jackInCart', JSON.stringify(0));
-localStorage.setItem('deadpoolInCart', JSON.stringify(0));
 
+
+//Setting all local data
+localStorage.setItem('nicolInCart', 0);
+localStorage.setItem('groguInCart', 0);
+localStorage.setItem('drStrangeInCart', 0);
+localStorage.setItem('stephenCurryInCart', 0);
+localStorage.setItem('starWarsInCart', 0);
+localStorage.setItem('elevenInCart', 0);
+localStorage.setItem('chuckyBrideInCart', 0);
+localStorage.setItem('jackInCart', 0);
+localStorage.setItem('deadpoolInCart', 0);
+
+//Getting HTML elements by id and setting them in local storage
 var nicolName = document.getElementById("nicolName").innerText;
 localStorage.setItem('nicolName', nicolName);
-console.log(localStorage.getItem('nicolName'));
 
 var groguName = document.getElementById("groguName").innerText;
 localStorage.setItem('groguName', groguName);
-console.log(localStorage.getItem('groguName'));
 
 var drStrangeName = document.getElementById("drStrangeName").innerText;
 localStorage.setItem('drStrangeName', drStrangeName);
-console.log(localStorage.getItem('drStrangeName'));
 
 var stephenCurryName = document.getElementById("stephenCurryName").innerText;
 localStorage.setItem('stephenCurryName', stephenCurryName);
-console.log(localStorage.getItem('stephenCurryName'));
 
 var starWarsName = document.getElementById("starWarsName").innerText;
 localStorage.setItem('starWarsName', starWarsName);
-console.log(localStorage.getItem('starWarsName'));
 
 var elevenName = document.getElementById("elevenName").innerText;
 localStorage.setItem('elevenName', elevenName);
-console.log(localStorage.getItem('elevenName'));
 
 var chuckyName = document.getElementById("chuckyName").innerText;
 localStorage.setItem('chuckyName', chuckyName);
-console.log(localStorage.getItem('chuckyName'));
 
 var jackSkellingtonName = document.getElementById("jackSkellingtonName").innerText;
 localStorage.setItem('jackSkellingtonName', jackSkellingtonName);
-console.log(localStorage.getItem('jackSkellingtonName'));
 
 var deadpoolName = document.getElementById("deadpoolName").innerText;
 localStorage.setItem('deadpoolName', deadpoolName);
+
+//Loging all the local items
+console.log(localStorage.getItem('nicolName'));
+console.log(localStorage.getItem('groguName'));
+console.log(localStorage.getItem('drStrangeName'));
+console.log(localStorage.getItem('stephenCurryName'));
+console.log(localStorage.getItem('starWarsName'));
+console.log(localStorage.getItem('elevenName'));
+console.log(localStorage.getItem('chuckyName'));
+console.log(localStorage.getItem('jackSkellingtonName'));
 console.log(localStorage.getItem('deadpoolName'));
 
 
+
+//=============================================================================================================
+//                                               FUNCTIONS
+//=============================================================================================================
+
+
+//FUNCTIONS FOR ADDING PRODUCTS TO CART
 function cartProductNicol(){
     var a = new Number(document.getElementById("nicol").value);
 
@@ -230,6 +251,7 @@ function cartProductChucky(){
     console.log(totalProducts);
 }
 
+//Product 8
 function cartProductJackSkellington(){
     var h = new Number(document.getElementById("Jack Skellington").value);
 
@@ -252,7 +274,7 @@ function cartProductJackSkellington(){
     console.log(totalPrice);
     console.log(totalProducts);
 }
-
+//Product 9
 function cartProductDeadpool(){
     var i = new Number(document.getElementById("Deadpool").value);
 
@@ -278,14 +300,15 @@ function cartProductDeadpool(){
 }
 
 
-
+//CONSOLE LOGGINING TO MAKE SURE CART PRICE AND PRODUCTS ARE CORRECT
 console.log(totalPrice);
 console.log(totalProducts);
 
 
+//CREATION OF THE CART ON CART HTML BUTTON.
 async function createCart(event){
     event.preventDefault();
-
+    //ASSIGNING VARIABLE FOR CART CREATION
     let cartInfo = {
         cartTotalPrice:totalPrice,
         totalQuantityOfProductsInCart:totalProducts,
@@ -295,10 +318,13 @@ async function createCart(event){
     
     let jsonCartInfo = JSON.stringify(cartInfo);
 
+    //loging cart info to check if its assigning properly
     console.log(cartInfo);
     console.log(jsonCartInfo);
+    
 
     try{
+        //USING A POST METHOD FROM THE CART CONTROLLER TO CREATE A CART
         const raw_response = await fetch(`http://3.84.16.120:8080/commerce/cart`,
         {
             method:"POST",
@@ -306,10 +332,13 @@ async function createCart(event){
                 "Content-Type":"application/json",
                 "Access-Control-Allow-Origin": "*", 
             },
+            //the posting to the body declaring it in the database
             body:jsonCartInfo
         });
 
+        //CHECKS TO MAKE SURE RESPONSE IS OKAY AND DOESN"T THROW AN ERROR
         if(!raw_response.ok){
+            
             throw new Error(raw_response.status)
         }
 
